@@ -98,7 +98,7 @@ export default class Nav extends React.Component {
                                              
 
                                                 <a>   {
-                                                                                a.nama_kategori
+                                                                                a.namakategori
                                                                             }</a>
 
 
