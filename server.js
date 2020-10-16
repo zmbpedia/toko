@@ -311,25 +311,19 @@ app.get("/api/homie", function(req, res) {
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[keyArray[i]].fields;
                 var id = resd[keyArray[i]].id;
-                var namaproduk = vall['namaproduk'];
-                var gambar = vall['gambar'][0]['thumbnails'].large.url;
-                var filename = vall['gambar'][0]['filename'];
+                var namaproduk = vall['nama_produk'];
+                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                var filename = vall['gambar_produk'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
-                var stok = vall['stok'];
-                var harga = vall['harga'];
-                var kategori = vall['kategori'];
-                var deskripsi = vall['deskripsi'];
-                var stokproduk = vall['stokproduk'];
+                var kategori = vall['kategori_produk'];
+            
                 myArrays.push({
                     id: id,
                     namaproduk: namaproduk,
                     gambar: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_"),
-                    stok: stok,
-                    harga: harga,
-                    kategori: kategori,
-                    deskripsi: deskripsi,
-                    stokproduk: stokproduk
+                    kategori: kategori
+                 
                 });
 
             }
