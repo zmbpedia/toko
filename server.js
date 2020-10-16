@@ -122,7 +122,7 @@ app.get("/api/catalogdata", function(req, res) {
         return o;
     };
     request({
-        url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/product_data?api_key=keyn7tbnITsVXlugK',
+        url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/product?api_key=keyn7tbnITsVXlugK',
         json: true
     }, function(error, response, html) {
         if (!error) {
