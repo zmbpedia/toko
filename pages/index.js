@@ -9,7 +9,7 @@ function truncate(str) {
 export default class Home extends React.Component {
 	static async getInitialProps() {
 		const res = await fetch(
-			"https://zmbpedia.ramahardian.vercel.app/api/homie"
+			"https://zmbpediabogor.store/api/homie"
 		);
 		const show = await res.json();
 		return { show };
