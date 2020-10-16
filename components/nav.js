@@ -14,7 +14,7 @@ export default class Nav extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("https://plant29.store/api/kategori")
+        fetch("https://zmbpediabogor.store/api/kategori")
             .then((res) => res.json())
             .then((data) => {
                 this.setState({ kat: data });
@@ -93,8 +93,16 @@ export default class Nav extends React.Component {
                                             <a className="dropdown-toggle d-block" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
                                             <ul className="list-unstyled text-capitalize dropdown-menu mt-0 py-0">
                                                 <li className="d-block mx-0">
- <Link href="/katalog" as="/katalog">
-                                                <a>Shop Left Sidebar</a>
+                                                 {this.state.kat.map(
+                                                                (a) => (
+
+                                                <a>   {
+                                                                                a.nama_kategori
+                                                                            }</a>
+
+   )
+                                                            )}
+
                                                 </Link>
                                                 </li>
                                             </ul>
