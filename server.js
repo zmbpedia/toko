@@ -324,7 +324,7 @@ app.get("/api/homie", function(req, res) {
                 myArrays.push({
                     id: id,
                     namaproduk: namaproduk,
-                    gambar: 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_"),
+                    gambar: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_"),
                     stok: stok,
                     harga: harga,
                     kategori: kategori,
