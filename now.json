@@ -1,0 +1,98 @@
+{
+  "name": "zmbpedia",
+  "alias": "zmbpediabogor.store",
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@now/next" },
+    { "src": "server.js", "use": "@now/node-server" }
+  ],
+    "routes": [{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+           "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+           "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/catalogdata",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+           "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/kategori",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/kategoryproduct/([^/]+)/([^/]+)",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/homie",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/aboutdata",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/tremdata",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/shipingdata",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/productdata/([^/]+)/([^/]+)",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/bulk/item-gambar/([^/]+)/([^/]+)/([^/]+)",
+        "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+             "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/caridata/([^/]+)",
+        "dest": "/server.js"
+    }]
+}
