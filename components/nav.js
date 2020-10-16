@@ -92,19 +92,20 @@ export default class Nav extends React.Component {
                                         <li className="nav-item dropdown">
                                             <a className="dropdown-toggle d-block" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
                                             <ul className="list-unstyled text-capitalize dropdown-menu mt-0 py-0">
-                                                <li className="d-block mx-0">
-                                                 {this.state.kat.map(
+                                                {this.state.kat.map(
                                                                 (a) => (
+                                                <li className="d-block mx-0">
+                                             
 
                                                 <a>   {
                                                                                 a.nama_kategori
                                                                             }</a>
 
-   )
-                                                            )}
 
-                                                </Link>
+ 
                                                 </li>
+                                                   )
+                                                            )}
                                             </ul>
                                         </li>
                                         <li className="nav-item">
