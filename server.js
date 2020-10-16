@@ -200,7 +200,7 @@ app.get("/api/aboutdata", function(req, res) {
                 myArrays.push({
                     id: id,
                     deskripsi: deskripsi,
-                    photo: 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_")
+                    photo: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_")
                 });
             }
             res.send(myArrays);
@@ -228,7 +228,7 @@ app.get("/api/tremdata", function(req, res) {
                 myArrays.push({
                     id: id,
                     deskripsi: deskripsi,
-                    photo: 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_")
+                    photo: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_")
                 });
             }
             res.send(myArrays);
@@ -299,7 +299,7 @@ app.get("/api/homie", function(req, res) {
         return o;
     };
     request({
-        url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/product_data?api_key=keyn7tbnITsVXlugK',
+        url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/product_data?api_key=keysY3XpvIdkAd38I',
         json: true
     }, function(error, response, html) {
         if (!error) {
