@@ -299,7 +299,7 @@ app.get("/api/homie", function(req, res) {
         return o;
     };
     request({
-        url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/product_data?api_key=keysY3XpvIdkAd38I',
+        url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/product_data?api_key=keysY3XpvIdkAd38I",
         json: true
     }, function(error, response, html) {
         if (!error) {

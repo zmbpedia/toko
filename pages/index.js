@@ -32,7 +32,7 @@ export default class Home extends React.Component {
 				 
 					<header class="col-12 mainHeader mb-4 text-center">
 						<h1 class="headingIV playfair fwEblod mb-4">Produk baru</h1>
-						<span class="headerBorder d-block mb-5"><img src="images/hbdr.png" alt="Header Border" class="img-fluid img-bdr" /></span>
+						<span class="headerBorder d-block mb-5"><img src="/asset/img/hbdr.png" alt="Header Border" class="img-fluid img-bdr" /></span>
 						<p>Beberapa koleksi tanaman hias terbaru</p>
 					</header>
 				</div>
