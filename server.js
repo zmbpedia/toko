@@ -436,9 +436,8 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
 
 app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
 
-
     request({
-        url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/kategori?api_key=keysY3XpvIdkAd38I',
+           url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/kategori?api_key=keysY3XpvIdkAd38I',
         json: true
     }, function(error, response, html) {
         if (!error) {

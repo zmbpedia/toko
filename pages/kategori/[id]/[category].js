@@ -23,8 +23,8 @@ export default class Category extends React.Component {
   }
 
   static async getInitialProps({ query }) {
-    const { id, kategori } = query;
-    const res = await fetch("https://zmbpediabogor.store/api/kategoryproduct/" + id +"/"+kategori);
+    const { id, category } = query;
+    const res = await fetch("https://zmbpediabogor.store/api/kategoryproduct/" + id +"/"+category);
     const show = await res.json();
 
   let gambarnya ='';
@@ -39,7 +39,7 @@ export default class Category extends React.Component {
       linknya = await show.data[0].cronical;
     
      }
-    return { show, kategori, id, gambarnya, linknya, des, titlehead };
+    return { show, category, id, gambarnya, linknya, des, titlehead };
   }
 
   componentDidMount() {
@@ -220,8 +220,7 @@ export default class Category extends React.Component {
  
     return (
       <Layout>
-       
- 
+    
  <NextSeo
       title={this.props.titlehead}
       description={this.props.des}
