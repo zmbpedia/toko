@@ -375,7 +375,7 @@ app.get("/api/slide", function(req, res) {
 app.get("/api/productdata/:id/:nama", function(req, res) {
 
     request({
-        url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/product_data?api_key=keyn7tbnITsVXlugK',
+        url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
         json: true
     }, function(error, response, html) {
         if (!error) {
@@ -392,23 +392,22 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
 
                 if (id == iddata) {
 
-                    var namaproduk = vall['namaproduk'];
-                    if (resd[i].fields['gambar']) {
-                        var gambar = vall['gambar'][0]['thumbnails'].large.url;
-                        var filename = vall['gambar'][0]['filename'];
+                    var namaproduk = vall['nama_produk'];
+                    if (resd[i].fields['gambar_produk']) {
+                        var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                        var filename = vall['gambar_produk'][0]['filename'];
                         var satu = gambar.split("/")[4];
                         var dua = gambar.split("/")[5];
-                        var gam = 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                        var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                     } else {
                         var gam = '';
                     }
 
-                    var stok = vall['stok'];
-                    var harga = vall['harga'];
-                    var kategori = vall['kategori'];
-                    var deskripsi = vall['deskripsi'];
-                    var stokproduk = vall['stokproduk'];
-                    var cronical = 'https://plant29.store/product/' + id + '/' + names.replace(/\s/g, "-");
+                    var stok = vall['stok_produk'];
+                    var harga = vall['harga_produk'];
+                    var kategori = vall['kategori_produk'];
+                    var deskripsi = vall['deskripsi_produk'];
+                    var cronical = 'https://zmbpediabogor.store/product/' + id + '/' + names.replace(/\s/g, "-");
 
                     if (namaproduk == names) {
 
@@ -421,7 +420,6 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             harga: harga,
                             kategori: kategori,
                             deskripsi: deskripsi,
-                            stokproduk: stokproduk,
                             cronical: cronical
                         });
 

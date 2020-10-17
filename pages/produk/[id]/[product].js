@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import Layout from "../../../components/layout";
 import { NextSeo } from 'next-seo';
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import fetch from "isomorphic-unfetch";
 import { useAmp } from 'next/amp';
 export default class Product extends React.Component {
@@ -18,17 +17,24 @@ export default class Product extends React.Component {
 	static async getInitialProps({ query }) {
 		const { id, product } = query;
 		const res = await fetch(
-			"https://plant29.store/api/productdata/" + id + "/" + product
+			"https://zmbpediabogor.store/api/productdata/" + id + "/" + product
 		);
 		const show = await res.json();
         let gambarnya ='';
     	let linknya ='';
-    	let titlehead='no product found'
+    	let titlehead='Maaf tidak ada produk'
     	let des = ''
+    	let harganya = ''
     	if(show.length){
 
-    	titlehead = 'Plant29 |'+ await show[0].namaproduk+ '- Product Detail Page'
-    	des = await show[0].deskripsi + '- price @ ' + await show[0].harga +'USD'
+    	titlehead = 'zmbpediabogor |'+ await show[0].namaproduk+ '- Detail produk'
+             if(await show[0].harga){
+                   harganya = ' - dikisaran harga Rp. ' + await show[0].harga
+             }else{
+             	 harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ' 
+             }
+
+    	des = await show[0].deskripsi + harganya
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
 
@@ -41,20 +47,17 @@ export default class Product extends React.Component {
 		var ulr = window.location.href;
 		this.setState({
 			urls:
-				"https://plant29.store/product/" +
+				"https://zmbpediabogor.store/produk/" +
 				this.props.id +
 				"/" +
 				this.props.product,
 
-			titlex: this.props.product + " - Product Detail",
+			titlex: this.props.product + " - Detail produk",
 		});
 		for (var i = 0; i < this.props.show.length; i++) {
 			var value = this.props.show[i];
 			var num = value["id"];
 			var namaproduk = value["namaproduk"];
- 
-
-
 			var hargaproduk = value["harga"];
 			var gambar = value["gambar"];
 			var deskripsi = value["deskripsi"];
@@ -119,102 +122,67 @@ export default class Product extends React.Component {
              alt: this.props.product,
           }
         ],
-        site_name: 'plant29',
+        site_name: 'zmbpediabogor',
       }}
     />
 
 
 				<style jsx>{`
-					.product-gallery__image {
-						width: 100%;
-						height: 500px;
-					}
-
-					.product-gallery__large-image {
-						padding-left: 0px !important;
-					}
-					.product-summary .product-title {
-						font-weight: bold;
-					}
-					.share {
-						margin-bottom: 50px;
-						padding: 10px;
-						border-radius: 10px;
-						border: 3px solid;
-						font-size: 15px;
-					}
-					.breadcrumb {
-						background-color: none !important;
-					}
-					.breadcrumb li {
-						font-size: 15px;
-					}
-					#nav-description-tab {
-						background-color: #495057;
-						padding: 20px;
-						font-size: 20px;
-						color: #fff;
-					}
-
-					.product-description p {
-						font-size: 15px;
-					}
-					a:hover {
-						text-decoration: none !important;
-					}
-					.product__title {
-						font-weight: bold;
-						color: #000;
-					}
-					.img-eror {
-						background: url(/assets/img/eror.png);
-    position: relative; 
-    top: 50px;
+			   .border{  border: 1px solid #dee2e6!important}
+          .overl{
+            width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+          }
+.main-content-wrapper {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.img-eror{
+              font-size: 130px;
+    text-align: center;
     width: 100%;
-    height: 100px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 30px auto;
-					}
+}
 				`}</style>
-				<div className="main-content-wrapper">
-					<section
-						className="page-title-area bg-color"
-						data-bg-color="#f4f4f4"
-						style={{
-							backgroundColor: "rgb(244, 248, 250)",
-							paddingTop: "150px",
-						}}
-					>
-						<div className="container">
-							<div className="row">
-								<div className="col-12 text-center">
-									<h1 className="page-title">
-										Detail Product
-									</h1>
-									<ul
-										className="breadcrumb"
-										style={{
-											backgroundColor: "transparent",
-										}}
-									>
-										<li>
-											<a href="/">Home</a>
-										</li>
-										<li className="current">
-											<span>Detail Product</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</section>
+				
+
+
+
+
+
+
+
+<section className="introBannerHolder d-flex w-100 bgCover" style={{
+                              background: `url(${this.props.gambarnya})`,
+                              backgroundSize: `cover`,
+
+                              backgroundPosition: `center`,
+                            }}
+                            >
+                            <div className="overl" style={{background:'rgba(255,255,255, .8)'}}></div>  
+        <div className="container">
+          <div className="row">
+            <div className="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
+              <h1 className="headingIV fwEbold playfair mb-4"> Detail Produk</h1>
+              <ul className="list-unstyled breadCrumbs d-flex justify-content-center">
+                <li className="mr-2"><a href="https://zmbpediabogor.store/">Beranda</a></li>
+                <li className="mr-2">/</li>
+                <li className="active">detail produk</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
 					{this.state.in === "yes" ? (
 						<h1></h1>
 					) : (
 <>
-					       <div className="img-eror"></div>
+					       <div className="img-eror icon icon-plant"></div>
 						<h1
 							style={{
 								textAlign: "center",
@@ -222,118 +190,63 @@ export default class Product extends React.Component {
 								paddingBottom: "100px",
 							}}
 						>
-							Product Not Found
+							Maaf produk tidak ditemukan
 						</h1>
 						</>
 					)}
 					{this.state.productdata.map((a) => (
-						<div className="page-content-inner pt--80 pt-md--60">
-							<div className="container">
-								<div className="row no-gutters mb--80 mb-md--57">
-									<div className="col-lg-7 product-main-image">
-										<div className="product-image">
-											<div className="product-gallery vertical-slide-nav">
-												<div className="product-gallery__large-image mb-sm--30">
-													<div className="product-gallery__wrapper">
-														<div className="element-carousel main-slider image-popup">
-															<div className="item">
-																<CopyToClipboard
-																	text={
-																		this
-																			.state
-																			.urls
-																	}
-																>
-																	<button className="share">
-																		share
-																		this
-																		product
-																	</button>
-																</CopyToClipboard>
-																<figure
-																	className="product-gallery__image zoom"
-																	style={{
-																		background: `url(${a.gambar})`,
-																		backgroundSize: `cover`,
-																		backgroundPosition: `center`,
-																	}}
-																>
-																	<span className="product-badge sale">
-																		{a.stok}
-																	</span>
-																</figure>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div className="col-xl-4 offset-xl-1 col-lg-5 product-main-details mt-md--50">
-										<div className="product-summary pl-lg--30 pl-md--0">
-											<h3 className="product-title mb--20">
-												{a.nama}
-											</h3>
-											<p className="product-short-description mb--20">
-												{a.deskrip}
-											</p>
-											<div className="product-price-wrapper mb--25">
-												<span className="money">
-													${a.harga}
-												</span>
-
-												<p
-													style={{
-														paddingTop: "30px",
-													}}
-												>
-													{a.stokis}
-												</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="row justify-content-center mb--77 mb-md--57">
-									<div className="col-12">
-										<div className="tab-style-1">
-											<div
-												className="nav nav-tabs mb--35 mb-sm--25"
-												id="product-tab"
-												role="tablist"
-											>
-												<a
-													className="nav-link active"
-													id="nav-description-tab"
-													data-toggle="tab"
-													href="#"
-													role="tab"
-													aria-selected="true"
-												>
-													<span>Description</span>
-												</a>
-											</div>
-											<div
-												className="tab-content"
-												id="product-tabContent"
-											>
-												<div
-													className="tab-pane fade show active"
-													id="nav-description"
-													role="tabpanel"
-													aria-labelledby="nav-description-tab"
-												>
-													<div className="product-description">
-														<p>{a.deskrip}</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+						
+			<div className="twoColumns container pt-xl-23 pb-xl-20 pt-lg-20 pb-lg-20 py-md-16 py-10">
+				<div className="row mb-6">
+					<div className="col-12 col-lg-6 order-lg-1">		
+						<div className="productSliderImage mb-lg-0 mb-4">
+							<div>
+								<img src="http://placehold.it/570x635" alt="image description" className="img-fluid w-100">
 							</div>
 						</div>
-					))}
+					</div>
+					<div className="col-12 col-lg-6 order-lg-3">
+				
+						<div className="productTextHolder overflow-hidden">
+							<h2 className="fwEbold mb-2">Pellentesque aliquet</h2>
+						
+							<strong className="price d-block mb-5 text-green">65.00 $</strong>
+							<p className="mb-5">Aenean id ullamcorper libero. Vestibulum imperdiet nibh. Lorem ullamcorper volutpat. Vestibulum lacinia risus.</p>						
+							<ul className="list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4">
+								<li className="text-uppercase mr-5">SHARE THIS PRODUCT:</li>
+								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-facebook-f"></a></li>
+								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-pinterest-p"></a></li>
+								<li className="mr-4"><a href={"https://www.instagram.com/?url=this.state.urls"} className="fab fa-instagram-i" target="_blank" rel="noopener">
+                        
+</a></li>
+							</ul>
+					
+						</div>
+					</div>
 				</div>
+			
+			</div>
+			<div className="container">
+				<div className="row">
+					<div className="col-12">
+				
+						<ul className="list-unstyled tabSetList d-flex justify-content-center mb-9">
+							<li className="mr-md-20 mr-sm-10 mr-2">
+								<a href="#tab1-0" className="active playfair fwEbold pb-2">Description</a>
+							</li>
+						
+						</ul>
+			
+						<div className="tab-content mb-xl-11 mb-lg-10 mb-md-8 mb-5">
+							<div id="tab1-0" className="active">
+								<p>Aenean id ullamcorper libero. Vestibulum imperdiet nibh. Lorem ullamcorper volutpat. Vestibulum lacinia risus. Etiam sagittis ullamcorper volutpat. Vestibulum lacinia risus sed ligula malesuada volutpat.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+					))}
+			 
 			</Layout>
 		);
 	}
