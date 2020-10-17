@@ -84,7 +84,7 @@ export default class Nav extends React.Component {
                                     <ul className="navbar-nav mx-auto text-uppercase d-inline-block">
                                         <li className="nav-item dropdown">
 
-                                            <a className="d-block" role="button" aria-haspopup="true" href="https://zmbpediabogor.store/" aria-expanded="false">beranda</a>
+                                            <a className="d-block" href="https://zmbpediabogor.store/" >beranda</a>
                                         </li>
                                         <li className="nav-item dropdown">
                                             <a className="dropdown-toggle d-block" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
