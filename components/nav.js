@@ -92,14 +92,7 @@ export default class Nav extends React.Component {
                                                 {this.state.kat.map(
                                                                 (a) => (
                                                 <li className="d-block mx-0">
-                                             
-
-                                                <a>   {
-                                                                                a.namakategori
-                                                                            }</a>
-
-
- 
+                                                <a href={"/kategori/" + a.idkategori + "/" + a.namakategori}>{a.namakategori}</a>
                                                 </li>
                                                    )
                                                             )}

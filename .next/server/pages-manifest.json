@@ -3,5 +3,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/produk": "pages/produk.js",
-  "/404": "pages/404.js"
+  "/kategori/[id]/[category]": "pages/kategori/[id]/[category].js"
 }

@@ -1,7 +1,6 @@
 import Layout from "../../../components/layout";
 import ReactPaginate from "react-paginate";
 import fetch from "isomorphic-unfetch";
-import { default as minifyCssString } from "minify-css-string";
 import { NextSeo } from 'next-seo';
 import Link from "next/link";
 function truncate(str) {
@@ -24,23 +23,23 @@ export default class Category extends React.Component {
   }
 
   static async getInitialProps({ query }) {
-    const { id, category } = query;
-    const res = await fetch("https://plant29.store/api/kategoryproduct/" + id +"/"+category);
+    const { id, kategori } = query;
+    const res = await fetch("https://zmbpediabogor.store/api/kategoryproduct/" + id +"/"+kategori);
     const show = await res.json();
 
   let gambarnya ='';
       let linknya ='';
-      let titlehead='no product category found'
+      let titlehead='Belum ada produk di kategori ini'
       let des = ''
       if(show.data.length){
   
-      titlehead = 'Plant29 | '+ await show.namatitle + ' - Category Product Page'
-      des =  await show.namatitle + ' Best of our collection category'
+      titlehead = 'zmbpediabogor | '+ await show.namatitle + ' - kategori produk'
+      des =  'Koleksi Tanaman terbaik kami dari kategori ' + await show.namatitle
       gambarnya = await show.data[0].oggambar;
       linknya = await show.data[0].cronical;
     
      }
-    return { show, category, id, gambarnya, linknya, des, titlehead };
+    return { show, kategori, id, gambarnya, linknya, des, titlehead };
   }
 
   componentDidMount() {
@@ -87,35 +86,36 @@ export default class Category extends React.Component {
         this.state.offset + this.state.perPage
       );
       const postData = slice.map((a) => (
-        <div className="col-xl-4 col-sm-6 mb--50">
-          <div className="plant29-product">
-            <div className="product__inner">
-              <div className="product__image">
-                <figure
-                  className="product__image--holder"
-                  style={{
-                    background: `url(${a.gambar})`,
-                  }}
-                ></figure>
-              </div>
-              <div className="product__info">
-                <div className="product__info--left">
-                  <h3 className="product__title">
-                    <Link
-                      href="/product/[id]/[product]"
-                      as={`/product/${a.id}/${a.nama.replace(/\s/g, "-")}`}
+      <div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
+                  <div className="border">
+                    <div className="imgHolder position-relative w-100 overflow-hidden">
+                    <img
+                      src={a.gambar}
+                      style={{
+                        height: "300px",
+                        objectFit: "cover",
+                        width: "100%",
+                      }}
+                      id="wax-img"
+                      alt={a.namaproduk}
+                      className="img-fluid"
+                    />
+                  </div>
+                    <div className="text-center py-5 px-4">
+                      <span className="title d-block mb-2">
+                      <Link
+                      href="/produkdetail/[id]/[product]"
+                      as={`/produkdetail/${a.id}/${a.nama.replace(/\s/g,"-")}`}
                     >
-                      <a>{truncate(a.nama)}</a>
+                      <a> {truncate(a.nama)}</a>
                     </Link>
-                  </h3>
-                  <div className="product__price">
-                    <span className="money"> ${a.harga}</span>
+                      </span>
+                      <span className="price d-block fwEbold">{a.harga}</span>
+                      
+                      {/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
       ));
 
       this.setState({
@@ -164,35 +164,36 @@ export default class Category extends React.Component {
 
     const slice = myArray.slice(e, e + this.state.perPage);
     const postData = slice.map((a) => (
-      <div className="col-xl-4 col-sm-6 mb--50">
-        <div className="plant29-product">
-          <div className="product__inner">
-            <div className="product__image">
-              <figure
-                className="product__image--holder"
-                style={{
-                  background: `url(${a.gambar})`,
-                }}
-              ></figure>
-            </div>
-            <div className="product__info">
-              <div className="product__info--left">
-                <h3 className="product__title">
-                  <Link
-                    href="/product/[id]/[product]"
-                    as={`/product/${a.id}/${a.nama.replace(/\s/g, "-")}`}
-                  >
-                    <a> {truncate(a.nama)}</a>
-                  </Link>
-                </h3>
-                <div className="product__price">
-                  <span className="money"> ${a.harga}</span>
+    <div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
+                  <div className="border">
+                    <div className="imgHolder position-relative w-100 overflow-hidden">
+                    <img
+                      src={a.gambar}
+                      style={{
+                        height: "300px",
+                        objectFit: "cover",
+                        width: "100%",
+                      }}
+                      id="wax-img"
+                      alt={a.namaproduk}
+                      className="img-fluid"
+                    />
+                  </div>
+                    <div className="text-center py-5 px-4">
+                      <span className="title d-block mb-2">
+                      <Link
+                      href="/produkdetail/[id]/[product]"
+                      as={`/produkdetail/${a.id}/${a.nama.replace(/\s/g,"-")}`}
+                    >
+                      <a> {truncate(a.nama)}</a>
+                    </Link>
+                      </span>
+                      <span className="price d-block fwEbold">{a.harga}</span>
+                      
+                      {/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     ));
 
     this.setState({
@@ -215,56 +216,11 @@ export default class Category extends React.Component {
   render() {
 
     const { currentPage, namekat, ada } = this.state;
-    const cssString = `
-  .page-title-area {
-    padding-top: 150px;
-  }
-.pagination {
-  margin: 0 auto;
-  font-size: 15px;
-}
-.breadcrumb {
-    background-color: none !important;
-}
- .breadcrumb li {
-    font-size: 15px;
 
- }
-.product__image--holder {
-        width: 100%;
-        height: 300px;
-     background-size: cover !important;
-                                    background-position:center  !important;
-}
-    a:hover {
-                 text-decoration: none !important;
-            }
-            .product__title{
-              font-weight: bold;
-              color: #000;
-
-            }
-  .img-eror {
-            background: url(/assets/img/eror.png);
-    position: relative; 
-    top: 50px;
-    width: 100%;
-    height: 100px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 30px auto;
-          }
-    `;
-    console.log(this.props.gambarnya);
  
     return (
       <Layout>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: minifyCssString(cssString),
-          }}
-        />
+       
  
  <NextSeo
       title={this.props.titlehead}
@@ -282,37 +238,41 @@ export default class Category extends React.Component {
             alt: this.props.category,
           }
         ],
-        site_name: 'plant29',
+        site_name: 'zmbpediabogor',
       }}
     />
 
+  <style jsx>{`
+          .border{  border: 1px solid #dee2e6!important}
+          .overl{
+            width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+          }
+        `}</style>
+    
+<section className="introBannerHolder d-flex w-100 bgCover" style={{
+                              background: `url(${this.props.gambarnya})`,
+                              backgroundSize: `cover`,
 
-        <section
-          className="page-title-area bg-color"
-          data-bg-color="#f4f4f4"
-          style={{ backgroundColor: "rgb(244, 248, 250)" }}
-        >
-          <div className="container">
-            <div className="row">
-              <div className="col-12 text-center">
-                <h1 className="page-title">
-                  {this.state.namekat.replace(/\-/g, " ")}
-                </h1>
-                <ul
-                  className="breadcrumb"
-                  style={{ backgroundColor: "transparent" }}
-                >
-                  <li>
-                    <a href="/">Home</a>
-                  </li>
-                  <li className="current">
-                    <span>Plant category</span>
-                  </li>
-                </ul>
-              </div>
+                              backgroundPosition: `center`,
+                            }}
+                            >
+                            <div className="overl" style={{background:'rgba(255,255,255, .8)'}}></div>  
+        <div class="container">
+          <div class="row">
+            <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
+              <h1 class="headingIV fwEbold playfair mb-4"> {this.state.namekat.replace(/\-/g, " ")}</h1>
+              <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
+                <li class="mr-2"><a href="https://zmbpediabogor.store/">Beranda</a></li>
+                <li class="mr-2">/</li>
+                <li class="active">Kategori</li>
+              </ul>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
         <div className="main-content-wrapper">
           <div className="shop-page-wrapper ptb--80">
             <div className="container">
@@ -322,7 +282,7 @@ export default class Category extends React.Component {
                     {ada === "no" ? (
                       <div id="non" className="row">
                    
-                 <div className="img-eror"></div>
+                 <div className="img-eror icon icon-plant"></div>
                         <h1
                           style={{
                             textAlign: "center",
@@ -331,7 +291,7 @@ export default class Category extends React.Component {
                             paddingBottom: "100px",
                           }}
                         >
-                          Product Category Not Found
+                          Belum ada produk di kategori ini
                         </h1>
                       </div>
                     ) : (
@@ -339,8 +299,6 @@ export default class Category extends React.Component {
                       <div id="prod" className="row">
                         {this.state.postData}
                       </div>
-                
-
                     <ReactPaginate
                       previousLabel={"prev"}
                       nextLabel={"next"}

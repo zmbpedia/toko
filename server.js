@@ -438,7 +438,7 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
 
 
     request({
-        url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/kategori?api_key=keyn7tbnITsVXlugK',
+        url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/kategori?api_key=keysY3XpvIdkAd38I',
         json: true
     }, function(error, response, html) {
         if (!error) {
@@ -451,10 +451,8 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
                 katdat.push(namakategori)
             }
 
-
-
             request({
-                url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/product_data?api_key=keyn7tbnITsVXlugK',
+                url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/product?api_key=keysY3XpvIdkAd38I',
                 json: true
             }, function(error, response, html) {
                 if (!error) {
@@ -466,42 +464,39 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
 
                     if (arraycontainsturtles) {
 
-
-
                         for (var i = 0; i < resd.length; i++) {
                             var vall = resd[i].fields;
                             var id = resd[i].id;
-                            var kategori = vall['kategori'];
+                            var kategori = vall['kategori_produk'];
 
                             if (kategori == kategoris) {
-                                var namaproduk = vall['namaproduk'];
-                                if (resd[i].fields['gambar']) {
-                                    var gambar = vall['gambar'][0]['thumbnails'].large.url;
-                                    var filename = vall['gambar'][0]['filename'];
+                                var namaproduk = vall['nama_produk'];
+                                if (resd[i].fields['gambar_produk']) {
+                                    var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                                    var filename = vall['gambar_produk'][0]['filename'];
                                     var satu = gambar.split("/")[4];
                                     var dua = gambar.split("/")[5];
-                                    var gam = 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                                    var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                                 } else {
                                     var gam = '';
                                 }
 
-                                if (resd[0].fields['gambar']) {
-                                    var gambard = vall['gambar'][0]['thumbnails'].large.url;
-                                    var filenamea = vall['gambar'][0]['filename'];
+                                if (resd[0].fields['gambar_produk']) {
+                                    var gambard = vall['gambar_produk'][0]['thumbnails'].large.url;
+                                    var filenamea = vall['gambar_produk'][0]['filename'];
                                     var satua = gambard.split("/")[4];
                                     var duaa = gambard.split("/")[5];
-                                    var gams = 'https://plant29.store/bulk/item-gambar/' + satua + '/' + duaa + '/' + filenamea.replace(/\s/g, "_");
+                                    var gams = 'https://zmbpediabogor.store/bulk/item-gambar/' + satua + '/' + duaa + '/' + filenamea.replace(/\s/g, "_");
                                 } else {
                                     var gams = '';
                                 }
 
 
-                                var stok = vall['stok'];
-                                var harga = vall['harga'];
-                                var kategori = vall['kategori'];
-                                var deskripsi = vall['deskripsi'];
-                                var stokproduk = vall['stokproduk'];
-                                var cronical = 'https://plant29.store/category/' + kategori + '/' + names.replace(/\s/g, "-");
+                                var stok = vall['stok_produk'];
+                                var harga = vall['harga_produk'];
+                                var kategori = vall['kategori_produk'];
+                                var deskripsi = vall['deskripsi_produk'];
+                                var cronical = 'https://zmbpediabogor.store/kategori/' + kategori + '/' + names.replace(/\s/g, "-");
 
                                 myArrays.push({
                                     id: id,
@@ -511,7 +506,6 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
                                     harga: harga,
                                     kategori: kategori,
                                     deskripsi: deskripsi,
-                                    stokproduk: stokproduk,
                                     oggambar: gams,
                                     cronical: cronical
                                 });
