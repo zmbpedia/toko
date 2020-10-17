@@ -103,9 +103,9 @@ export default class Nav extends React.Component {
                                             <a href="/produk" className="d-block">Katalog produk</a>
                                        
                                         </li>
-                                        <li className="nav-item dropdown">
+                                        {/*<li className="nav-item dropdown">
                                             <a className="dropdown-toggle d-block" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">tentang kami</a>
-                                        </li>
+                                        </li>*/}
                                     </ul>
                                 </div>
                             </nav>

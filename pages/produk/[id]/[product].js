@@ -39,7 +39,7 @@ export default class Product extends React.Component {
              }else{
              	 desi ='Tidak / belum ada detail keterangan deskripsi untuk produk ini.' 
              }
-    	des = await show[0].deskripsi + harganya
+    	des = desi
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
 
