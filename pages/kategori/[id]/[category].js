@@ -249,6 +249,12 @@ export default class Category extends React.Component {
     position: absolute;
     background: rgba(255,255,255, .5);
           }
+
+.img-eror{
+              font-size: 130px;
+    text-align: center;
+    width: 100%;
+}
         `}</style>
     
 <section className="introBannerHolder d-flex w-100 bgCover" style={{

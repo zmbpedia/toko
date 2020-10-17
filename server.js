@@ -446,7 +446,7 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
             var katdat = [];
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
-                var namakategori = vall['namakategori'];
+                var namakategori = vall['nama_kategori'];
                 katdat.push(namakategori)
             }
 
