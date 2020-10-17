@@ -35,7 +35,7 @@ export default class Home extends React.Component {
 					<div>
 						{this.props.shows.map((a, index) => (
 						<div className="align w-100 d-flex align-items-center bgCover" style={{background: `url(${a.gambar})`,	backgroundSize: `cover`,
-															backgroundPosition: `center`,}}>
+															backgroundPosition: `center`}}>
 															<div className="overl" style={{background:'rgba(255,255,255, .5)'}}></div>
 							<div className="container position-relative holder pt-xl-10">
 								<div className="row">
@@ -43,7 +43,7 @@ export default class Home extends React.Component {
 										<div className="txtwrap pr-xl-10">
 											<span className="title d-block text-uppercase fwEbold position-relative pl-2 mb-md-5 mb-sm-3">{a.mini}</span>
 											<h1 className="fwEbold position-relative mb-md-7 mb-sm-4"><span className="text-break d-block">{a.desk}</span></h1>
-										    {a.btn}
+										 
 										</div>
 									</div>
 								</div>
