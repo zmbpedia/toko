@@ -94,5 +94,13 @@
         },
         "src": "/api/caridata/([^/]+)",
         "dest": "/server.js"
+    },{
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+           "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        },
+        "src": "/api/slide",
+        "dest": "/server.js"
     }]
 }
