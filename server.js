@@ -418,7 +418,7 @@ var des;
          if(deskripsi){
                    des = deskripsi
              }else{
-                 des ='Belum ada detail keterangan deskripsi untuk produk ini.' 
+                 des ='Belum ada detail keterangan deskripsi untuk produk ini' 
              }
 
 
