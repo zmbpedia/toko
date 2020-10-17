@@ -333,6 +333,50 @@ app.get("/api/homie", function(req, res) {
 });
 
 
+app.get("/api/slide", function(req, res) {
+
+    request({
+        url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/slide?api_key=keysY3XpvIdkAd38I",
+        json: true
+    }, function(error, response, html) {
+        if (!error) {
+            var resd = alasql('SELECT * FROM ?', [html.records]);
+            var myArrays = []
+      
+
+            for (var i = 0; i < resd.length; i++) {
+                var vall = resd[i].fields;
+                var id = resd[i].id;
+                var desk = vall['deskripsi_slide'];
+                   var lnk = vall['link_produk'];
+                          var dng = vall['dengan_link'];
+                var mini = vall['mini_deskripsi'];
+                var gambar = vall['gambar_slide'][0]['thumbnails'].large.url;
+                var filename = vall['gambar_slide'][0]['filename'];
+                var satu = gambar.split("/")[4];
+                var dua = gambar.split("/")[5];
+             if(dng){
+             var btn = '<a href="'+lnk+'" className="btn btnTheme btnShop fwEbold text-white md-round py-3 px-4">Lihat Produk<i className="fas fa-arrow-right ml-2"></i></a>'
+            }else{
+                var btn =''
+            }
+                myArrays.push({
+                    id: id,
+                    desk: desk,
+                    mini: mini,
+                    btn: btn,
+                         mini: mini,
+                    gambar: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_")
+                 
+                });
+
+            }
+            res.send(myArrays);
+        }
+    })
+});
+
+
 app.get("/api/productdata/:id/:nama", function(req, res) {
 
     request({

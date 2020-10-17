@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import Layout from "../../components/layout";
-
+import Link from "next/link";
 export default class error extends React.Component {
   constructor() {
     super();
   }
-
-
   render() {
-
-
    return(
         <Layout>
      <main className="main-content-wrapper">
@@ -19,10 +15,14 @@ export default class error extends React.Component {
                         <div className="col-xl-7 col-lg-8 text-center">
                             <div className="error">
                                 <h1>404</h1>
-                                <h2>OPPS! PAGE NOT BE FOUND</h2>
-                                <p>Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarity unavailable.</p>
-                               
-                                <a href="/" className="btn">Back to home page</a>
+                                <h2>OPPS! HALAMAN TIDAK DITEMUKAN</h2>
+                                <p>maaf kemungkinan halaman yang ada cari tidak ada, atau sudah diganti / di hapus</p>
+                               <Link
+                        href="/"
+                        as={`/`}
+                      >
+                                <a href="/" className="btn">Kembali ke halaman awal</a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,6 @@ export default class error extends React.Component {
             </div>
         </main>
            </Layout>
-
      );
   }
 }

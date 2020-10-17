@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Layout from "../components/layout";
-
+import Link from "next/link";
 export default class error extends React.Component {
   constructor() {
     super();
@@ -17,8 +17,12 @@ export default class error extends React.Component {
                                 <h1>404</h1>
                                 <h2>OPPS! HALAMAN TIDAK DITEMUKAN</h2>
                                 <p>maaf kemungkinan halaman yang ada cari tidak ada, atau sudah diganti / di hapus</p>
-                               
+                               <Link
+                        href="/"
+                        as={`/`}
+                      >
                                 <a href="/" className="btn">Kembali ke halaman awal</a>
+                                </Link>
                             </div>
                         </div>
                     </div>
