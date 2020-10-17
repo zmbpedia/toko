@@ -37,7 +37,7 @@ export default class Product extends React.Component {
     if(await show[0].deskripsi){
                    des = await show[0].deskripsi
              }else{
-             	 des ='Tidak / belum ada detail keterangan deskripsi untuk produk ini.' 
+             	 des ='Belum ada detail keterangan deskripsi untuk produk ini.' 
              }
     	
     	gambarnya = await show[0].gambar;
