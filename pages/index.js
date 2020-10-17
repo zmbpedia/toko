@@ -32,8 +32,9 @@ export default class Home extends React.Component {
 				`}</style>
 <section className="bannerBlockHolder position-relative">
 				<div className="slick-fade">
-					<div>
 						{this.props.shows.map((a, index) => (
+					<div>
+				
 						<div className="align w-100 d-flex align-items-center bgCover" style={{background: `url(${a.gambar})`,	backgroundSize: `cover`,
 															backgroundPosition: `center`}}>
 															<div className="overl" style={{background:'rgba(255,255,255, .5)'}}></div>
@@ -49,10 +50,10 @@ export default class Home extends React.Component {
 								</div>
 							</div>
 						</div>
-))}
+
 
 					</div>
-			 
+			 ))}
 				</div>
 				<div className="slickNavigatorsWrap">
 					<a href="#" className="slick-prev"><i className="icon-leftarrow"></i></a>
