@@ -243,7 +243,7 @@ export default class Product extends React.Component {
 			
 						<div className="tab-content mb-xl-11 mb-lg-10 mb-md-8 mb-5">
 							<div id="tab1-0" className="active">
-								<p>{this.props.desi}</p>
+								<p>{this.props.des}</p>
 							</div>
 						</div>
 					</div>
