@@ -49,13 +49,13 @@ export default class Nav extends React.Component {
 
 <header id="header" className="position-relative">
             <div className="headerHolderCol pt-lg-4 pb-lg-5 py-3">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
                         <div className="col-12 col-sm-4">
 
                         <i className="icon-call mr-2"></i>  Hotline: +62 899-5940-606
                         </div>
-                        <div className="col-12 col-sm-4 text-center">
+                        <div className="col-12 col-sm-10 text-center">
                             <span className="txt d-block">Selamat datang di zmbpedia</span>
                         </div>
                         <div className="col-12 col-sm-4">
@@ -64,7 +64,7 @@ export default class Nav extends React.Component {
                 </div>
             </div>
   
-            <div className="headerHolder container pt-lg-5 pb-lg-7 py-4">
+            <div className="headerHolder container-fluid pt-lg-5 pb-lg-7 py-4">
                 <div className="row">
                     <div className="col-6 col-sm-2">
               
@@ -74,7 +74,7 @@ export default class Nav extends React.Component {
                             </Link>
                         </div>
                     </div>
-                    <div className="col-6 col-sm-7 col-lg-8 static-block">
+                    <div className="col-6 col-sm-10 col-lg-8 static-block">
           
                         <div className="mainHolder pt-lg-5 pt-3 justify-content-center">
                             <nav className="navbar navbar-expand-lg navbar-light p-0 pageNav2 position-static">
