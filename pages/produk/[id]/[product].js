@@ -30,7 +30,8 @@ export default class Product extends React.Component {
     	titlehead = 'zmbpediabogor |'+ await show[0].namaproduk+ '- Detail produk'           
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
-
+des = await show[0].deskripsi;
+harganya = await show[0].harga;
  		 }
 
 
