@@ -104,8 +104,8 @@ export default class Category extends React.Component {
                     <div className="text-center py-5 px-4">
                       <span className="title d-block mb-2">
                       <Link
-                      href="/produkdetail/[id]/[product]"
-                      as={`/produkdetail/${a.id}/${a.nama.replace(/\s/g,"-")}`}
+                      href="/produk/[id]/[product]"
+                      as={`/produk/${a.id}/${a.nama.replace(/\s/g,"-")}`}
                     >
                       <a> {truncate(a.nama)}</a>
                     </Link>
@@ -182,8 +182,8 @@ export default class Category extends React.Component {
                     <div className="text-center py-5 px-4">
                       <span className="title d-block mb-2">
                       <Link
-                      href="/produkdetail/[id]/[product]"
-                      as={`/produkdetail/${a.id}/${a.nama.replace(/\s/g,"-")}`}
+                      href="/produk/[id]/[product]"
+                      as={`/produk/${a.id}/${a.nama.replace(/\s/g,"-")}`}
                     >
                       <a> {truncate(a.nama)}</a>
                     </Link>

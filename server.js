@@ -388,7 +388,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                 var vall = resd[i].fields;
 
                 var id = resd[i].id;
-                var nama = resd[i].namaproduk;
+                var nama = resd[i].nama_produk;
 
                 if (id == iddata) {
 

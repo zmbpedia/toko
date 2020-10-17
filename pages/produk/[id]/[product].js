@@ -25,6 +25,7 @@ export default class Product extends React.Component {
     	let titlehead='Maaf tidak ada produk'
     	let des = ''
     	let harganya = ''
+    	let desi = ''
     	if(show.length){
 
     	titlehead = 'zmbpediabogor |'+ await show[0].namaproduk+ '- Detail produk'
@@ -33,13 +34,19 @@ export default class Product extends React.Component {
              }else{
              	 harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ' 
              }
-
+    if(await show[0].deskripsi){
+                   desi = await show[0].deskripsi
+             }else{
+             	 desi ='Tidak / belum ada detail keterangan deskripsi untuk produk ini.' 
+             }
     	des = await show[0].deskripsi + harganya
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
 
  		 }
-		return { show, product, id, gambarnya, linknya, titlehead, des};
+
+
+		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi};
 	}
 
 	componentDidMount() {
@@ -144,6 +151,10 @@ export default class Product extends React.Component {
     text-align: center;
     width: 100%;
 }
+.productTextHolder .price {
+    font-size: 15px;
+    margin-top:20px;
+    }
 				`}</style>
 				
 
@@ -194,24 +205,24 @@ export default class Product extends React.Component {
 						</h1>
 						</>
 					)}
-					{this.state.productdata.map((a) => (
+					{this.props.show.map((a) => (
 				<>		
 			<div className="twoColumns container pt-xl-23 pb-xl-20 pt-lg-20 pb-lg-20 py-md-16 py-10">
 				<div className="row mb-6">
 					<div className="col-12 col-lg-6 order-lg-1">		
 						<div className="productSliderImage mb-lg-0 mb-4">
 							<div>
-								<img src="http://placehold.it/570x635" alt="image description" className="img-fluid w-100" />
+								<img src={a.gambar} alt="image description" className="img-fluid w-100" />
 							</div>
 						</div>
 					</div>
 					<div className="col-12 col-lg-6 order-lg-3">
 						<div className="productTextHolder overflow-hidden">
-							<h2 className="fwEbold mb-2">Pellentesque aliquet</h2>
-							<strong className="price d-block mb-5 text-green">65.00 $</strong>
-							<p className="mb-5">Aenean id ullamcorper libero. Vestibulum imperdiet nibh. Lorem ullamcorper volutpat. Vestibulum lacinia risus.</p>						
+							<h2 className="fwEbold mb-2">{a.namaproduk}</h2>
+							<strong className="price d-block mb-5 text-green">{this.props.harganya}</strong>
+							<p className="mb-5">{a.deskripsi}</p>						
 							<ul className="list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4">
-								<li className="text-uppercase mr-5">SHARE THIS PRODUCT:</li>
+								<li className="text-uppercase mr-5">BAGIKAN PRODUK INI KE:</li>
 								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-facebook-f"></a></li>
 								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-pinterest-p"></a></li>
 								<li className="mr-4"><a href={"https://www.instagram.com/?url=this.state.urls"} className="fab fa-instagram-i" target="_blank" rel="noopener"></a></li>
@@ -225,14 +236,14 @@ export default class Product extends React.Component {
 					<div className="col-12">
 						<ul className="list-unstyled tabSetList d-flex justify-content-center mb-9">
 							<li className="mr-md-20 mr-sm-10 mr-2">
-								<a href="#tab1-0" className="active playfair fwEbold pb-2">Description</a>
+								<a href="#tab1-0" className="active playfair fwEbold pb-2">Deskripsi</a>
 							</li>
 						
 						</ul>
 			
 						<div className="tab-content mb-xl-11 mb-lg-10 mb-md-8 mb-5">
 							<div id="tab1-0" className="active">
-								<p>Aenean id ullamcorper libero. Vestibulum imperdiet nibh. Lorem ullamcorper volutpat. Vestibulum lacinia risus. Etiam sagittis ullamcorper volutpat. Vestibulum lacinia risus sed ligula malesuada volutpat.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+								<p>{this.props.desi}</p>
 							</div>
 						</div>
 					</div>
