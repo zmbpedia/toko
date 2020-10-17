@@ -11,13 +11,55 @@ export default class Home extends React.Component {
 	static async getInitialProps() {
 		const res = await fetch("https://zmbpediabogor.store/api/homie");
 		const show = await res.json();
-		return { show };
+			const ress = await fetch("https://zmbpediabogor.store/api/slide");
+		const shows = await ress.json();
+		return { show, shows };
 	}
 
 	render() {
 		return (
 			<Layout>
-<Slide />
+				<style jsx>{`
+					.bgCover{
+						background-repeate
+					}
+					.overl{
+						width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+					}
+				`}</style>
+<section className="bannerBlockHolder position-relative">
+				<div className="slick-fade">
+					<div>
+						{this.props.shows.map((a, index) => (
+						<div className="align w-100 d-flex align-items-center bgCover" style={{background: `url(${a.gambar})`,	backgroundSize: `cover`,
+															backgroundPosition: `center`,}}>
+															<div className="overl" style={{background:'rgba(255,255,255, .5)'}}></div>
+							<div className="container position-relative holder pt-xl-10">
+								<div className="row">
+									<div className="col-12 col-xl-7">
+										<div className="txtwrap pr-xl-10">
+											<span className="title d-block text-uppercase fwEbold position-relative pl-2 mb-md-5 mb-sm-3">{a.mini}</span>
+											<h1 className="fwEbold position-relative mb-md-7 mb-sm-4"><span className="text-break d-block">{a.desk}</span></h1>
+										    {a.btn}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+))}
+
+					</div>
+			 
+				</div>
+				<div className="slickNavigatorsWrap">
+					<a href="#" className="slick-prev"><i className="icon-leftarrow"></i></a>
+					<a href="#" className="slick-next"><i className="icon-rightarrow"></i></a>
+				</div>
+			</section>
+	 
 
 				<section className="featureSec container overflow-hidden pt-xl-12 pb-xl-9 pt-lg-10 pb-lg-4 pt-md-8 pb-md-2 pt-5">
 					<div className="row">
