@@ -251,6 +251,7 @@ export default class Category extends React.Component {
           }
 .main-content-wrapper {
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 .img-eror{
               font-size: 130px;
