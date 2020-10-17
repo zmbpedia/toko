@@ -18,20 +18,13 @@ export default class MyDocument extends Document {
             href="/assets/img/favicon.ico"
             type="image/x-icon"
           />
-          <link rel="stylesheet" href="/assets/css/bootstrap.css" />
-          <link rel="stylesheet" href="/assets/css/fontawesome.css" />
-          <link rel="stylesheet" href="/assets/css/style.css" />
-          <link rel="stylesheet" href="/assets/css/plugins.css" />
-          <link rel="stylesheet" href="/assets/css/color.css" />
-          <link rel="stylesheet" href="/assets/css/responsive.css" />
+          <link rel="stylesheet" href="/assets/css/vendor.css" />
         </Head>
         <body>
           <Main />
           <NextScript />
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-          <script src="/assets/js/bootstrap.min.js"></script>
-          <script src="/assets/js/popper.min.js"></script>
-          <script src="/assets/js/jqueryCustome.js"></script>
+          <script src="/assets/js/vendor.js"></script>
         </body>
       </html>
     );
