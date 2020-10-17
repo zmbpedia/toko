@@ -11,15 +11,13 @@ export default class Home extends React.Component {
 	static async getInitialProps() {
 		const res = await fetch("https://zmbpediabogor.store/api/homie");
 		const show = await res.json();
-			const ress = await fetch("https://zmbpediabogor.store/api/slide");
+		const ress = await fetch("https://zmbpediabogor.store/api/slide");
 		const shows = await ress.json();
 		return { show, shows };
 	}
-
 	render() {
 		return (
 			<Layout>
-
  <NextSeo
       title="Selamat Datang di zmbpediabogor"
       description="Toko aneka macam tanaman hias"
@@ -33,7 +31,7 @@ export default class Home extends React.Component {
             url: "https://zmbpediabogor.store/assets/img/logo.png",
             width: 600,
             height: 315,
-            alt: "zmbpediabogor,
+            alt: "zmbpediabogor",
           }
         ],
         site_name: 'zmbpediabogor',
