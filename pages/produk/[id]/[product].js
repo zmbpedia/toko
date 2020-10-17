@@ -195,41 +195,34 @@ export default class Product extends React.Component {
 						</>
 					)}
 					{this.state.productdata.map((a) => (
-						
+				<>		
 			<div className="twoColumns container pt-xl-23 pb-xl-20 pt-lg-20 pb-lg-20 py-md-16 py-10">
 				<div className="row mb-6">
 					<div className="col-12 col-lg-6 order-lg-1">		
 						<div className="productSliderImage mb-lg-0 mb-4">
 							<div>
-								<img src="http://placehold.it/570x635" alt="image description" className="img-fluid w-100">
+								<img src="http://placehold.it/570x635" alt="image description" className="img-fluid w-100" />
 							</div>
 						</div>
 					</div>
 					<div className="col-12 col-lg-6 order-lg-3">
-				
 						<div className="productTextHolder overflow-hidden">
 							<h2 className="fwEbold mb-2">Pellentesque aliquet</h2>
-						
 							<strong className="price d-block mb-5 text-green">65.00 $</strong>
 							<p className="mb-5">Aenean id ullamcorper libero. Vestibulum imperdiet nibh. Lorem ullamcorper volutpat. Vestibulum lacinia risus.</p>						
 							<ul className="list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4">
 								<li className="text-uppercase mr-5">SHARE THIS PRODUCT:</li>
 								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-facebook-f"></a></li>
 								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-pinterest-p"></a></li>
-								<li className="mr-4"><a href={"https://www.instagram.com/?url=this.state.urls"} className="fab fa-instagram-i" target="_blank" rel="noopener">
-                        
-</a></li>
+								<li className="mr-4"><a href={"https://www.instagram.com/?url=this.state.urls"} className="fab fa-instagram-i" target="_blank" rel="noopener"></a></li>
 							</ul>
-					
 						</div>
 					</div>
 				</div>
-			
 			</div>
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
-				
 						<ul className="list-unstyled tabSetList d-flex justify-content-center mb-9">
 							<li className="mr-md-20 mr-sm-10 mr-2">
 								<a href="#tab1-0" className="active playfair fwEbold pb-2">Description</a>
@@ -245,6 +238,8 @@ export default class Product extends React.Component {
 					</div>
 				</div>
 			</div>
+
+			</>
 					))}
 			 
 			</Layout>

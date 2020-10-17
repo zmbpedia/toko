@@ -116,14 +116,9 @@ export default class Home extends React.Component {
 									</div>
 									<div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
 										<span class="title d-block mb-2">
-											<Link
-												href="/produk/[id]/[product]"
-												as={`/product/${
-													a.id
-												}/${a.namaproduk.replace(
-													/\s/g,
-													"-"
-												)}`}
+											<Link 
+											href="/produk/[id]/[product]"
+											as={`/produk/${a.id}/${a.namaproduk.replace(/\s/g,"-")}`}
 											>
 												<a>{truncate(a.namaproduk)}</a>
 											</Link>
