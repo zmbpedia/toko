@@ -223,9 +223,9 @@ export default class Product extends React.Component {
 							<p className="mb-5">{a.deskripsi}</p>						
 							<ul className="list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4">
 								<li className="text-uppercase mr-5">BAGIKAN PRODUK INI KE:</li>
-								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-facebook-f"></a></li>
-								<li className="mr-4"><a href="javascript:void(0);" className="fab fa-pinterest-p"></a></li>
-								<li className="mr-4"><a href={"https://www.instagram.com/?url=this.state.urls"} className="fab fa-instagram-i" target="_blank" rel="noopener"></a></li>
+							 
+								<li className="mr-4"><a href={`https://www.facebook.com/sharer/sharer.php?u=${this.state.urls}`} className="fab fa-facebook-f" target="_blank"></a></li>
+								<li className="mr-4"><a href={`https://www.instagram.com/?url=${this.state.urls}`} className="fab fa-instagram" target="_blank" rel="noopener"></a></li>
 							</ul>
 						</div>
 					</div>
