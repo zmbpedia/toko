@@ -122,7 +122,7 @@ app.get("/api/catalogdata", function(req, res) {
         return o;
     };
     request({
-        url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/product?api_key=keyn7tbnITsVXlugK',
+        url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/product?api_key=keysY3XpvIdkAd38I',
         json: true
     }, function(error, response, html) {
         if (!error) {
@@ -130,14 +130,14 @@ app.get("/api/catalogdata", function(req, res) {
             var myArrays = []
             var keyArray = Object.keys(resd);
             keyArray = shuffle(keyArray)
-            if (resd[0].fields['gambar']) {
+            if (resd[0].fields['gambar_produk']) {
                 var vall = resd[keyArray[0]].fields;
-                var namaprodukur = vall['namaproduk'];
-                var gambar = vall['gambar'][0]['thumbnails'].large.url;
-                var filename = vall['gambar'][0]['filename'];
+                var namaprodukur = vall['nama_produk'];
+                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                var filename = vall['gambar_produk'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
-                var gamm = 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                var gamm = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
             } else {
                 var namaprodukur = ''
                 var gamm = ''
@@ -146,22 +146,22 @@ app.get("/api/catalogdata", function(req, res) {
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
 
-                if (resd[i].fields['gambar']) {
-                    var gb = resd[i].fields['gambar'][0]['thumbnails'].large.url;
+                if (resd[i].fields['gambar_produk']) {
+                    var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
                     var id = resd[i].id;
-                    var filename = vall['gambar'][0]['filename'];
+                    var filename = vall['gambar_produk'][0]['filename'];
                     var satu = gb.split("/")[4];
                     var dua = gb.split("/")[5];
-                    var gam = 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                    var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                 } else {
                     var gam = ''
                 }
-                var namaproduk = vall['namaproduk'];
-                var stok = vall['stok'];
-                var harga = vall['harga'];
-                var kategori = vall['kategori'];
-                var deskripsi = vall['deskripsi'];
-                var stokproduk = vall['stokproduk'];
+                var namaproduk = vall['nama_produk'];
+                var stok = vall['stok_produk'];
+                var harga = vall['harga_produk'];
+                var kategori = vall['kategori_produk'];
+                var deskripsi = vall['deskripsi-produk'];
+          
                 myArrays.push({
                     id: id,
                     namaproduk: namaproduk,
@@ -169,8 +169,7 @@ app.get("/api/catalogdata", function(req, res) {
                     stok: stok,
                     harga: harga,
                     kategori: kategori,
-                    deskripsi: deskripsi,
-                    stokproduk: stokproduk
+                    deskripsi: deskripsi
                 });
 
             }
