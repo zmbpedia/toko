@@ -55,11 +55,7 @@ export default class Nav extends React.Component {
 
                         <i className="icon-call mr-2"></i>  Hotline: +62 899-5940-606
                         </div>
-                        <div className="col-12 col-sm-10 text-center">
-                            <span className="txt d-block">Selamat datang di zmbpedia</span>
-                        </div>
-                        <div className="col-12 col-sm-4">
-                        </div>
+                        
                     </div>
                 </div>
             </div>
