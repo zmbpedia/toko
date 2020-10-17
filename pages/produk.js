@@ -2,6 +2,7 @@ import Layout from "../components/layout";
 import fetch from "isomorphic-unfetch";
 import React from "react";
 import Link from "next/link";
+import ReactPaginate from "react-paginate";
 import { NextSeo } from 'next-seo';
 function truncate(str) {
 	return str.length > 10 ? str.substring(0, 20) + "..." : str;
@@ -14,7 +15,7 @@ export default class Produk extends React.Component {
       data: [],
       gm: "",
       offset: 0,
-      perPage: 6,
+      perPage: 3,
       currentPage: 0,
     };
     this.handlePageClick = this.handlePageClick.bind(this);
@@ -82,14 +83,30 @@ export default class Produk extends React.Component {
 								<div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
 									<div className="border">
 										<div className="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" className="img-fluid w-100" />
-											 
-										</div>
+										<img
+											src={a.gambar}
+											style={{
+												height: "300px",
+												objectFit: "cover",
+												width: "100%",
+											}}
+											id="wax-img"
+											alt={a.namaproduk}
+											className="img-fluid"
+										/>
+									</div>
 										<div className="text-center py-5 px-4">
-											<span className="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span className="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-											<span className="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
-											<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>
+											<span className="title d-block mb-2">
+											<Link
+                      href="/produkdetail/[id]/[product]"
+                      as={`/produkdetail/${a.id}/${a.nama.replace(/\s/g,"-")}`}
+                    >
+                      <a> {truncate(a.nama)}</a>
+                    </Link>
+											</span>
+											<span className="price d-block fwEbold">{a.harga}</span>
+											
+											{/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
 										</div>
 									</div>
 								</div>
@@ -156,14 +173,30 @@ export default class Produk extends React.Component {
 								<div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
 									<div className="border">
 										<div className="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" className="img-fluid w-100" />
-											 
-										</div>
+										<img
+											src={a.gambar}
+											style={{
+												height: "300px",
+												objectFit: "cover",
+												width: "100%",
+											}}
+											id="wax-img"
+											alt={a.namaproduk}
+											className="img-fluid"
+										/>
+									</div>
 										<div className="text-center py-5 px-4">
-											<span className="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span className="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-											<span className="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
-											<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>
+											<span className="title d-block mb-2">
+											<Link
+                      href="/produkdetail/[id]/[product]"
+                      as={`/produkdetail/${a.id}/${a.nama.replace(/\s/g,"-")}`}
+                    >
+                      <a> {truncate(a.nama)}</a>
+                    </Link>
+											</span>
+											<span className="price d-block fwEbold">{a.harga}</span>
+											
+											{/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
 										</div>
 									</div>
 								</div>
@@ -182,13 +215,50 @@ export default class Produk extends React.Component {
 		return (
 
 <>
-<section className="introBannerHolder d-flex w-100 bgCover" style={{"backgroundImage": "url(http://placehold.it/1920x300)"}}>
+	<Layout>
+ <NextSeo
+      title="zmbpediabogor - Katalog produk"
+      description="Toko aneka macam tanaman hias"
+      canonical="https://zmbpediabogor.store/produk"
+      openGraph={{
+        url: "https://zmbpediabogor.store/produk",
+        title: "zmbpediabogor - Katalog produk",
+        description: "Toko aneka macam tanaman hias",
+        images: [
+          {
+            url: this.props.gambarnya,
+           width: 600,
+            height: 315,
+            alt: this.props.altgam,
+          }
+        ],
+        site_name: 'zmbpediabogor',
+      }}
+    />
+	<style jsx>{`
+					.border{  border: 1px solid #dee2e6!important}
+					.overl{
+						width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+					}
+				`}</style>
+
+<section className="introBannerHolder d-flex w-100 bgCover" style={{
+															background: `url(${this.props.gambarnya})`,
+															backgroundSize: `cover`,
+
+															backgroundPosition: `center`,
+														}}
+														>
+														<div className="overl" style={{background:'rgba(255,255,255, .8)'}}></div>	
 				<div class="container">
 					<div class="row">
 						<div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
 							<h1 class="headingIV fwEbold playfair mb-4">Katalog</h1>
 							<ul class="list-unstyled breadCrumbs d-flex justify-content-center">
-								<li class="mr-2"><a href="home.html">Beranda</a></li>
+								<li class="mr-2"><a href="https://zmbpediabogor.store/">Beranda</a></li>
 								<li class="mr-2">/</li>
 								<li class="active">Katalog</li>
 							</ul>
@@ -197,7 +267,7 @@ export default class Produk extends React.Component {
 				</div>
 			</section>
 
-
+			
 
 	<div class="twoColumns container pt-lg-23 pb-lg-20 pt-md-16 pb-md-4 pt-10 pb-4">
 				<div class="row">
@@ -243,7 +313,7 @@ export default class Produk extends React.Component {
 					 
 				</div>
 			</div>
-
+	</Layout>
 
 </>
 
