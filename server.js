@@ -450,8 +450,6 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
                 katdat.push(namakategori)
             }
 
-
-console.log(katdat)
             request({
                 url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
                 json: true

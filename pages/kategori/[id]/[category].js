@@ -249,7 +249,9 @@ export default class Category extends React.Component {
     position: absolute;
     background: rgba(255,255,255, .5);
           }
-
+.main-content-wrapper {
+  margin-top: 100px;
+}
 .img-eror{
               font-size: 130px;
     text-align: center;
