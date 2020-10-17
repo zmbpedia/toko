@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import Layout from "../../../components/layout";
 import { NextSeo } from 'next-seo';
 import fetch from "isomorphic-unfetch";
-import { useAmp } from 'next/amp';
 export default class Product extends React.Component {
 	constructor() {
 		super();
@@ -30,8 +29,8 @@ export default class Product extends React.Component {
     	titlehead = 'zmbpediabogor |'+ await show[0].namaproduk+ '- Detail produk'           
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
-des = await show[0].deskripsi;
-harganya = await show[0].harga;
+		des = await show[0].deskripsi;
+		harganya = await show[0].harga;
  		 }
 
 
@@ -93,9 +92,6 @@ harganya = await show[0].harga;
 
 
 
-
-
-
  <NextSeo
       title={this.props.titlehead}
       description={this.props.des}
@@ -110,12 +106,6 @@ harganya = await show[0].harga;
             width: 800,
             height: 600,
             alt: this.props.product,
-          },
-          {
-            url: this.props.gambarnya,
-            width: 900,
-            height: 800,
-             alt: this.props.product,
           }
         ],
         site_name: 'zmbpediabogor',
