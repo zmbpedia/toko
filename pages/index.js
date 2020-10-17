@@ -3,7 +3,7 @@ import Slide from "../components/slide";
 import fetch from "isomorphic-unfetch";
 import React from "react";
 import Link from "next/link";
-
+import { NextSeo } from 'next-seo';
 function truncate(str) {
 	return str.length > 10 ? str.substring(0, 20) + "..." : str;
 }
@@ -19,6 +19,27 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<Layout>
+
+ <NextSeo
+      title="Selamat Datang di zmbpediabogor"
+      description="Toko aneka macam tanaman hias"
+      canonical="https://zmbpediabogor.store/"
+      openGraph={{
+        url: "https://zmbpediabogor.store/",
+        title: "Selamat Datang di zmbpediabogor",
+        description: "Toko aneka macam tanaman hias",
+        images: [
+          {
+            url: "https://zmbpediabogor.store/assets/img/logo.png",
+            width: 600,
+            height: 315,
+            alt: "zmbpediabogor,
+          }
+        ],
+        site_name: 'zmbpediabogor',
+      }}
+    />
+
 				<style jsx>{`
 					.bgCover{
 						background-repeate
