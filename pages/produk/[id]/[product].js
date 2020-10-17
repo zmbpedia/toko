@@ -27,19 +27,7 @@ export default class Product extends React.Component {
     	let harganya = ''
     	let desi = ''
     	if(show.length){
-
-    	titlehead = 'zmbpediabogor |'+ await show[0].namaproduk+ '- Detail produk'
-             if(await show[0].harga){
-                   harganya = ' - dikisaran harga Rp. ' + await show[0].harga
-             }else{
-             	 harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ' 
-             }
-    if(await show[0].deskripsi){
-                   des = await show[0].deskripsi
-             }else{
-             	 des ='Belum ada detail keterangan deskripsi untuk produk ini.' 
-             }
-    	
+    	titlehead = 'zmbpediabogor |'+ await show[0].namaproduk+ '- Detail produk'           
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
 
