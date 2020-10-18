@@ -18,7 +18,7 @@ export default class Home extends React.Component {
 	}
 	render() {
 		 var settings = {
-      dots: false,
+      dots: true,
       fade: true,
       nextArrow: false,
       prevArrow: false,
@@ -54,6 +54,9 @@ export default class Home extends React.Component {
 				<style jsx>{`
 					.bgCover{
 						background-repeate
+					}
+					.mainHeader {
+						margin-top: 30px;
 					}
 					.overl{
 						width: 100%;

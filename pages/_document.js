@@ -19,6 +19,8 @@ export default class MyDocument extends Document {
             type="image/x-icon"
           />
           <link rel="stylesheet" href="/assets/css/vendor.css" />
+          <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         </Head>
         <body>
           <Main />
