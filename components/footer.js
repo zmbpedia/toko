@@ -22,8 +22,7 @@ export default class Footer extends React.Component {
                                 <ul className="list-unstyled footerContactList mb-3">
                                     <li className="mb-3 d-flex flex-nowrap pr-xl-20 pr-0">
                                         <span className="icon icon-place mr-3"></span>{" "}
-                                        <address className="fwEbold m-0">
-                                            Alamat: Sukamantri, Kec. Tamansari,
+                                        <address className="fwEbold m-0">Sukamantri, Kec. Tamansari,
                                             Bogor, Jawa Barat 16610.
                                         </address>
                                     </li>
