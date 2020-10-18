@@ -59,7 +59,7 @@ export default class Footer extends React.Component {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="col-12 col-sm-6 col-lg-3 pl-xl-14 mb-lg-0 mb-4">
+                           {/*} <div className="col-12 col-sm-6 col-lg-3 pl-xl-14 mb-lg-0 mb-4">
                                 <h3 className="headingVI fwEbold text-uppercase mb-6">
                                     Informasi
                                 </h3>
@@ -74,7 +74,7 @@ export default class Footer extends React.Component {
                                         <a href="#">Tentang kami</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                 </aside>
