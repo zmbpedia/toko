@@ -316,7 +316,9 @@ app.get("/api/homie", function(req, res) {
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
                 var kategori = vall['kategori_produk'];
-            
+
+ 
+
                 myArrays.push({
                     id: id,
                     namaproduk: namaproduk,
@@ -428,6 +430,9 @@ var des;
                     var deskripsi = vall['deskripsi_produk'];
                     var cronical = 'https://zmbpediabogor.store/produk/' + id + '/' + names.replace(/\s/g, "-");
 
+                     var rupiah =''
+
+
 
 
 
@@ -437,7 +442,27 @@ var des;
                     harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ';
                     des ='Belum ada detail keterangan deskripsi untuk produk ini'; 
                    if(harga){
-                   harganya = ' - dikisaran harga Rp. ' +  harga;
+
+
+
+
+var number_string = harga.toString(),
+    split   = number_string.split(','),
+    sisa    = split[0].length % 3,
+    rupiah  = split[0].substr(0, sisa),
+    ribuan  = split[0].substr(sisa).match(/\d{1,3}/gi);
+        
+if (ribuan) {
+    separator = sisa ? '.' : '';
+    rupiah += separator + ribuan.join('.');
+}
+rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+
+
+
+
+                    
+                   harganya = ' - dikisaran harga Rp. ' +  rupiah;
                    }
                     if(deskripsi){
                    des = deskripsi
