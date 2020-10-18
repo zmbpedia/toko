@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
             href="/assets/img/favicon.ico"
             type="image/x-icon"
           />
+          <meta name="google-site-verification" content="EAEd8ZTBqNcUCZaCZwzRaQB0lLPcbc8NAeWvo0ha3dA" />
           <link rel="stylesheet" href="/assets/css/vendor.css" />
           <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
@@ -27,7 +28,7 @@ export default class MyDocument extends Document {
           <NextScript />
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
           <script src="/assets/js/vendor.js"></script>
-          
+
         </body>
       </html>
     );
