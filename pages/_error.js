@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Layout from "../components/layout";
 import { NextSeo } from 'next-seo';
+import Link from "next/link";
 function Error({ statusCode }) {
   return (
 
@@ -44,8 +45,9 @@ function Error({ statusCode }) {
                                 <p>{statusCode
         ? `An error occurred on server`
         : 'An error occurred on client'}</p>
-                               
-                                <a href="/" className="btn">Back to home page</a>
+                               <Link href="/" to="/">
+                                <a className="btn">Back to home page</a>
+                                </Link>
                             </div>
                         </div>
                     </div>
