@@ -316,7 +316,7 @@ app.get("/api/homie", function(req, res) {
                             var satu = gambar.split("/")[4];
                             var dua = gambar.split("/")[5];
                             var kategori = vall['kategori_produk'];
-
+  var harga = vall['harga_produk'];
                             if (resd[i].fields['gambar_produk']) {
                                 var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                                 var filename = vall['gambar_produk'][0]['filename'];
@@ -347,7 +347,7 @@ app.get("/api/homie", function(req, res) {
                                 myArrays.push({
                                     id: id,
                                     namaproduk: namaproduk,
-                                    gambar: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_"),
+                                    gambar: gam,
                                     kategori: kategori,
                                     harga: harganya
                                 });
