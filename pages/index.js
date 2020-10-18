@@ -26,6 +26,7 @@ export default class Home extends React.Component {
       autoplay: true,
       infinite: true,
       speed: 500,
+      autoplaySpeed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1
     };
