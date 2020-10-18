@@ -23,6 +23,7 @@ export default class Home extends React.Component {
       nextArrow: false,
       prevArrow: false,
       arrows: false,
+      autoplay: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
