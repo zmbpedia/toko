@@ -327,7 +327,7 @@ app.get("/api/homie", function(req, res) {
                                 var gam = '';
                             }
 
-                            if (namaproduk == names) {
+                         
                                 harganya = 'saat ini produk tidak ada dalam etalase penjualan';
                                 des = 'Belum ada detail keterangan deskripsi untuk produk ini';
                                 if (harga) {
@@ -351,7 +351,7 @@ app.get("/api/homie", function(req, res) {
                                     kategori: kategori,
                                     harga: harganya
                                 });
-                            }
+                            
                         }
                             res.send(myArrays);
                         }
