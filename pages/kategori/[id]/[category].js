@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import fetch from "isomorphic-unfetch";
 import { NextSeo } from 'next-seo';
 import Link from "next/link";
+import { default as minifyCssString } from "minify-css-string";
 function truncate(str) {
   return str.length > 10 ? str.substring(0, 100) + "..." : str;
 }
@@ -214,13 +215,33 @@ export default class Category extends React.Component {
   };
 
   render() {
-
+   const cssString = `
+    .border{  border: 1px solid #dee2e6!important}
+          .overl{
+            width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+          }
+.main-content-wrapper {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.img-eror{
+              font-size: 130px;
+    text-align: center;
+    width: 100%;
+}`;
     const { currentPage, namekat, ada } = this.state;
 
  
     return (
       <Layout>
-    
+            <style
+          dangerouslySetInnerHTML={{
+            __html: minifyCssString(cssString),
+          }}
+        />
  <NextSeo
       title={this.props.titlehead}
       description={this.props.des}
@@ -241,25 +262,7 @@ export default class Category extends React.Component {
       }}
     />
 
-  <style jsx>{`
-          .border{  border: 1px solid #dee2e6!important}
-          .overl{
-            width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgba(255,255,255, .5);
-          }
-.main-content-wrapper {
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-.img-eror{
-              font-size: 130px;
-    text-align: center;
-    width: 100%;
-}
-        `}</style>
-    
+
 <section className="introBannerHolder d-flex w-100 bgCover" style={{
                               background: `url(${this.props.gambarnya})`,
                               backgroundSize: `cover`,

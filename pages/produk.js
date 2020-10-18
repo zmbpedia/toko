@@ -3,6 +3,7 @@ import fetch from "isomorphic-unfetch";
 import React from "react";
 import Link from "next/link";
 import ReactPaginate from "react-paginate";
+import { default as minifyCssString } from "minify-css-string";
 import { NextSeo } from 'next-seo';
 function truncate(str) {
 	return str.length > 10 ? str.substring(0, 20) + "..." : str;
@@ -211,11 +212,27 @@ export default class Produk extends React.Component {
   };
 
 	render() {
+
+const cssString = `
+  .border{  border: 1px solid #dee2e6!important}
+  .overl{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .8);
+          }`;
+
 		const { currentPage } = this.state;
 		return (
 
 <>
 	<Layout>
+    <style
+          dangerouslySetInnerHTML={{
+            __html: minifyCssString(cssString),
+          }}
+        />
+
  <NextSeo
       title="zmbpediabogor - Katalog produk"
       description="Toko aneka macam tanaman hias"
@@ -235,15 +252,7 @@ export default class Produk extends React.Component {
         site_name: 'zmbpediabogor',
       }}
     />
-	<style jsx>{`
-					.border{  border: 1px solid #dee2e6!important}
-					.overl{
-						width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgba(255,255,255, .5);
-					}
-				`}</style>
+ 
 
 <section className="introBannerHolder d-flex w-100 bgCover" style={{
 															background: `url(${this.props.gambarnya})`,
@@ -252,7 +261,7 @@ export default class Produk extends React.Component {
 															backgroundPosition: `center`,
 														}}
 														>
-														<div className="overl" style={{background:'rgba(255,255,255, .8)'}}></div>	
+														<div className="overl"></div>	
 				<div class="container">
 					<div class="row">
 						<div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">

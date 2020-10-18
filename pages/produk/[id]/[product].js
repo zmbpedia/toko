@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import Layout from "../../../components/layout";
 import { NextSeo } from 'next-seo';
 import fetch from "isomorphic-unfetch";
+import { default as minifyCssString } from "minify-css-string";
+
 export default class Product extends React.Component {
 	constructor() {
 		super();
@@ -90,9 +92,36 @@ export default class Product extends React.Component {
 	}
 
 	render() {
+
+    const cssString = `
+  .border{  border: 1px solid #dee2e6!important}
+          .overl{
+            width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+          }
+.main-content-wrapper {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.img-eror{
+              font-size: 130px;
+    text-align: center;
+    width: 100%;
+}
+.productTextHolder .price {
+    font-size: 15px;
+    margin-top:20px;
+    }`;
 		return (
 			<Layout>
-
+ 
+			    <style
+          dangerouslySetInnerHTML={{
+            __html: minifyCssString(cssString),
+          }}
+        />
 
 
  <NextSeo
@@ -114,37 +143,6 @@ export default class Product extends React.Component {
         site_name: 'zmbpediabogor',
       }}
     />
-
-
-				<style jsx>{`
-			   .border{  border: 1px solid #dee2e6!important}
-          .overl{
-            width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgba(255,255,255, .5);
-          }
-.main-content-wrapper {
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-.img-eror{
-              font-size: 130px;
-    text-align: center;
-    width: 100%;
-}
-.productTextHolder .price {
-    font-size: 15px;
-    margin-top:20px;
-    }
-				`}</style>
-				
-
-
-
-
-
-
 
 <section className="introBannerHolder d-flex w-100 bgCover" style={{
                               background: `url(${this.props.gambarnya})`,

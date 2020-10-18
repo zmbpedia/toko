@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { NextSeo } from 'next-seo';
 import Slider from "react-slick";
+import { default as minifyCssString } from "minify-css-string";
 function truncate(str) {
 	return str.length > 10 ? str.substring(0, 20) + "..." : str;
 }
@@ -30,8 +31,29 @@ export default class Home extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+
+    const cssString = `
+.bgCover{
+						background-repeate
+					}
+					.mainHeader {
+						margin-top: 30px;
+					}
+					.overl{
+						width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+					}`;
+
 		return (
 			<Layout>
+			    <style
+          dangerouslySetInnerHTML={{
+            __html: minifyCssString(cssString),
+          }}
+        />
+
  <NextSeo
       title="Selamat Datang di zmbpediabogor"
       description="Toko aneka macam tanaman hias"
@@ -52,20 +74,7 @@ export default class Home extends React.Component {
       }}
     />
 
-				<style jsx>{`
-					.bgCover{
-						background-repeate
-					}
-					.mainHeader {
-						margin-top: 30px;
-					}
-					.overl{
-						width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgba(255,255,255, .5);
-					}
-				`}</style>
+		
 <section className="bannerBlockHolder position-relative">
 
 				<Slider {...settings}>
