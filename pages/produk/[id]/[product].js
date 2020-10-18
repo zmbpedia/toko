@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import Layout from "../../../components/layout";
 import { NextSeo } from 'next-seo';
-import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 export default class Product extends React.Component {
 	constructor() {
@@ -157,11 +156,7 @@ export default class Product extends React.Component {
             <div className="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
               <h1 className="headingIV fwEbold playfair mb-4"> Detail Produk</h1>
               <ul className="list-unstyled breadCrumbs d-flex justify-content-center">
-                <li className="mr-2">
-                <Link href="https://zmbpediabogor.store" to="https://zmbpediabogor.store" replace>
-                <a>Beranda</a>
-                </Link>
-                </li>
+                <li className="mr-2"><a href="https://zmbpediabogor.store/">Beranda</a></li>
                 <li className="mr-2">/</li>
                 <li className="active">detail produk</li>
               </ul>

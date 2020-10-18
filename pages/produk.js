@@ -259,9 +259,7 @@ export default class Produk extends React.Component {
 							<h1 class="headingIV fwEbold playfair mb-4">Katalog</h1>
 							<ul class="list-unstyled breadCrumbs d-flex justify-content-center">
 								<li class="mr-2">
-                <Link href="https://zmbpediabogor.store" to="https://zmbpediabogor.store" replace>
-                <a>Beranda</a>
-                </Link>
+                <a href="https://zmbpediabogor.store/">Beranda</a>
                 </li>
 								<li class="mr-2">/</li>
 								<li class="active">Katalog</li>
