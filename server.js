@@ -411,9 +411,9 @@ var des;
                     var cronical = 'https://zmbpediabogor.store/product/' + id + '/' + names.replace(/\s/g, "-");
 
    if(harga){
-                   harganya = ' - dikisaran harga Rp. ' +  harga
+                   harganya = ' - dikisaran harga Rp. ' +  harga;
              }else{
-                 harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ' 
+                 harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ';
              }
          if(deskripsi){
                    des = deskripsi

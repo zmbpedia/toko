@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Layout from "../../../components/layout";
 import { NextSeo } from 'next-seo';
+import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 export default class Product extends React.Component {
 	constructor() {
