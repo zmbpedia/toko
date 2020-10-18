@@ -1,9 +1,9 @@
 import Layout from "../components/layout";
-import Slide from "../components/slide";
 import fetch from "isomorphic-unfetch";
 import React from "react";
 import Link from "next/link";
 import { NextSeo } from 'next-seo';
+import Slider from "react-slick";
 function truncate(str) {
 	return str.length > 10 ? str.substring(0, 20) + "..." : str;
 }
@@ -17,6 +17,17 @@ export default class Home extends React.Component {
 		return { show, shows };
 	}
 	render() {
+		 var settings = {
+      dots: false,
+      fade: true,
+      nextArrow: false,
+      prevArrow: false,
+      arrows: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
 		return (
 			<Layout>
  <NextSeo
@@ -51,7 +62,8 @@ export default class Home extends React.Component {
 					}
 				`}</style>
 <section className="bannerBlockHolder position-relative">
-				<div className="slick-fade">
+
+				<Slider {...settings}>
 						{this.props.shows.map((a, index) => (
 					<div>
 				
@@ -74,11 +86,8 @@ export default class Home extends React.Component {
 
 					</div>
 			 ))}
-				</div>
-				<div className="slickNavigatorsWrap">
-					<a href="#" className="slick-prev"><i className="icon-leftarrow"></i></a>
-					<a href="#" className="slick-next"><i className="icon-rightarrow"></i></a>
-				</div>
+				</Slider>
+			 
 			</section>
 	 
 

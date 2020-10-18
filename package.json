@@ -22,6 +22,7 @@
     "react-dom": "16.8.6",
     "react-notify-toast": "^0.5.1",
     "react-paginate": "^6.5.0",
+    "react-slick": "^0.27.11",
     "request": "^2.88.2"
   }
 }
