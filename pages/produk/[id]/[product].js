@@ -163,7 +163,7 @@ export default class Product extends React.Component {
                 <li className="mr-2">
   <Link href="/" to="/">
                 <a>Beranda</a>
-</LinK>
+</Link>
                 </li>
                 <li className="mr-2">/</li>
                 <li className="active">detail produk</li>
