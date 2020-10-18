@@ -65,9 +65,8 @@ export default class Nav extends React.Component {
                     <div className="col-6 col-sm-2">
               
                         <div className="logo">
-                                  <Link href="/" to="/">
-                            <a><img src="/assets/img/logo.png" alt="zmbpedia" className="img-fluid" /></a>
-                            </Link>
+                                
+                            <a href="https://zmbpediabogor.store/"><img src="/assets/img/logo.png" alt="zmbpedia" className="img-fluid" /></a>
                          
                         </div>
                     </div>
@@ -84,9 +83,8 @@ export default class Nav extends React.Component {
                                 <div className="collapse navbar-collapse" id="navbarNav">
                                     <ul className="navbar-nav mx-auto text-uppercase d-inline-block">
                                         <li className="nav-item dropdown">
-    <Link href="/" to="/">
-                                            <a className="d-block">beranda</a>
-                                            </Link>
+
+                                            <a className="d-block" href="https://zmbpediabogor.store/" >beranda</a>
                                         </li>
                                         <li className="nav-item dropdown">
                                             <a className="dropdown-toggle d-block" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
@@ -101,9 +99,8 @@ export default class Nav extends React.Component {
                                             </ul>
                                         </li>
                                         <li className="nav-item">
-                                                 <Link href="/produk" to="/produk">
-                                            <a className="d-block">Katalog produk</a>
-                                            </Link>
+                                             
+                                            <a href="/produk" className="d-block">Katalog produk</a>
                                        
                                         </li>
                                         {/*<li className="nav-item dropdown">
