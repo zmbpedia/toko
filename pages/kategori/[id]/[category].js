@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import fetch from "isomorphic-unfetch";
 import { NextSeo } from 'next-seo';
 import Link from "next/link";
+
 import { default as minifyCssString } from "minify-css-string";
 function truncate(str) {
   return str.length > 10 ? str.substring(0, 100) + "..." : str;
@@ -24,7 +25,7 @@ export default class Category extends React.Component {
   }
 
   static async getInitialProps({ query }) {
-    const { id, category } = query;
+    const { id, category } = await query;
     const res = await fetch("https://zmbpediabogor.store/api/kategoryproduct/" + id +"/"+category);
     const show = await res.json();
 

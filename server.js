@@ -348,11 +348,29 @@ app.get("/api/slide", function(req, res) {
                 var id = resd[i].id;
                 var desk = vall['deskripsi_slide'];
            
+
+
+
+
                 var mini = vall['mini_deskripsi'];
+
+
+  if (resd[i].fields['gambar_slide']) {
+                          
                 var gambar = vall['gambar_slide'][0]['thumbnails'].large.url;
                 var filename = vall['gambar_slide'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
+                        var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                    } else {
+                        var gam = '';
+                    }
+
+
+
+
+
+
 
  
 
@@ -361,7 +379,7 @@ app.get("/api/slide", function(req, res) {
                     desk: desk,
                     mini: mini, 
                          mini: mini,
-                    gambar: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_")
+                    gambar: gam
                  
                 });
 
