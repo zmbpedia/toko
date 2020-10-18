@@ -25,12 +25,15 @@ export default class Product extends React.Component {
     	let des = ''
     	let harganya = ''
     	let desi = ''
+
     	if(show.length){
-    	titlehead = 'zmbpediabogor |'+ await show[0].namaproduk+ '- Detail produk'           
+
+    	titlehead = 'zmbpediabogor | '+ await show[0].namaproduk+ '- Detail produk'           
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
 		des = await show[0].deskripsi;
 		harganya = await show[0].harga;
+
  		 }
 
 

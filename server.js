@@ -408,7 +408,7 @@ var des;
                     var harga = vall['harga_produk'];
                     var kategori = vall['kategori_produk'];
                     var deskripsi = vall['deskripsi_produk'];
-                    var cronical = 'https://zmbpediabogor.store/product/' + id + '/' + names.replace(/\s/g, "-");
+                    var cronical = 'https://zmbpediabogor.store/produk/' + id + '/' + names.replace(/\s/g, "-");
 
 
 
@@ -417,7 +417,7 @@ var des;
 
 
                     harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ';
-                    des ='Belum ada detail keterangan deskripsi untuk produk ini' 
+                    des ='Belum ada detail keterangan deskripsi untuk produk ini'; 
                    if(harga){
                    harganya = ' - dikisaran harga Rp. ' +  harga;
                    }
