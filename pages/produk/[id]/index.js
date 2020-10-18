@@ -25,7 +25,7 @@ export default class error extends React.Component {
                                 <p>maaf kemungkinan halaman yang ada cari tidak ada, atau sudah diganti / di hapus</p>
                                <Link
                         href="/"
-                        as={`/`}
+                        to={`/`}
                       >
                                 <a href="/" className="btn">Kembali ke halaman awal</a>
                                 </Link>

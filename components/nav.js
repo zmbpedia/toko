@@ -65,8 +65,9 @@ export default class Nav extends React.Component {
                     <div className="col-6 col-sm-2">
               
                         <div className="logo">
-                                
-                            <a href="https://zmbpediabogor.store/"><img src="/assets/img/logo.png" alt="zmbpedia" className="img-fluid" /></a>
+                                  <Link href="/" to="/">
+                            <a><img src="/assets/img/logo.png" alt="zmbpedia" className="img-fluid" /></a>
+                            </Link>
                          
                         </div>
                     </div>
