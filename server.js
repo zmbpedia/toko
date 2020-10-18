@@ -410,21 +410,20 @@ var des;
                     var deskripsi = vall['deskripsi_produk'];
                     var cronical = 'https://zmbpediabogor.store/product/' + id + '/' + names.replace(/\s/g, "-");
 
-   if(harga){
-                   harganya = ' - dikisaran harga Rp. ' +  harga;
-             }else{
-                 harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ';
-             }
-         if(deskripsi){
-                   des = deskripsi
-             }else{
-                 des ='Belum ada detail keterangan deskripsi untuk produk ini' 
-             }
 
 
 
                     if (namaproduk == names) {
 
+
+                    harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ';
+                    des ='Belum ada detail keterangan deskripsi untuk produk ini' 
+                   if(harga){
+                   harganya = ' - dikisaran harga Rp. ' +  harga;
+                   }
+                    if(deskripsi){
+                   des = deskripsi
+                 } 
 
       
                         myArrays.push({
