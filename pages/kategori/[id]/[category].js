@@ -273,7 +273,11 @@ export default class Category extends React.Component {
             <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
               <h1 class="headingIV fwEbold playfair mb-4"> {this.state.namekat.replace(/\-/g, " ")}</h1>
               <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
-                <li class="mr-2"><a href="https://zmbpediabogor.store/">Beranda</a></li>
+                <li class="mr-2">
+                <Link href="https://zmbpediabogor.store" to="https://zmbpediabogor.store" replace>
+                <a>Beranda</a>
+                </Link>
+                </li>
                 <li class="mr-2">/</li>
                 <li class="active">Kategori</li>
               </ul>

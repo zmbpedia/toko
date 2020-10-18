@@ -9,10 +9,11 @@ function truncate(str) {
 }
 export default class Home extends React.Component {
 	static async getInitialProps() {
+			const ress = await fetch("https://zmbpediabogor.store/api/slide");
+		const shows = await ress.json();
 		const res = await fetch("https://zmbpediabogor.store/api/homie");
 		const show = await res.json();
-		const ress = await fetch("https://zmbpediabogor.store/api/slide");
-		const shows = await ress.json();
+	
 		return { show, shows };
 	}
 	render() {

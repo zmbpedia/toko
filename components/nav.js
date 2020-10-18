@@ -65,9 +65,9 @@ export default class Nav extends React.Component {
                     <div className="col-6 col-sm-2">
               
                         <div className="logo">
-                                
-                            <a href="https://zmbpediabogor.store/"><img src="/assets/img/logo.png" alt="zmbpedia" className="img-fluid" /></a>
-                         
+                                <Link href="https://zmbpediabogor.store" to="https://zmbpediabogor.store" replace>
+                            <a><img src="/assets/img/logo.png" alt="zmbpedia" className="img-fluid" /></a>
+                         </Link>
                         </div>
                     </div>
                     <div className="col-6 col-sm-10 col-lg-8 static-block">
@@ -83,8 +83,9 @@ export default class Nav extends React.Component {
                                 <div className="collapse navbar-collapse" id="navbarNav">
                                     <ul className="navbar-nav mx-auto text-uppercase d-inline-block">
                                         <li className="nav-item dropdown">
-
-                                            <a className="d-block" href="https://zmbpediabogor.store/" >beranda</a>
+<Link href="https://zmbpediabogor.store" to="https://zmbpediabogor.store" replace>
+                                            <a className="d-block">beranda</a>
+                                            </Link>
                                         </li>
                                         <li className="nav-item dropdown">
                                             <a className="dropdown-toggle d-block" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
