@@ -161,7 +161,7 @@ app.get("/api/catalogdata", function(req, res) {
                 var harga = vall['harga_produk'];
                 var kategori = vall['kategori_produk'];
                 var deskripsi = vall['deskripsi-produk'];
-          
+
                 myArrays.push({
                     id: id,
                     namaproduk: namaproduk,
@@ -293,297 +293,323 @@ app.get('/bulk/item-gambar/:idone/:idtwo/:file', function(req, res) {
 
 
 app.get("/api/homie", function(req, res) {
-    function shuffle(o) { //v1.0
-        for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-        return o;
-    };
-    request({
-        url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I",
-        json: true
-    }, function(error, response, html) {
-        if (!error) {
-            var resd = alasql('SELECT * FROM ? order by id ASC LIMIT 4', [html.records]);
-            var myArrays = []
-            var keyArray = Object.keys(resd);
-            keyArray = shuffle(keyArray)
+            function shuffle(o) { //v1.0
+                for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+                return o;
+            };
+            request({
+                    url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I",
+                    json: true
+                }, function(error, response, html) {
+                    if (!error) {
+                        var resd = alasql('SELECT * FROM ? order by id ASC LIMIT 4', [html.records]);
+                        var myArrays = []
+                        var keyArray = Object.keys(resd);
+                        keyArray = shuffle(keyArray)
 
-            for (var i = 0; i < resd.length; i++) {
-                var vall = resd[keyArray[i]].fields;
-                var id = resd[keyArray[i]].id;
-                var namaproduk = vall['nama_produk'];
-                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-                var filename = vall['gambar_produk'][0]['filename'];
-                var satu = gambar.split("/")[4];
-                var dua = gambar.split("/")[5];
-                var kategori = vall['kategori_produk'];
+                        for (var i = 0; i < resd.length; i++) {
+                            var vall = resd[keyArray[i]].fields;
+                            var id = resd[keyArray[i]].id;
+                            var namaproduk = vall['nama_produk'];
+                            var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                            var filename = vall['gambar_produk'][0]['filename'];
+                            var satu = gambar.split("/")[4];
+                            var dua = gambar.split("/")[5];
+                            var kategori = vall['kategori_produk'];
 
- 
+                            if (resd[i].fields['gambar_produk']) {
+                                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                                var filename = vall['gambar_produk'][0]['filename'];
+                                var satu = gambar.split("/")[4];
+                                var dua = gambar.split("/")[5];
+                                var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                            } else {
+                                var gam = '';
+                            }
 
-                myArrays.push({
-                    id: id,
-                    namaproduk: namaproduk,
-                    gambar: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_"),
-                    kategori: kategori
-                 
-                });
+                            if (namaproduk == names) {
+                                harganya = 'saat ini produk tidak ada dalam etalase penjualan';
+                                des = 'Belum ada detail keterangan deskripsi untuk produk ini';
+                                if (harga) {
+                                    var number_string = harga.toString(),
+                                        split = number_string.split(','),
+                                        sisa = split[0].length % 3,
+                                        rupiah = split[0].substr(0, sisa),
+                                        ribuan = split[0].substr(sisa).match(/\d{1,3}/gi);
 
-            }
-            res.send(myArrays);
-        }
-    })
-});
-
-
-app.get("/api/slide", function(req, res) {
-
-    request({
-        url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/slide?api_key=keysY3XpvIdkAd38I",
-        json: true
-    }, function(error, response, html) {
-        if (!error) {
-            var resd = alasql('SELECT * FROM ?', [html.records]);
-            var myArrays = []
-      
-
-            for (var i = 0; i < resd.length; i++) {
-                var vall = resd[i].fields;
-                var id = resd[i].id;
-                var desk = vall['deskripsi_slide'];
-           
-
-
-
-
-                var mini = vall['mini_deskripsi'];
-
-
-  if (resd[i].fields['gambar_slide']) {
-                          
-                var gambar = vall['gambar_slide'][0]['thumbnails'].large.url;
-                var filename = vall['gambar_slide'][0]['filename'];
-                var satu = gambar.split("/")[4];
-                var dua = gambar.split("/")[5];
-                        var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                    } else {
-                        var gam = '';
-                    }
-
-
-
-
-
-
-
- 
-
-                myArrays.push({
-                    id: id,
-                    desk: desk,
-                    mini: mini, 
-                         mini: mini,
-                    gambar: gam
-                 
-                });
-
-            }
-            res.send(myArrays);
-        }
-    })
-});
-
-
-app.get("/api/productdata/:id/:nama", function(req, res) {
-
-    request({
-        url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
-        json: true
-    }, function(error, response, html) {
-        if (!error) {
-            var iddata = req.params.id
-            var names = req.params.nama.replace(/-/g, ' ');
-
-            var resd = alasql('SELECT * FROM ?', [html.records]);
-            var myArrays = []
-            for (var i = 0; i < resd.length; i++) {
-                var vall = resd[i].fields;
-
-                var id = resd[i].id;
-                var nama = resd[i].nama_produk;
-      
-                if (id == iddata) {
-var harganya;
-var des;
-                    var namaproduk = vall['nama_produk'];
-                    if (resd[i].fields['gambar_produk']) {
-                        var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-                        var filename = vall['gambar_produk'][0]['filename'];
-                        var satu = gambar.split("/")[4];
-                        var dua = gambar.split("/")[5];
-                        var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                    } else {
-                        var gam = '';
-                    }
-
-                    var stok = vall['stok_produk'];
-                    var harga = vall['harga_produk'];
-                    var kategori = vall['kategori_produk'];
-                    var deskripsi = vall['deskripsi_produk'];
-                    var cronical = 'https://zmbpediabogor.store/produk/' + id + '/' + names.replace(/\s/g, "-");
-
-                     var rupiah =''
-
-
-
-
-
-                    if (namaproduk == names) {
-
-
-                    harganya =' - untuk harga silahkan hubungi admin di nomer hotline kami ';
-                    des ='Belum ada detail keterangan deskripsi untuk produk ini'; 
-                   if(harga){
-
-
-
-
-var number_string = harga.toString(),
-    split   = number_string.split(','),
-    sisa    = split[0].length % 3,
-    rupiah  = split[0].substr(0, sisa),
-    ribuan  = split[0].substr(sisa).match(/\d{1,3}/gi);
-        
-if (ribuan) {
-    separator = sisa ? '.' : '';
-    rupiah += separator + ribuan.join('.');
-}
-rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-
-
-
-
+                                    if (ribuan) {
+                                        separator = sisa ? '.' : '';
+                                        rupiah += separator + ribuan.join('.');
+                                    }
+                                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                                    harganya = 'dikisaran harga Rp. ' + rupiah;
+                                }
+                                myArrays.push({
+                                    id: id,
+                                    namaproduk: namaproduk,
+                                    gambar: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_"),
+                                    kategori: kategori,
+                                    harga: harganya
+                                });
+                            }
+                        }
+                            res.send(myArrays);
+                        }
                     
-                   harganya = ' - dikisaran harga Rp. ' +  rupiah;
-                   }
-                    if(deskripsi){
-                   des = deskripsi
-                 } 
+                    })
+            });
 
-      
+
+        app.get("/api/slide", function(req, res) {
+
+            request({
+                url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/slide?api_key=keysY3XpvIdkAd38I",
+                json: true
+            }, function(error, response, html) {
+                if (!error) {
+                    var resd = alasql('SELECT * FROM ?', [html.records]);
+                    var myArrays = []
+
+
+                    for (var i = 0; i < resd.length; i++) {
+                        var vall = resd[i].fields;
+                        var id = resd[i].id;
+                        var desk = vall['deskripsi_slide'];
+
+
+
+
+
+                        var mini = vall['mini_deskripsi'];
+
+
+                        if (resd[i].fields['gambar_slide']) {
+
+                            var gambar = vall['gambar_slide'][0]['thumbnails'].large.url;
+                            var filename = vall['gambar_slide'][0]['filename'];
+                            var satu = gambar.split("/")[4];
+                            var dua = gambar.split("/")[5];
+                            var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                        } else {
+                            var gam = '';
+                        }
+
+
+
+
+
+
+
+
+
                         myArrays.push({
                             id: id,
-                            namaproduk: namaproduk,
-                            gambar: gam,
-                            stok: stok,
-                            harga: harganya,
-                            kategori: kategori,
-                            deskripsi: des,
-                            cronical: cronical
+                            desk: desk,
+                            mini: mini,
+                            mini: mini,
+                            gambar: gam
+
                         });
 
                     }
+                    res.send(myArrays);
                 }
-            }
-            res.send(myArrays);
-        }
-    })
-});
+            })
+        });
 
 
-app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
-
-    request({
-           url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/kategori?api_key=keysY3XpvIdkAd38I',
-        json: true
-    }, function(error, response, html) {
-        if (!error) {
-            var resd = alasql('SELECT * FROM ?', [html.records]);
-
-            var katdat = [];
-            for (var i = 0; i < resd.length; i++) {
-                var vall = resd[i].fields;
-                var namakategori = vall['nama_kategori'];
-                katdat.push(namakategori)
-            }
+        app.get("/api/productdata/:id/:nama", function(req, res) {
 
             request({
                 url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
                 json: true
             }, function(error, response, html) {
                 if (!error) {
-                    var kategoris = req.params.kat;
+                    var iddata = req.params.id
+                    var names = req.params.nama.replace(/-/g, ' ');
+
                     var resd = alasql('SELECT * FROM ?', [html.records]);
-                    var myArrays = [];
-                    var names = req.params.name.replace(/-/g, ' ');
-                    var arraycontainsturtles = (katdat.indexOf(names) > -1);
+                    var myArrays = []
+                    for (var i = 0; i < resd.length; i++) {
+                        var vall = resd[i].fields;
 
-                    if (arraycontainsturtles) {
+                        var id = resd[i].id;
+                        var nama = resd[i].nama_produk;
 
-                        for (var i = 0; i < resd.length; i++) {
-                            var vall = resd[i].fields;
-                            var id = resd[i].id;
+                        if (id == iddata) {
+                            var harganya;
+                            var des;
+                            var namaproduk = vall['nama_produk'];
+                            if (resd[i].fields['gambar_produk']) {
+                                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                                var filename = vall['gambar_produk'][0]['filename'];
+                                var satu = gambar.split("/")[4];
+                                var dua = gambar.split("/")[5];
+                                var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                            } else {
+                                var gam = '';
+                            }
+
+                            var stok = vall['stok_produk'];
+                            var harga = vall['harga_produk'];
                             var kategori = vall['kategori_produk'];
+                            var deskripsi = vall['deskripsi_produk'];
+                            var cronical = 'https://zmbpediabogor.store/produk/' + id + '/' + names.replace(/\s/g, "-");
 
-                            if (kategori == kategoris) {
-                                var namaproduk = vall['nama_produk'];
-                                if (resd[i].fields['gambar_produk']) {
-                                    var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-                                    var filename = vall['gambar_produk'][0]['filename'];
-                                    var satu = gambar.split("/")[4];
-                                    var dua = gambar.split("/")[5];
-                                    var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                                } else {
-                                    var gam = '';
+                            var rupiah = ''
+
+
+
+
+
+                            if (namaproduk == names) {
+
+
+                                harganya = ' - untuk harga silahkan hubungi admin di nomer hotline kami ';
+                                des = 'Belum ada detail keterangan deskripsi untuk produk ini';
+                                if (harga) {
+
+
+
+
+                                    var number_string = harga.toString(),
+                                        split = number_string.split(','),
+                                        sisa = split[0].length % 3,
+                                        rupiah = split[0].substr(0, sisa),
+                                        ribuan = split[0].substr(sisa).match(/\d{1,3}/gi);
+
+                                    if (ribuan) {
+                                        separator = sisa ? '.' : '';
+                                        rupiah += separator + ribuan.join('.');
+                                    }
+                                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+
+
+
+
+
+                                    harganya = ' - dikisaran harga Rp. ' + rupiah;
+                                }
+                                if (deskripsi) {
+                                    des = deskripsi
                                 }
 
-                                if (resd[0].fields['gambar_produk']) {
-                                    var gambard = vall['gambar_produk'][0]['thumbnails'].large.url;
-                                    var filenamea = vall['gambar_produk'][0]['filename'];
-                                    var satua = gambard.split("/")[4];
-                                    var duaa = gambard.split("/")[5];
-                                    var gams = 'https://zmbpediabogor.store/bulk/item-gambar/' + satua + '/' + duaa + '/' + filenamea.replace(/\s/g, "_");
-                                } else {
-                                    var gams = '';
-                                }
-
-
-                                var stok = vall['stok_produk'];
-                                var harga = vall['harga_produk'];
-                                var kategori = vall['kategori_produk'];
-                                var deskripsi = vall['deskripsi_produk'];
-                                var cronical = 'https://zmbpediabogor.store/kategori/' + kategori + '/' + names.replace(/\s/g, "-");
 
                                 myArrays.push({
                                     id: id,
                                     namaproduk: namaproduk,
                                     gambar: gam,
                                     stok: stok,
-                                    harga: harga,
+                                    harga: harganya,
                                     kategori: kategori,
-                                    deskripsi: deskripsi,
-                                    oggambar: gams,
+                                    deskripsi: des,
                                     cronical: cronical
                                 });
+
                             }
                         }
-
                     }
-                    res.send({ data: myArrays, gambarog: gams, namatitle: req.params.name.replace(/\s/g, "-") });
+                    res.send(myArrays);
+                }
+            })
+        });
+
+
+        app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
+
+            request({
+                url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/kategori?api_key=keysY3XpvIdkAd38I',
+                json: true
+            }, function(error, response, html) {
+                if (!error) {
+                    var resd = alasql('SELECT * FROM ?', [html.records]);
+
+                    var katdat = [];
+                    for (var i = 0; i < resd.length; i++) {
+                        var vall = resd[i].fields;
+                        var namakategori = vall['nama_kategori'];
+                        katdat.push(namakategori)
+                    }
+
+                    request({
+                        url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
+                        json: true
+                    }, function(error, response, html) {
+                        if (!error) {
+                            var kategoris = req.params.kat;
+                            var resd = alasql('SELECT * FROM ?', [html.records]);
+                            var myArrays = [];
+                            var names = req.params.name.replace(/-/g, ' ');
+                            var arraycontainsturtles = (katdat.indexOf(names) > -1);
+
+                            if (arraycontainsturtles) {
+
+                                for (var i = 0; i < resd.length; i++) {
+                                    var vall = resd[i].fields;
+                                    var id = resd[i].id;
+                                    var kategori = vall['kategori_produk'];
+
+                                    if (kategori == kategoris) {
+                                        var namaproduk = vall['nama_produk'];
+                                        if (resd[i].fields['gambar_produk']) {
+                                            var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                                            var filename = vall['gambar_produk'][0]['filename'];
+                                            var satu = gambar.split("/")[4];
+                                            var dua = gambar.split("/")[5];
+                                            var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                                        } else {
+                                            var gam = '';
+                                        }
+
+                                        if (resd[0].fields['gambar_produk']) {
+                                            var gambard = vall['gambar_produk'][0]['thumbnails'].large.url;
+                                            var filenamea = vall['gambar_produk'][0]['filename'];
+                                            var satua = gambard.split("/")[4];
+                                            var duaa = gambard.split("/")[5];
+                                            var gams = 'https://zmbpediabogor.store/bulk/item-gambar/' + satua + '/' + duaa + '/' + filenamea.replace(/\s/g, "_");
+                                        } else {
+                                            var gams = '';
+                                        }
+
+
+                                        var stok = vall['stok_produk'];
+                                        var harga = vall['harga_produk'];
+                                        var kategori = vall['kategori_produk'];
+                                        var deskripsi = vall['deskripsi_produk'];
+                                        var cronical = 'https://zmbpediabogor.store/kategori/' + kategori + '/' + names.replace(/\s/g, "-");
+
+                                        myArrays.push({
+                                            id: id,
+                                            namaproduk: namaproduk,
+                                            gambar: gam,
+                                            stok: stok,
+                                            harga: harga,
+                                            kategori: kategori,
+                                            deskripsi: deskripsi,
+                                            oggambar: gams,
+                                            cronical: cronical
+                                        });
+                                    }
+                                }
+
+                            }
+                            res.send({ data: myArrays, gambarog: gams, namatitle: req.params.name.replace(/\s/g, "-") });
+                        }
+                    })
+
                 }
             })
 
-        }
-    })
 
-
-});
+        });
 
 
 
 
 
-//module.exports = app;
-// listen for requests :)
+        //module.exports = app;
+        // listen for requests :)
 
-var listener = app.listen(port, function() {
-    console.log('Your app is listening on port ' + listener.address().port);
-});
+        var listener = app.listen(port, function() {
+            console.log('Your app is listening on port ' + listener.address().port);
+        });
