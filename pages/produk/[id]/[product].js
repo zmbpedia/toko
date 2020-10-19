@@ -169,7 +169,6 @@ export default class Product extends React.Component {
 <section className="introBannerHolder d-flex w-100 bgCover" style={{
                               background: `url(${this.props.gambarnya})`,
                               backgroundSize: `cover`,
-
                               backgroundPosition: `center`,
                             }}
                             >
@@ -191,14 +190,10 @@ export default class Product extends React.Component {
           </div>
         </div>
       </section>
-
-
-
-
 					{this.state.in === "yes" ? (
 						<h1></h1>
 					) : (
-<>
+							<>
 					       <div className="img-eror icon icon-plant"></div>
 						<h1
 							style={{
@@ -226,7 +221,7 @@ export default class Product extends React.Component {
 						<div className="productTextHolder overflow-hidden">
 							<h2 className="fwEbold mb-2">{a.namaproduk}</h2>
 							<strong className="price d-block mb-5 text-green">{this.props.harganya}</strong>
-							<p className="mb-5">{a.deskripsi}</p>						
+							<p className={a.it}>{a.deskripsi}</p>						
 							<ul className="list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4">
 								<li className="text-uppercase mr-5">BAGIKAN PRODUK INI KE:</li>
 							 
@@ -243,10 +238,8 @@ export default class Product extends React.Component {
 						<ul className="list-unstyled tabSetList d-flex justify-content-center mb-9">
 							<li className="mr-md-20 mr-sm-10 mr-2">
 								<a href="#tab1-0" className="active playfair fwEbold pb-2">Deskripsi</a>
-							</li>
-						
-						</ul>
-			
+							</li>						
+						</ul>		
 						<div className="tab-content mb-xl-11 mb-lg-10 mb-md-8 mb-5">
 							<div id="tab1-0" className="active">
 								<p>{this.props.des}</p>
@@ -255,10 +248,8 @@ export default class Product extends React.Component {
 					</div>
 				</div>
 			</div>
-
 			</>
-					))}
-			 
+					))}			 
 			</Layout>
 		);
 	}
