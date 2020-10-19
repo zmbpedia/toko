@@ -456,6 +456,7 @@ app.get("/api/homie", function(req, res) {
                         if (id == iddata) {
                             var harganya;
                             var des;
+                            var it;
                             var namaproduk = vall['nama_produk'];
                             if (resd[i].fields['gambar_produk']) {
                                 var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
@@ -467,7 +468,7 @@ app.get("/api/homie", function(req, res) {
                                 var gam = '';
                             }
 
-                            var stok = vall['stok_produk'];
+                            var stok = vall['stok_prodduk'];
                             var harga = vall['harga_produk'];
                             var kategori = vall['kategori_produk'];
                             var deskripsi = vall['deskripsi_produk'];
@@ -480,10 +481,17 @@ app.get("/api/homie", function(req, res) {
 
 
                             if (namaproduk == names) {
+  var nyu ='(stok habis)'
 
+                                   if (stok) {
+
+  var nyu ='(tersedia)'
+
+                                   }
 
                                 harganya = ' - untuk harga silahkan hubungi admin di nomer hotline kami ';
                                 des = 'Belum ada detail keterangan deskripsi untuk produk ini';
+                                
                                 if (harga) {
 
 
@@ -507,8 +515,12 @@ app.get("/api/homie", function(req, res) {
 
                                     harganya = ' - dikisaran harga Rp. ' + rupiah;
                                 }
+
+
+
                                 if (deskripsi) {
                                     des = deskripsi
+                                    it = 'nodes'
                                 }
 
 
@@ -517,9 +529,11 @@ app.get("/api/homie", function(req, res) {
                                     namaproduk: namaproduk,
                                     gambar: gam,
                                     stok: stok,
+                                    nyu: nyu,
                                     harga: harganya,
                                     kategori: kategori,
                                     deskripsi: des,
+                                    it: it,
                                     cronical: cronical
                                 });
 

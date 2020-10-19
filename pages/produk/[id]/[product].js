@@ -34,13 +34,13 @@ export default class Product extends React.Component {
     	titlehead = 'zmbpediabogor | '+ await show[0].namaproduk+ '- Detail produk'           
     	gambarnya = await show[0].gambar;
     	linknya = await show[0].cronical;
-		des = await show[0].deskripsi;
+		des = await show[0].deskripsi + ' - ' +  await show[0].nyu;
 		harganya = await show[0].harga;
-
+      
  		 }
 
 
-		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi};
+		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi, nyu};
 	}
 
 	componentDidMount() {
@@ -132,6 +132,8 @@ export default class Product extends React.Component {
 .featureCol .hotOffer.abs {
 	background:#f9861f !important;
 }
+
+
     `;
 		return (
 			<Layout>
@@ -223,7 +225,7 @@ export default class Product extends React.Component {
 						<div className="productTextHolder overflow-hidden">
 							<h2 className="fwEbold mb-2">{a.namaproduk}</h2>
 							<strong className="price d-block mb-5 text-green">{this.props.harganya}</strong>
-							<p className="mb-5">{a.deskripsi}</p>						
+							<p className="mb-5" >{a.deskripsi}</p>						
 							<ul className="list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4">
 								<li className="text-uppercase mr-5">BAGIKAN PRODUK INI KE:</li>
 							 
