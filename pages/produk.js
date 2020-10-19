@@ -49,12 +49,8 @@ export default class Produk extends React.Component {
       var on = value["stok"];
       var kast = value["kat"];
       var stok;
-
-      if (on === "true") {
-        stok = "sale";
-      } else {
-        stok = "out of stock";
-      }
+ 
+    
       var ulr = window.location.href;
       var one = ulr.split("/")[4];
       var two = ulr.split("/")[5];
@@ -148,12 +144,6 @@ export default class Produk extends React.Component {
       var on = value["stok"];
       var kast = value["kat"];
       var on;
-
-      if (on === "true") {
-        stok = "sale";
-      } else {
-        stok = "out of stock";
-      }
       var ulr = window.location.href;
       var one = ulr.split("/")[4];
       var two = ulr.split("/")[5];
@@ -163,7 +153,7 @@ export default class Produk extends React.Component {
         nama: namaproduk,
         gambar: gambar,
         harga: harga,
-        stok: stok,
+        stok: on,
       });
     }
 
