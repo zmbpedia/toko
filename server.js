@@ -503,6 +503,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             nyu: nyu,
                             harga: harganya,
                             kategori: kategori,
+                            harganom: rupiah,
                             deskripsi: des,
                             it: it,
                             cronical: cronical

@@ -38,10 +38,11 @@ export default class Product extends React.Component {
 		des = await show[0].deskripsi + ' - ' +  await show[0].nyu;
 		harganya = await show[0].harga;
       	it = await show[0].it;
+      	 	nominalharga = await show[0].harganom;
  		 }
 
 
-		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi, it};
+		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi, it, nominalharga};
 	}
 
 	componentDidMount() {
@@ -173,7 +174,7 @@ export default class Product extends React.Component {
       description={this.props.des}
       offers={[
         {
-          price: this.props.harganya,
+          price: this.props.nominalharga,
           priceCurrency: 'IDR',
           priceValidUntil: '2020-11-05',
           itemCondition: 'http://schema.org/UsedCondition',
