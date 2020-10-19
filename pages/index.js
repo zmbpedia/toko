@@ -56,6 +56,12 @@ export default class Home extends React.Component {
     left: 0;
     margin-left: 0 !important;
 }
+.ups {
+	    top: 23px;
+}
+.abs {
+	background:#f9861f;
+}
 `;
 
 		return (
@@ -162,8 +168,8 @@ export default class Home extends React.Component {
 										<span className="price d-block fwEbold">
 											{a.harga}
 										</span>
-{a.stok ? <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8">Stok habis</span> : 
-<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Tersedia</span> 
+{a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
+ <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>
 }
 
 											
