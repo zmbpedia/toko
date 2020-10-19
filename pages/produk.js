@@ -106,7 +106,9 @@ export default class Produk extends React.Component {
                     </Link>
 											</span>
 											<span className="price d-block fwEbold">{a.harga}</span>
-											
+											     {a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
+ <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>
+}
 											{/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
 										</div>
 									</div>
@@ -196,7 +198,9 @@ export default class Produk extends React.Component {
                     </Link>
 											</span>
 											<span className="price d-block fwEbold">{a.harga}</span>
-											
+											{a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
+ <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>
+}
 											{/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
 										</div>
 									</div>
@@ -220,7 +224,29 @@ const cssString = `
     height: 100%;
     position: absolute;
     background: rgba(255,255,255, .8);
-          }`;
+          }
+.productTextHolder .price {
+    font-size: 15px;
+    margin-top:20px;
+    }
+          .featureCol .price {
+    font-size: 13px;
+    line-height: 18px;
+    color: #16941a;
+}
+.featureCol .hotOffer {
+    background: #5ba515;
+    top: 30px;
+    left: 0;
+    margin-left: 0 !important;
+}
+.featureCol .hotOffer.ups {
+      top: 23px !important;
+}
+.featureCol .hotOffer.abs {
+  background:#f9861f !important;
+}
+          `;
 
 		const { currentPage } = this.state;
 		return (

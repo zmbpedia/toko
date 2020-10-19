@@ -195,10 +195,11 @@ app.get("/api/aboutdata", function(req, res) {
                 var filename = vall['photo'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
-                var stokproduk = vall['stokproduk'];
+                var stok = vall['stok_prodduk'];
                 myArrays.push({
                     id: id,
                     deskripsi: deskripsi,
+                    stok:stok,
                     photo: 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_")
                 });
             }

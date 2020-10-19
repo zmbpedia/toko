@@ -114,7 +114,25 @@ export default class Product extends React.Component {
 .productTextHolder .price {
     font-size: 15px;
     margin-top:20px;
-    }`;
+    }
+					.featureCol .price {
+    font-size: 13px;
+    line-height: 18px;
+    color: #16941a;
+}
+.featureCol .hotOffer {
+    background: #5ba515;
+    top: 30px;
+    left: 0;
+    margin-left: 0 !important;
+}
+.featureCol .hotOffer.ups {
+	    top: 23px !important;
+}
+.featureCol .hotOffer.abs {
+	background:#f9861f !important;
+}
+    `;
 		return (
 			<Layout>
  
