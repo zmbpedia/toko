@@ -29,6 +29,7 @@ export default class Product extends React.Component {
     	let harganya = ''
     	let desi = ''
     	let it = ''
+    	let nominalharga =''
 
     	if(show.length){
 
