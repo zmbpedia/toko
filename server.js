@@ -317,7 +317,7 @@ app.get("/api/homie", function(req, res) {
                             var dua = gambar.split("/")[5];
                             var kategori = vall['kategori_produk'];
   var harga = vall['harga_produk'];
-  var stok = vall['stok_produk'];
+  var stok = vall['stok_prodduk'];
                             if (resd[i].fields['gambar_produk']) {
                                 var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                                 var filename = vall['gambar_produk'][0]['filename'];
