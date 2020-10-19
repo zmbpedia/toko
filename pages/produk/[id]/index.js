@@ -19,7 +19,7 @@ export default class error extends React.Component {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-xl-7 col-lg-8 text-center">
-                            <div className="error">
+                            <div className="error" style={{'margin-bottom': '100px'}}>
                                 <h1>404</h1>
                                 <h2>OPPS! HALAMAN TIDAK DITEMUKAN</h2>
                                 <p>maaf kemungkinan halaman yang ada cari tidak ada, atau sudah diganti / di hapus</p>
@@ -27,7 +27,7 @@ export default class error extends React.Component {
                         href="/"
                         to={`/`}
                       >
-                                <a href="/" className="btn">Kembali ke halaman awal</a>
+                                <a className="btn">Kembali ke halaman awal</a>
                                 </Link>
                             </div>
                         </div>

@@ -37,7 +37,7 @@ function Error({ statusCode }) {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-xl-7 col-lg-8 text-center">
-                            <div className="error">
+                            <div className="error" style={{'margin-bottom': '100px'}}>
                                 <h1> {statusCode
         ? `${statusCode}`
         : ''}</h1>
