@@ -70,7 +70,7 @@ export default class Produk extends React.Component {
         nama: namaproduk,
         gambar: gambar,
         harga: harga,
-        stok: stok,
+        stok: on,
       });
     }
 
@@ -107,9 +107,7 @@ export default class Produk extends React.Component {
 											</span>
 											<span className="price d-block fwEbold">{a.harga}</span>
 											     {a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
- <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>
-}
-											{/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
+ <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>}
 										</div>
 									</div>
 								</div>
@@ -149,7 +147,7 @@ export default class Produk extends React.Component {
       var sh = values["gambar"];
       var on = value["stok"];
       var kast = value["kat"];
-      var stok;
+      var on;
 
       if (on === "true") {
         stok = "sale";
@@ -201,7 +199,6 @@ export default class Produk extends React.Component {
 											{a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
  <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>
 }
-											{/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
 										</div>
 									</div>
 								</div>
