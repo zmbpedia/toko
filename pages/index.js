@@ -44,7 +44,12 @@ export default class Home extends React.Component {
     height: 100%;
     position: absolute;
     background: rgba(255,255,255, .5);
-					}`;
+					}
+					.featureCol .price {
+    font-size: 13px;
+    line-height: 18px;
+    color: #16941a;
+}`;
 
 		return (
 			<Layout>
