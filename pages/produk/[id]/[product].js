@@ -30,6 +30,7 @@ export default class Product extends React.Component {
     	let desi = ''
     	let it = ''
     	let nominalharga =''
+    	let stokis = ''
 
     	if(show.length){
 
@@ -38,12 +39,18 @@ export default class Product extends React.Component {
     	linknya = await show[0].cronical;
 		des = await show[0].deskripsi + ' - ' +  await show[0].nyu;
 		harganya = await show[0].harga;
+          
       	it = await show[0].it;
       	 	nominalharga = await show[0].harganom;
+      	 	stokis = 'http://schema.org/OutOfStock'
+         if(await show[0].stok) {
+         	stokis = 'http://schema.org/InStock'
+         }
+
  		 }
 
-
-		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi, it, nominalharga};
+                 
+		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi, it, nominalharga, stokis};
 	}
 
 	componentDidMount() {
@@ -179,7 +186,7 @@ export default class Product extends React.Component {
           priceCurrency: 'IDR',
           priceValidUntil: '2020-11-05',
           itemCondition: 'http://schema.org/UsedCondition',
-          availability: 'http://schema.org/InStock',
+          availability: this.props.stokis,
           url: this.props.linknya,
           seller: {
             name: 'zmbpediabogor.store',
