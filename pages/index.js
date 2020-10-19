@@ -50,7 +50,7 @@ export default class Home extends React.Component {
     line-height: 18px;
     color: #16941a;
 }
-.featureCol .hotOffer.green {
+.featureCol .hotOffer {
     background: #5ba515;
     top: 30px;
     left: 0;
