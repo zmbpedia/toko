@@ -56,11 +56,11 @@ export default class Home extends React.Component {
     left: 0;
     margin-left: 0 !important;
 }
-.ups {
-	    top: 23px;
+.featureCol .hotOffer.ups {
+	    top: 23px !important;
 }
-.abs {
-	background:#f9861f;
+.featureCol .hotOffer.abs {
+	background:#f9861f !important;
 }
 `;
 
