@@ -162,8 +162,8 @@ export default class Home extends React.Component {
 										<span className="price d-block fwEbold">
 											{a.harga}
 										</span>
-{a.stok_produk ==='true' ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span> : 
-<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Stok habis</span>
+{a.stok_produk ==='true' ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Tersedia</span> : 
+<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8">Stok habis</span>
 }
 
 											
