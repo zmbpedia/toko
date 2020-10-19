@@ -28,6 +28,7 @@ export default class Product extends React.Component {
     	let des = ''
     	let harganya = ''
     	let desi = ''
+    	let it = ''
 
     	if(show.length){
 
@@ -36,11 +37,11 @@ export default class Product extends React.Component {
     	linknya = await show[0].cronical;
 		des = await show[0].deskripsi + ' - ' +  await show[0].nyu;
 		harganya = await show[0].harga;
-      
+      	it = await show[0].it;
  		 }
 
 
-		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi, nyu};
+		return { show, product, id, gambarnya, linknya, titlehead, des, harganya, desi, it};
 	}
 
 	componentDidMount() {
@@ -225,7 +226,7 @@ export default class Product extends React.Component {
 						<div className="productTextHolder overflow-hidden">
 							<h2 className="fwEbold mb-2">{a.namaproduk}</h2>
 							<strong className="price d-block mb-5 text-green">{this.props.harganya}</strong>
-							<p className="mb-5" >{a.deskripsi}</p>						
+							<p className="mb-5">{a.deskripsi}</p>						
 							<ul className="list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4">
 								<li className="text-uppercase mr-5">BAGIKAN PRODUK INI KE:</li>
 							 
