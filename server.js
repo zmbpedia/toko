@@ -157,7 +157,7 @@ app.get("/api/catalogdata", function(req, res) {
                     var gam = ''
                 }
                 var namaproduk = vall['nama_produk'];
-                var stok = vall['stok_produk'];
+                var stok = vall['stok_prodduk'];
                 var harga = vall['harga_produk'];
                 var kategori = vall['kategori_produk'];
                 var deskripsi = vall['deskripsi-produk'];
