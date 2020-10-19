@@ -589,18 +589,35 @@ app.get("/api/homie", function(req, res) {
                                         }
 
 
-                                        var stok = vall['stok_produk'];
+                                        var stok = vall['stok_prodduk'];
                                         var harga = vall['harga_produk'];
                                         var kategori = vall['kategori_produk'];
                                         var deskripsi = vall['deskripsi_produk'];
                                         var cronical = 'https://zmbpediabogor.store/kategori/' + kategori + '/' + names.replace(/\s/g, "-");
+
+ harganya = 'saat ini produk tidak ada dalam etalase penjualan';
+                                if (harga) {
+                                    var number_string = harga.toString(),
+                                        split = number_string.split(','),
+                                        sisa = split[0].length % 3,
+                                        rupiah = split[0].substr(0, sisa),
+                                        ribuan = split[0].substr(sisa).match(/\d{1,3}/gi);
+
+                                    if (ribuan) {
+                                        separator = sisa ? '.' : '';
+                                        rupiah += separator + ribuan.join('.');
+                                    }
+                                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                                    harganya = 'dikisaran harga Rp. ' + rupiah;
+                                }
+
 
                                         myArrays.push({
                                             id: id,
                                             namaproduk: namaproduk,
                                             gambar: gam,
                                             stok: stok,
-                                            harga: harga,
+                                            harga: harganya,
                                             kategori: kategori,
                                             deskripsi: deskripsi,
                                             oggambar: gams,
@@ -619,10 +636,6 @@ app.get("/api/homie", function(req, res) {
 
 
         });
-
-
-
-
 
         //module.exports = app;
         // listen for requests :)

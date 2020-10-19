@@ -60,11 +60,6 @@ export default class Category extends React.Component {
       var kast = value["kategori"];
       var stok;
 
-      if (on === "true") {
-        stok = "sale";
-      } else {
-        stok = "out of stock";
-      }
       var ulr = window.location.href;
       var one = ulr.split("/")[4];
       var two = ulr.split("/")[5];
@@ -77,7 +72,7 @@ export default class Category extends React.Component {
         nama: namaproduk,
         gambar: gambar,
         harga: harga,
-        stok: stok,
+        stok: on,
         kats: kast,
       });
     }
@@ -113,8 +108,8 @@ export default class Category extends React.Component {
                     </Link>
                       </span>
                       <span className="price d-block fwEbold">{a.harga}</span>
-                      
-                      {/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
+                         {a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
+ <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>}
                     </div>
                   </div>
                 </div>
@@ -145,11 +140,6 @@ export default class Category extends React.Component {
       var kast = value["kategori"];
       var stok;
 
-      if (on === "true") {
-        stok = "sale";
-      } else {
-        stok = "out of stock";
-      }
       var ulr = window.location.href;
       var one = ulr.split("/")[4];
       var two = ulr.split("/")[5];
@@ -159,7 +149,7 @@ export default class Category extends React.Component {
         nama: namaproduk,
         gambar: gambar,
         harga: harga,
-        stok: stok,
+        stok: on,
         kats: kast,
       });
     }
@@ -191,8 +181,8 @@ export default class Category extends React.Component {
                     </Link>
                       </span>
                       <span className="price d-block fwEbold">{a.harga}</span>
-                      
-                      {/*<span className="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>*/}
+                        {a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
+ <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>}
                     </div>
                   </div>
                 </div>
@@ -227,6 +217,26 @@ export default class Category extends React.Component {
 .main-content-wrapper {
   margin-top: 100px;
   margin-bottom: 100px;
+}.productTextHolder .price {
+    font-size: 15px;
+    margin-top:20px;
+    }
+          .featureCol .price {
+    font-size: 13px;
+    line-height: 18px;
+    color: #16941a;
+}
+.featureCol .hotOffer {
+    background: #5ba515;
+    top: 30px;
+    left: 0;
+    margin-left: 0 !important;
+}
+.featureCol .hotOffer.ups {
+      top: 23px !important;
+}
+.featureCol .hotOffer.abs {
+  background:#f9861f !important;
 }
 .img-eror{
               font-size: 130px;
