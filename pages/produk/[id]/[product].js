@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Layout from "../../../components/layout";
-import { NextSeo } from 'next-seo';
+import { NextSeo, ProductJsonLd  } from 'next-seo';
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
 import { default as minifyCssString } from "minify-css-string";
@@ -165,7 +165,26 @@ export default class Product extends React.Component {
         site_name: 'zmbpediabogor',
       }}
     />
-
+  <ProductJsonLd
+      productName={this.props.product}
+      images={[
+        this.props.gambarnya
+      ]}
+      description={this.props.des}
+      offers={[
+        {
+          price: this.props.harganya,
+          priceCurrency: 'IDR',
+          priceValidUntil: '2020-11-05',
+          itemCondition: 'http://schema.org/UsedCondition',
+          availability: 'http://schema.org/InStock',
+          url: this.props.linknya,
+          seller: {
+            name: 'zmbpediabogor.store',
+          },
+        },
+      ]}
+    />
 <section className="introBannerHolder d-flex w-100 bgCover" style={{
                               background: `url(${this.props.gambarnya})`,
                               backgroundSize: `cover`,
