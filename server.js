@@ -317,6 +317,7 @@ app.get("/api/homie", function(req, res) {
                             var dua = gambar.split("/")[5];
                             var kategori = vall['kategori_produk'];
   var harga = vall['harga_produk'];
+  var stok = vall['stok_produk'];
                             if (resd[i].fields['gambar_produk']) {
                                 var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                                 var filename = vall['gambar_produk'][0]['filename'];
@@ -349,6 +350,7 @@ app.get("/api/homie", function(req, res) {
                                     namaproduk: namaproduk,
                                     gambar: gam,
                                     kategori: kategori,
+                                     stok: stok,
                                     harga: harganya
                                 });
                             

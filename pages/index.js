@@ -49,7 +49,14 @@ export default class Home extends React.Component {
     font-size: 13px;
     line-height: 18px;
     color: #16941a;
-}`;
+}
+.featureCol .hotOffer.green {
+    background: #5ba515;
+    top: 30px;
+    left: 0;
+    margin-left: 0 !important;
+}
+`;
 
 		return (
 			<Layout>
@@ -155,6 +162,11 @@ export default class Home extends React.Component {
 										<span className="price d-block fwEbold">
 											{a.harga}
 										</span>
+{a.stok_produk ==='true' ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span> : 
+<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Stok habis</span>
+}
+
+											
 									</div>
 								</div>
 							</div>
