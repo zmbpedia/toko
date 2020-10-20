@@ -176,6 +176,7 @@ app.get("/api/catalogdata", function(req, res) {
                     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
                     harganya = 'dikisaran harga Rp. ' + rupiah;
                 }
+            }
                 myArrays.push({
                     id: id,
                     namaproduk: namaproduk,
@@ -186,7 +187,7 @@ app.get("/api/catalogdata", function(req, res) {
                     deskripsi: deskripsi
                 });
 
-            }
+            
             res.send({ data: myArrays, ogimg: gamm, alt: namaprodukur });
         }
     })

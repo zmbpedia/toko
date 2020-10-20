@@ -1,12 +1,23 @@
 import Foot from "./footer";
 import Nav from "./nav";
-const Layout = (props) => {
+import React from 'react'
+import { initGA, logPageView } from '../utils/analytics'
+
+export default class Layout extends React.Component {
+  componentDidMount () {
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+    logPageView()
+  }
+  render () {
     return (
-        <>
-            <Nav />
-            <div>{props.children}</div>
-            <Foot />
-        </>
-    );
-};
-export default Layout;
+      <>
+       <Nav />
+        {this.props.children}
+         <Foot />
+      </>
+    )
+  }
+}
