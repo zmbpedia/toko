@@ -327,10 +327,8 @@ app.get("/api/homie", function(req, res) {
                 var vall = resd[keyArray[i]].fields;
                 var id = resd[keyArray[i]].id;
                 var namaproduk = vall['nama_produk'];
-                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-                var filename = vall['gambar_produk'][0]['filename'];
-                var satu = gambar.split("/")[4];
-                var dua = gambar.split("/")[5];
+   
+
                 var kategori = vall['kategori_produk'];
                 var harga = vall['harga_produk'];
                 var stok = vall['stok_prodduk'];
