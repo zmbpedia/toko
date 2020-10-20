@@ -334,10 +334,10 @@ app.get("/api/homie", function(req, res) {
                     var namaproduk = vall['nama_produk'];
                 }
                 if (vall['kategori_produk']) {
-                    var namaproduk = vall['kategori_produk'];
+                    var kategori = vall['kategori_produk'];
                 }
                 if (vall['harga_produk']) {
-                    var namaproduk = vall['harga_produk'];
+                    var harga = vall['harga_produk'];
                 }
 
                 if (vall['stok_prodduk']) {
