@@ -211,11 +211,12 @@ app.get("/api/catalogdata", function(req, res) {
                 kategori: kategori,
                 deskripsi: deskripsi
             });
+        }
 
 
             res.send({ data: myArrays, ogimg: gamm, alt: namaprodukur });
         }
-    })
+ 
 });
 
 
