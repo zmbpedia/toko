@@ -140,7 +140,7 @@ app.get("/api/catalogdata", function(req, res) {
                 var gamm = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
             } else {
                 var namaprodukur = ''
-                    var gamm = 'https://zmbpediabogor.store/error/item-gambar/tdk.svg';
+                    var gamm =  'https://zmbpediabogor.store/assets/img/tdk.svg';
             }
 
             for (var i = 0; i < resd.length; i++) {
@@ -154,7 +154,7 @@ app.get("/api/catalogdata", function(req, res) {
                     var dua = gb.split("/")[5];
                     var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                 } else {
-                       var gam = 'https://zmbpediabogor.store/error/item-gambar/tdk.svg';
+                       var gam =  'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
 
 
@@ -411,7 +411,7 @@ app.get("/api/homie", function(req, res) {
                     var dua = gambar.split("/")[5];
                     var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                 } else {
-                    var gam = 'https://zmbpediabogor.store/error/item-gambar/tdk.svg';
+                    var gam =  'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
 
 
@@ -479,7 +479,7 @@ app.get("/api/slide", function(req, res) {
                     var dua = gambar.split("/")[5];
                     var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                 } else {
-                        var gam = 'https://zmbpediabogor.store/error/item-gambar/tdk.svg';
+                        var gam =  'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
 
 
@@ -533,7 +533,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                         var dua = gambar.split("/")[5];
                         var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                     } else {
-                            var gam = 'https://zmbpediabogor.store/error/item-gambar/tdk.svg';
+                            var gam =  'https://zmbpediabogor.store/assets/img/tdk.svg';
                     }
                     var stok = vall['stok_prodduk'];
                     var harga = vall['harga_produk'];
@@ -641,7 +641,7 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
                                     var duaa = gambard.split("/")[5];
                                     var gams = 'https://zmbpediabogor.store/bulk/item-gambar/' + satua + '/' + duaa + '/' + filenamea.replace(/\s/g, "_");
                                 } else {
-                                       var gams = 'https://zmbpediabogor.store/error/item-gambar/tdk.svg';
+                                       var gams =  'https://zmbpediabogor.store/assets/img/tdk.svg';
                                 }
 
 
