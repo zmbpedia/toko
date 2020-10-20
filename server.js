@@ -341,9 +341,9 @@ app.get('/bulk/item-gambar/:idone/:idtwo/:file', function(req, res) {
     })
 })
 
-app.get('/error/item-gambar/:file', function(req, res) {
+app.get('/error/item-gambar/tdk.svg', function(req, res) {
     var file = req.params.file;
-    var url = 'https://zmbpediabogor.store/assets/img/' + file
+    var url = 'https://zmbpediabogor.store/assets/img/tdk.svg'
     request({
         url: url,
         method: "HEAD",
