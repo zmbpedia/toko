@@ -156,11 +156,36 @@ app.get("/api/catalogdata", function(req, res) {
                 } else {
                     var gam = ''
                 }
-                var namaproduk = vall['nama_produk'];
-                var stok = vall['stok_prodduk'];
-                var harga = vall['harga_produk'];
-                var kategori = vall['kategori_produk'];
+
+
+
+  var namaproduk = '';
+                var kategori = ''
+                var harga = ''
+                var stok = ''
+                var deskripsi = ''
+                if (vall['nama_produk']) {
+                    var namaproduk = vall['nama_produk'];
+                }
+                if (vall['kategori_produk']) {
+                    var kategori = vall['kategori_produk'];
+                }
+                if (vall['harga_produk']) {
+                    var harga = vall['harga_produk'];
+                }
+
+                if (vall['stok_prodduk']) {
+                    var stok = vall['stok_prodduk'];
+                }
+
+
+                if (vall['deskripsi-produk']) {
+               
                 var deskripsi = vall['deskripsi-produk'];
+                }
+
+
+      
                 harganya = 'saat ini produk tidak ada dalam etalase penjualan';
                 if (harga) {
                     var number_string = harga.toString(),
