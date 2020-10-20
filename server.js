@@ -177,17 +177,17 @@ app.get("/api/catalogdata", function(req, res) {
                     harganya = 'dikisaran harga Rp. ' + rupiah;
                 }
             }
-                myArrays.push({
-                    id: id,
-                    namaproduk: namaproduk,
-                    gambar: gam,
-                    stok: stok,
-                    harga: harganya,
-                    kategori: kategori,
-                    deskripsi: deskripsi
-                });
+            myArrays.push({
+                id: id,
+                namaproduk: namaproduk,
+                gambar: gam,
+                stok: stok,
+                harga: harganya,
+                kategori: kategori,
+                deskripsi: deskripsi
+            });
 
-            
+
             res.send({ data: myArrays, ogimg: gamm, alt: namaprodukur });
         }
     })
@@ -326,14 +326,24 @@ app.get("/api/homie", function(req, res) {
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[keyArray[i]].fields;
                 var id = resd[keyArray[i]].id;
-                var namaproduk = vall['nama_produk'];
+                var namaproduk = '';
+                var kategori = ''
+                var harga = ''
+                var stok = ''
+                if (vall['nama_produk']) {
+                    var namaproduk = vall['nama_produk'];
+                }
+                if (vall['kategori_produk']) {
+                    var namaproduk = vall['kategori_produk'];
+                }
+                if (vall['harga_produk']) {
+                    var namaproduk = vall['harga_produk'];
+                }
 
-          
+                if (vall['stok_prodduk']) {
+                    var stok = vall['stok_prodduk'];
+                }
 
-                var kategori = vall['kategori_produk'];
-                var harga = vall['harga_produk'];
-                var stok = vall['stok_prodduk'];
-                
                 if (resd[keyArray[i]].fields['gambar_produk']) {
                     var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                     var filename = vall['gambar_produk'][0]['filename'];
