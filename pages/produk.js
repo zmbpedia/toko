@@ -256,10 +256,10 @@ const cssString = `
         description: "Toko aneka macam tanaman hias",
         images: [
           {
-            url: this.props.gambarnya,
+          url: "https://zmbpediabogor.store/assets/img/logo.png",
            width: 600,
             height: 315,
-            alt: this.props.altgam,
+            alt: 'zmbpediabogor',
           }
         ],
         site_name: 'zmbpediabogor',
