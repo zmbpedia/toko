@@ -144,6 +144,7 @@ export default class Home extends React.Component {
 							<div className="col-12 col-sm-6 col-lg-3 featureCol position-relative mb-6">
 								<div className="border">
 									<div className="imgHolder position-relative w-100 overflow-hidden">
+									{a.gambar ?
 										<img
 											src={a.gambar}
 											style={{
@@ -154,7 +155,12 @@ export default class Home extends React.Component {
 											id="wax-img"
 											alt={a.namaproduk}
 											className="img-fluid"
-										/>
+										/> :
+										<video>
+										<source src={a.url} type="video/mp4"> 
+										Your browser does not support the video tag.
+									  </video>
+	}
 									</div>
 									<div class="text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1">
 										<span class="title d-block mb-2">

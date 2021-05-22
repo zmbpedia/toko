@@ -362,6 +362,7 @@ app.get("/api/homie", function(req, res) {
                 var vall = resd[keyArray[i]].fields;
                 var id = resd[keyArray[i]].id;
                 var namaproduk = '';
+                var url ='';
                 var kategori = ''
                 var harga = ''
                 var stok = ''
@@ -387,12 +388,14 @@ app.get("/api/homie", function(req, res) {
                     var satu = gambar.split("/")[4];
                     var dua = gambar.split("/")[5];
                     var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+
                     }else{
                         var gambar = '';
                         var filename = '';
                         var satu = '';
                         var dua = '';
                         var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                        var url = vall['gambar_produk'][0]['url']
                     }
                 } else {
                     var gam =  'https://zmbpediabogor.store/assets/img/tdk.svg';
@@ -419,7 +422,8 @@ app.get("/api/homie", function(req, res) {
                     gambar: gam,
                     kategori: kategori,
                     stok: stok,
-                    harga: harganya
+                    harga: harganya,
+                    url: url
                 });
 
             }
