@@ -157,7 +157,7 @@ export default class Home extends React.Component {
 											className="img-fluid"
 										/> :
 										<video>
-										<source src={a.url} type="video/mp4"> 
+										<source src={a.url} type="video/mp4" /> 
 										Your browser does not support the video tag.
 									  </video>
 	}
