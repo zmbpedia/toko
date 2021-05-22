@@ -425,7 +425,6 @@ app.get("/api/homie", function(req, res) {
             }
             res.send(myArrays);
         }
-
     })
 });
 
@@ -450,9 +449,9 @@ app.get("/api/slide", function(req, res) {
 
                 if (resd[i].fields['gambar_slide']) {
 
-                    if(vall['gambar_produk'][0]['thumbnails']){
-                        var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-                        var filename = vall['gambar_produk'][0]['filename'];
+                    if(vall['gambar_slide'][0]['thumbnails']){
+                        var gambar = vall['gambar_slide'][0]['thumbnails'].large.url;
+                        var filename = vall['gambar_slide'][0]['filename'];
                         var satu = gambar.split("/")[4];
                         var dua = gambar.split("/")[5];
                         var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
@@ -463,8 +462,6 @@ app.get("/api/slide", function(req, res) {
                             var dua = '';
                             var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                         }
-
-
                 } else {
                         var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
