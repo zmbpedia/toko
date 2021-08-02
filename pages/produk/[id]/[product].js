@@ -73,6 +73,7 @@ export default class Product extends React.Component {
 			var gambar = value["gambar"];
 			var deskripsi = value["deskripsi"];
 			var on = value["stok"];
+			var vid = value["vid"];
 			var stokis = value["stokproduk"];
 			var stok;
 			if (on) {
@@ -90,7 +91,7 @@ export default class Product extends React.Component {
 				harga: hargaproduk,
 				deskrip: deskripsi,
 				stok: stok,
-
+                vid:vid,
 				stokis: stokis,
 			});
 		}
@@ -241,7 +242,21 @@ export default class Product extends React.Component {
 					<div className="col-12 col-lg-6 order-lg-1">		
 						<div className="productSliderImage mb-lg-0 mb-4">
 							<div>
+                        
+
+							{a.vid ?
+
+
+										<video>
+										<source src={a.vid} type="video/mp4" /> 
+										Your browser does not support the video tag.
+									  </video>
+
+:
+
 								<img src={a.gambar} alt="image description" className="img-fluid w-100" />
+							}
+
 							</div>
 						</div>
 					</div>

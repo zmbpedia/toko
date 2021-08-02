@@ -516,6 +516,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                 var vall = resd[i].fields;
                 var id = resd[i].id;
                 console.log(id)
+                var vid;
                 var nama = resd[i].nama_produk;
                 if (id == iddata) {
                     var harganya;
@@ -531,10 +532,17 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             var satu = gambar.split("/")[4];
                             var dua = gambar.split("/")[5];
                             var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                            if(vall['gambar_produk'][0].type === 'video/mp4'){
+                                 vid = vall['gambar_produk'][0].url
+                            }else{
+                                 vid = ''
+                            }
+
                             }else{
                                 var gambar = '';
                                 var filename = '';
                                 var satu = '';
+                                vid = ''
                                 var dua = '';
                                 var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                             }
@@ -582,6 +590,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             kategori: kategori,
                             harganom: rupiah,
                             deskripsi: des,
+                            vid: vid,
                             it: it,
                             cronical: cronical
                         });
