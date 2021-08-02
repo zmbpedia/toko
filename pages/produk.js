@@ -80,7 +80,8 @@ export default class Produk extends React.Component {
 								<div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
 									<div className="border">
 										<div className="imgHolder position-relative w-100 overflow-hidden">
-										<img
+                    {a.gambar ?	
+                    <img
 											src={a.gambar}
 											style={{
 												height: "300px",
@@ -91,6 +92,13 @@ export default class Produk extends React.Component {
 											alt={a.namaproduk}
 											className="img-fluid"
 										/>
+:
+										<video>
+										<source src={a.url} type="video/mp4" /> 
+										Your browser does not support the video tag.
+									  </video>
+	}
+
 									</div>
 										<div className="text-center py-5 px-4">
 											<span className="title d-block mb-2">
@@ -164,7 +172,9 @@ export default class Produk extends React.Component {
 								<div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
 									<div className="border">
 										<div className="imgHolder position-relative w-100 overflow-hidden">
-										<img
+										
+                    {a.gambar ?
+                    <img
 											src={a.gambar}
 											style={{
 												height: "300px",
@@ -175,6 +185,13 @@ export default class Produk extends React.Component {
 											alt={a.namaproduk}
 											className="img-fluid"
 										/>
+                    :
+										<video>
+										<source src={a.url} type="video/mp4" /> 
+										Your browser does not support the video tag.
+									  </video>
+	}
+
 									</div>
 										<div className="text-center py-5 px-4">
 											<span className="title d-block mb-2">
