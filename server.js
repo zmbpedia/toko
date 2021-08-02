@@ -132,11 +132,11 @@ app.get("/api/catalogdata", function(req, res) {
             keyArray = shuffle(keyArray)
 
 
-            if (resd[0].fields['gambar_produk'][0].type) {
+            if (resd[0].fields['gambar_produk'][0]['thumbnails']) {
                 var vall = resd[0].fields;
                 if(vall['gambar_produk'][0].type != 'video/mp4'){
                 var namaprodukur = vall['nama_produk'];
-                var gambar = vall['gambar_produk'][0].url;
+                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                 var filename = vall['gambar_produk'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
@@ -161,7 +161,7 @@ app.get("/api/catalogdata", function(req, res) {
                 if (vall['gambar_produk']) {
                         
                     if(vall['gambar_produk'][0].type !== 'video/mp4'){
-                    var gb = resd[i].fields['gambar_produk'][0].url;
+                    var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
                     var id = resd[i].id;
                     
                     var filename = vall['gambar_produk'][0]['filename'];
@@ -176,7 +176,7 @@ app.get("/api/catalogdata", function(req, res) {
                         gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                         //var url = vall['gambar_produk'][0]['url']
                     }
-                    console.log(gam)
+                 
                 } else {
                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
