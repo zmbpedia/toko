@@ -160,12 +160,15 @@ app.get("/api/catalogdata", function(req, res) {
 
                     if(resd[i].fields['gambar_produk'][0].type == 'video/mp4'){
                         var gam = vall['gambar_produk'][0].url;
+                        var typea = vall['gambar_produk'][0].type;
                     }else{
                     if(resd[i].fields['gambar_produk'][0]['thumbnails'].large == null) {
                             var gam = '';
+                            var typea = '';
                     }else{
                     var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
                     var id = resd[i].id;
+                    var typea = '';
                     var filename = vall['gambar_produk'][0]['filename'];
                     var satu = gb.split("/")[4];
                     var dua = gb.split("/")[5];
@@ -221,6 +224,7 @@ app.get("/api/catalogdata", function(req, res) {
                 namaproduk: namaproduk,
                 gambar: gam,
                 stok: stok,
+                typea: typea,
                 harga: harganya,
                 kategori: kategori,
                 deskripsi: deskripsi
