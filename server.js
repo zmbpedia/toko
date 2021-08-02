@@ -146,38 +146,42 @@ app.get("/api/catalogdata", function(req, res) {
                     var filename = '';
                     var satu = '';
                     var dua = '';
-                    var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                    var url = vall['gambar_produk'][0]['url']
+                    var gamm = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                    //var url = vall['gambar_produk'][0]['url']
                 }
+
             } else {
                 var namaprodukur = ''
-                    var gamm =  'https://zmbpediabogor.store/assets/img/tdk.svg';
+                var gamm =  'https://zmbpediabogor.store/assets/img/tdk.svg';
             }
-
+            var gam;
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
 
-                if (resd[i].fields['gambar_produk'].type) {
-                    if(vall['gambar_produk'][0].type != 'video/mp4'){
+                if (vall['gambar_produk']) {
+                        
+                    if(vall['gambar_produk'][0].type !== 'video/mp4'){
                     var gb = resd[i].fields['gambar_produk'][0].url;
                     var id = resd[i].id;
                     
                     var filename = vall['gambar_produk'][0]['filename'];
                     var satu = gb.split("/")[4];
                     var dua = gb.split("/")[5];
-                    var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                    gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                     }else{
                         var gambar = '';
                         var filename = '';
                         var satu = '';
                         var dua = '';
-                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                        var url = vall['gambar_produk'][0]['url']
+                        gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                        //var url = vall['gambar_produk'][0]['url']
                     }
+                    console.log(gam)
                 } else {
                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
 
+        
                 var namaproduk = '';
                 var kategori = ''
                 var harga = ''
@@ -218,6 +222,8 @@ app.get("/api/catalogdata", function(req, res) {
                     harganya = 'dikisaran harga Rp. ' + rupiah;
                 }
 
+
+        
     myArrays.push({
                 id: id,
                 namaproduk: namaproduk,
