@@ -132,13 +132,11 @@ app.get("/api/catalogdata", function(req, res) {
             keyArray = shuffle(keyArray)
 
 
-            if (resd[0].fields['gambar_produk']) {
-                if(vall['gambar_produk'][0]['thumbnails']){
-                var vall = resd[keyArray[0]].fields;
+            if (resd[0].fields['gambar_produk'][0].type) {
+                var vall = resd[0].fields;
+                if(vall['gambar_produk'][0].type != 'video/mp4'){
                 var namaprodukur = vall['nama_produk'];
-                
-                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-
+                var gambar = vall['gambar_produk'][0].url;
                 var filename = vall['gambar_produk'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
@@ -159,13 +157,23 @@ app.get("/api/catalogdata", function(req, res) {
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
 
-                if (resd[i].fields['gambar_produk']) {
-                    var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
+                if (resd[i].fields['gambar_produk'].type) {
+                    if(vall['gambar_produk'][0].type != 'video/mp4'){
+                    var gb = resd[i].fields['gambar_produk'][0].url;
                     var id = resd[i].id;
+                    
                     var filename = vall['gambar_produk'][0]['filename'];
                     var satu = gb.split("/")[4];
                     var dua = gb.split("/")[5];
                     var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                    }else{
+                        var gambar = '';
+                        var filename = '';
+                        var satu = '';
+                        var dua = '';
+                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                        var url = vall['gambar_produk'][0]['url']
+                    }
                 } else {
                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
