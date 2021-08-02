@@ -138,7 +138,7 @@ app.get("/api/catalogdata", function(req, res) {
                 var gamm = vall['gambar_produk'].url;
             }else{
                 if(resd[0].fields['gambar_produk'][0]['thumbnails'].large == null) {
-                    var gambar = '';
+                    var gamm = '';
                 }else{
                 var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                 var filename = vall['gambar_produk'][0]['filename'];
@@ -159,11 +159,11 @@ app.get("/api/catalogdata", function(req, res) {
                 if (resd[i].fields['gambar_produk']) {
 
                     if(resd[i].fields['gambar_produk'][0].type == 'video/mp4'){
-                        var gamm = vall['gambar_produk'][0].url;
+                        var gam = vall['gambar_produk'][0].url;
                     }else{
                     if(resd[i].fields['gambar_produk'][0]['thumbnails'].large == null) {
-                            var gambar = '';
-                        }else{
+                            var gam = '';
+                    }else{
                     var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
                     var id = resd[i].id;
                     var filename = vall['gambar_produk'][0]['filename'];
