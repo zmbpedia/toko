@@ -6,10 +6,10 @@ import ReactPaginate from "react-paginate";
 import { default as minifyCssString } from "minify-css-string";
 import { NextSeo } from 'next-seo';
 function truncate(str) {
-	return str.length > 10 ? str.substring(0, 20) + "..." : str;
+  return str.length > 10 ? str.substring(0, 20) + "..." : str;
 }
 export default class Produk extends React.Component {
-	 constructor() {
+  constructor() {
     super();
     this.state = {
       imageIndex: 0,
@@ -21,21 +21,21 @@ export default class Produk extends React.Component {
     };
     this.handlePageClick = this.handlePageClick.bind(this);
   }
-	static async getInitialProps() {
-		const res = await fetch("https://zmbpediabogor.store/api/catalogdata");
-		const show = await res.json();
-		   let gambarnya ='';
-		let altgam = '';
-      if(show.data.length){
-      gambarnya = await show.ogimg; 
-        altgam = await show.alt; 
+  static async getInitialProps() {
+    const res = await fetch("https://zmbpediabogor.store/api/catalogdata");
+    const show = await res.json();
+    let gambarnya = '';
+    let altgam = '';
+    if (show.data.length) {
+      gambarnya = await show.ogimg;
+      altgam = await show.alt;
     }
-	   return { show, gambarnya, altgam }
-	}
+    return { show, gambarnya, altgam }
+  }
 
 
 
-	  componentDidMount() {
+  componentDidMount() {
     window.scrollTo(0, 0);
     var myArray = [];
     for (var i = 0; i < this.props.show.data.length; i++) {
@@ -47,13 +47,16 @@ export default class Produk extends React.Component {
       var gambar = value["gambar"];
       var sh = values["gambar"];
       var on = value["stok"];
+      var typea = values["typea"];
       var kast = value["kat"];
       var stok;
- 
-    
+
+
       var ulr = window.location.href;
       var one = ulr.split("/")[4];
       var two = ulr.split("/")[5];
+
+      console.log(typea)
       this.setState({
         namekat: "zmbpediabogor - Katalog produk",
         ada: "yes",
@@ -78,46 +81,40 @@ export default class Produk extends React.Component {
       );
       const postData = slice.map((a) => (
 
-								<div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div className="border">
-										<div className="imgHolder position-relative w-100 overflow-hidden">
-                    {a.typea ?	
-                    	<video>
-                      <source src={a.url} type="video/mp4" /> 
-                      Your browser does not support the video tag.
-                      </video>
-                   
-:
-<img
-src={a.gambar}
-style={{
-  height: "300px",
-  objectFit: "cover",
-  width: "100%",
-}}
-id="wax-img"
-alt={a.namaproduk}
-className="img-fluid"
-/>
-	}
+        <div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
+          <div className="border">
+            <div className="imgHolder position-relative w-100 overflow-hidden">
+          
+                <img
+                  src={a.gambar}
+                  style={{
+                    height: "300px",
+                    objectFit: "cover",
+                    width: "100%",
+                  }}
+                  id="wax-img"
+                  alt={a.namaproduk}
+                  className="img-fluid"
+                />
+            
 
-									</div>
-										<div className="text-center py-5 px-4">
-											<span className="title d-block mb-2">
-											<Link
-                      href="/produk/[id]/[product]"
-                      as={`/produk/${a.id}/${a.nama.replace(/\s/g,"-")}`}
-                    >
-                      <a> {truncate(a.nama)}</a>
-                    </Link>
-											</span>
-											<span className="price d-block fwEbold">{a.harga}</span>
-											     {a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
- <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>}
-										</div>
-									</div>
-								</div>
-    ));
+            </div>
+            <div className="text-center py-5 px-4">
+              <span className="title d-block mb-2">
+                <Link
+                  href="/produk/[id]/[product]"
+                  as={`/produk/${a.id}/${a.nama.replace(/\s/g, "-")}`}
+                >
+                  <a> {truncate(a.nama)}</a>
+                </Link>
+              </span>
+              <span className="price d-block fwEbold">{a.harga}</span>
+              {a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> :
+                <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>}
+            </div>
+          </div>
+        </div>
+      ));
 
       this.setState({
         pageCount: Math.ceil(myArray.length / this.state.perPage),
@@ -153,11 +150,12 @@ className="img-fluid"
       var sh = values["gambar"];
       var on = value["stok"];
       var kast = value["kat"];
+      var typea = values["typea"];
       var on;
       var ulr = window.location.href;
       var one = ulr.split("/")[4];
       var two = ulr.split("/")[5];
-
+      console.log(typea)
       myArray.push({
         id: num,
         nama: namaproduk,
@@ -169,52 +167,45 @@ className="img-fluid"
     }
 
 
- const slice = myArray.slice(e, e + this.state.perPage);
+    const slice = myArray.slice(e, e + this.state.perPage);
     const postData = slice.map((a) => (
 
-								<div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div className="border">
-										<div className="imgHolder position-relative w-100 overflow-hidden">
-										
-                    {a.typea ?	
-                    	<video>
-                      <source src={a.url} type="video/mp4" /> 
-                      Your browser does not support the video tag.
-                      </video>
-                   
-:
-<img
-src={a.gambar}
-style={{
-  height: "300px",
-  objectFit: "cover",
-  width: "100%",
-}}
-id="wax-img"
-alt={a.namaproduk}
-className="img-fluid"
-/>
-	}
-									</div>
-										<div className="text-center py-5 px-4">
-											<span className="title d-block mb-2">
-											<Link
-                      href="/produk/[id]/[product]"
-                      as={`/produk/${a.id}/${a.nama.replace(/\s/g,"-")}`}
-                    >
-                      <a> {truncate(a.nama)}</a>
-                    </Link>
-											</span>
-											<span className="price d-block fwEbold">{a.harga}</span>
-											{a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> : 
- <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>
-}
-										</div>
-									</div>
-								</div>
+      <div className="col-12 col-sm-6 col-lg-4 featureCol mb-7">
+        <div className="border">
+          <div className="imgHolder position-relative w-100 overflow-hidden">
+
+              <img
+                src={a.gambar}
+                style={{
+                  height: "300px",
+                  objectFit: "cover",
+                  width: "100%",
+                }}
+                id="wax-img"
+                alt={a.namaproduk}
+                className="img-fluid"
+              />
+            
+          </div>
+          <div className="text-center py-5 px-4">
+            <span className="title d-block mb-2">
+              <Link
+                href="/produk/[id]/[product]"
+                as={`/produk/${a.id}/${a.nama.replace(/\s/g, "-")}`}
+              >
+                <a> {truncate(a.nama)}</a>
+              </Link>
+            </span>
+            <span className="price d-block fwEbold">{a.harga}</span>
+            {a.stok ? <span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups">Tersedia</span> :
+              <span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs">Stok habis</span>
+            }
+          </div>
+        </div>
+      </div>
 
 
-    	   ));
+    ));
 
     this.setState({
       pageCount: Math.ceil(myArray.length / this.state.perPage),
@@ -222,9 +213,9 @@ className="img-fluid"
     });
   };
 
-	render() {
+  render() {
 
-const cssString = `
+    const cssString = `
   .border{  border: 1px solid #dee2e6!important}
   .overl{
     width: 100%;
@@ -255,80 +246,80 @@ const cssString = `
 }
           `;
 
-		const { currentPage } = this.state;
-		return (
+    const { currentPage } = this.state;
+    return (
 
-<>
-	<Layout>
-    <style
-          dangerouslySetInnerHTML={{
-            __html: minifyCssString(cssString),
+      <>
+        <Layout>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: minifyCssString(cssString),
+            }}
+          />
+
+          <NextSeo
+            title="zmbpediabogor - Katalog produk"
+            description="Toko aneka macam tanaman hias"
+            canonical="https://zmbpediabogor.store/produk"
+            openGraph={{
+              url: "https://zmbpediabogor.store/produk",
+              title: "zmbpediabogor - Katalog produk",
+              description: "Toko aneka macam tanaman hias",
+              images: [
+                {
+                  url: "https://zmbpediabogor.store/assets/img/logo.png",
+                  width: 600,
+                  height: 315,
+                  alt: 'zmbpediabogor',
+                }
+              ],
+              site_name: 'zmbpediabogor',
+            }}
+          />
+
+
+          <section className="introBannerHolder d-flex w-100 bgCover" style={{
+            background: `url(${this.props.gambarnya})`,
+            backgroundSize: `cover`,
+
+            backgroundPosition: `center`,
           }}
-        />
+          >
+            <div className="overl"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
+                  <h1 class="headingIV fwEbold playfair mb-4">Katalog</h1>
+                  <ul class="list-unstyled breadCrumbs d-flex justify-content-center">
+                    <li class="mr-2">
+                      <Link href="/" to="/">
+                        <a>Beranda</a>
+                      </Link>
+                    </li>
+                    <li class="mr-2">/</li>
+                    <li class="active">Katalog</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
 
- <NextSeo
-      title="zmbpediabogor - Katalog produk"
-      description="Toko aneka macam tanaman hias"
-      canonical="https://zmbpediabogor.store/produk"
-      openGraph={{
-        url: "https://zmbpediabogor.store/produk",
-        title: "zmbpediabogor - Katalog produk",
-        description: "Toko aneka macam tanaman hias",
-        images: [
-          {
-          url: "https://zmbpediabogor.store/assets/img/logo.png",
-           width: 600,
-            height: 315,
-            alt: 'zmbpediabogor',
-          }
-        ],
-        site_name: 'zmbpediabogor',
-      }}
-    />
- 
 
-<section className="introBannerHolder d-flex w-100 bgCover" style={{
-															background: `url(${this.props.gambarnya})`,
-															backgroundSize: `cover`,
 
-															backgroundPosition: `center`,
-														}}
-														>
-														<div className="overl"></div>	
-				<div class="container">
-					<div class="row">
-						<div class="col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center">
-							<h1 class="headingIV fwEbold playfair mb-4">Katalog</h1>
-							<ul class="list-unstyled breadCrumbs d-flex justify-content-center">
-								<li class="mr-2">
-                <Link href="/" to="/">
-                <a>Beranda</a>
-                </Link>
-                </li>
-								<li class="mr-2">/</li>
-								<li class="active">Katalog</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
+          <div class="twoColumns container pt-lg-23 pb-lg-20 pt-md-16 pb-md-4 pt-10 pb-4">
+            <div class="row">
+              <div class="col-12 col-lg-12 order-lg-3">
 
-			
+                <article id="content">
 
-	<div class="twoColumns container pt-lg-23 pb-lg-20 pt-md-16 pb-md-4 pt-10 pb-4">
-				<div class="row">
-					<div class="col-12 col-lg-12 order-lg-3">
-					
-						<article id="content">
-					 
-							<div class="row">
+                  <div class="row">
 
-				{this.state.postData}
-		
-							 
-								<div class="col-12 pt-3 mb-lg-0 mb-md-6 mb-3">
-							
-									{/*<ul class="list-unstyled pagination d-flex justify-content-center align-items-end">
+                    {this.state.postData}
+
+
+                    <div class="col-12 pt-3 mb-lg-0 mb-md-6 mb-3">
+
+                      {/*<ul class="list-unstyled pagination d-flex justify-content-center align-items-end">
 										<li><a href="javascript:void(0);"><i class="fas fa-chevron-left"></i></a></li>
 										<li class="active"><a href="javascript:void(0);">1</a></li>
 										<li><a href="javascript:void(0);">2</a></li>
@@ -336,33 +327,33 @@ const cssString = `
 										<li><a href="javascript:void(0);"><i class="fas fa-chevron-right"></i></a></li>
 									</ul>*/}
 
- <ReactPaginate
-                      previousLabel={"prev"}
-                      nextLabel={"next"}
-                      breakLabel={"..."}
-                      breakClassName={"break-me"}
-                      pageCount={this.state.pageCount}
-                      marginPagesDisplayed={2}
-                      pageRangeDisplayed={5}
-                      onPageChange={this.handlePageClick}
-                      containerClassName={"pagination"}
-                      subContainerClassName={"pages pagination"}
-                      activeClassName={"active"}
-                    />
+                      <ReactPaginate
+                        previousLabel={"prev"}
+                        nextLabel={"next"}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={this.state.pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={this.handlePageClick}
+                        containerClassName={"pagination"}
+                        subContainerClassName={"pages pagination"}
+                        activeClassName={"active"}
+                      />
 
-								</div>
+                    </div>
 
 
-							</div>
-						</article>
-					</div>
-					 
-				</div>
-			</div>
-	</Layout>
+                  </div>
+                </article>
+              </div>
 
-</>
+            </div>
+          </div>
+        </Layout>
 
-		);
-	}
-}
+      </>
+
+    );
+  }
+};

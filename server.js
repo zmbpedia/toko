@@ -130,24 +130,27 @@ app.get("/api/catalogdata", function(req, res) {
             var myArrays = []
             var keyArray = Object.keys(resd);
             keyArray = shuffle(keyArray)
+
+
             if (resd[0].fields['gambar_produk']) {
+                if(vall['gambar_produk'][0]['thumbnails']){
                 var vall = resd[keyArray[0]].fields;
                 var namaprodukur = vall['nama_produk'];
                 
-            if(resd[0].fields['gambar_produk'][0].type == 'video/mp4'){
-                var gamm = vall['gambar_produk'].url;
-            }else{
-                if(resd[0].fields['gambar_produk'][0]['thumbnails'].large == null) {
-                    var gamm = '';
-                }else{
                 var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+
                 var filename = vall['gambar_produk'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
                 var gamm = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                }else{
+                    var gambar = '';
+                    var filename = '';
+                    var satu = '';
+                    var dua = '';
+                    var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                    var url = vall['gambar_produk'][0]['url']
                 }
-            }
-               
             } else {
                 var namaprodukur = ''
                     var gamm =  'https://zmbpediabogor.store/assets/img/tdk.svg';
@@ -157,24 +160,12 @@ app.get("/api/catalogdata", function(req, res) {
                 var vall = resd[i].fields;
 
                 if (resd[i].fields['gambar_produk']) {
-
-                    if(resd[i].fields['gambar_produk'][0].type == 'video/mp4'){
-                        var gam = vall['gambar_produk'][0].url;
-                        var typea = vall['gambar_produk'][0].type;
-                    }else{
-                    if(resd[i].fields['gambar_produk'][0]['thumbnails'].large == null) {
-                            var gam = '';
-                            var typea = '';
-                    }else{
                     var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
                     var id = resd[i].id;
-                    var typea = '';
                     var filename = vall['gambar_produk'][0]['filename'];
                     var satu = gb.split("/")[4];
                     var dua = gb.split("/")[5];
                     var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                    }
-                }
                 } else {
                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
@@ -224,7 +215,6 @@ app.get("/api/catalogdata", function(req, res) {
                 namaproduk: namaproduk,
                 gambar: gam,
                 stok: stok,
-                typea: typea,
                 harga: harganya,
                 kategori: kategori,
                 deskripsi: deskripsi
