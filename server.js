@@ -157,12 +157,12 @@ app.get("/api/catalogdata", function(req, res) {
             var gam;
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
-
+                var id = resd[i].id;
                 if (vall['gambar_produk']) {
                         
                     if(vall['gambar_produk'][0].type !== 'video/mp4'){
                     var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
-                    var id = resd[i].id;
+                
                     
                     var filename = vall['gambar_produk'][0]['filename'];
                     var satu = gb.split("/")[4];
@@ -515,12 +515,14 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
                 var id = resd[i].id;
+                console.log(id)
                 var nama = resd[i].nama_produk;
                 if (id == iddata) {
                     var harganya;
                     var des;
                     var it;
                     var namaproduk = vall['nama_produk'];
+                 
                     if (resd[i].fields['gambar_produk']) {
 
                         if(vall['gambar_produk'][0]['thumbnails']){
