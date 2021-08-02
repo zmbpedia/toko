@@ -31,6 +31,8 @@ export default class Product extends React.Component {
     	let it = ''
     	let nominalharga =''
     	let stokis = ''
+		let vid = ''
+		let uri = ''
 
     	if(show.length){
 
@@ -74,7 +76,7 @@ export default class Product extends React.Component {
 			var deskripsi = value["deskripsi"];
 			var on = value["stok"];
 			var vid = value["vid"];
-	      
+			var uri = value["uri"];
 			var stokis = value["stokproduk"];
 			var stok;
 			if (on) {
@@ -93,6 +95,7 @@ export default class Product extends React.Component {
 				deskrip: deskripsi,
 				stok: stok,
                 vid:vid,
+				uri:uri,
 				stokis: stokis,
 			});
 		}
@@ -245,11 +248,11 @@ export default class Product extends React.Component {
 							<div>
                         
                                  
-							{a.vid ?
+							{a.type == 'video/mp4' ?
 
 
 										<video>
-										<source src={a.vid} type="video/mp4" /> 
+										<source src={a.uri} type="video/mp4" /> 
 										Your browser does not support the video tag.
 									  </video>
 

@@ -134,20 +134,21 @@ app.get("/api/catalogdata", function(req, res) {
 
             if (resd[0].fields['gambar_produk'][0]['thumbnails']) {
                 var vall = resd[0].fields;
-                if(vall['gambar_produk'][0].type != 'video/mp4'){
+                if(vall['gambar_produk'][0].type !== 'video/mp4'){
                 var namaprodukur = vall['nama_produk'];
                 var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                 var filename = vall['gambar_produk'][0]['filename'];
                 var satu = gambar.split("/")[4];
                 var dua = gambar.split("/")[5];
                 var gamm = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                
                 }else{
                     var gambar = '';
                     var filename = '';
                     var satu = '';
                     var dua = '';
                     var gamm = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                    //var url = vall['gambar_produk'][0]['url']
+                    var url = vall['gambar_produk'][0]['url']
                 }
 
             } else {
@@ -174,7 +175,7 @@ app.get("/api/catalogdata", function(req, res) {
                         var satu = '';
                         var dua = '';
                         gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                        //var url = vall['gambar_produk'][0]['url']
+                        var url = vall['gambar_produk'][0]['url']
                     }
                  
                 } else {
@@ -513,25 +514,25 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
             var vid;
+            
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
-                var id = resd[i].id;
-                console.log(id)
+                var id = resd[i].id; 
           
                 var nama = resd[i].nama_produk;
+            
                 if (id == iddata) {
                     var harganya;
                     var des;
                     var it;
                     var namaproduk = vall['nama_produk'];
-                 
+                    var vid = vall['gambar_produk'][0].type;
+                    var uri = vall['gambar_produk'][0].url;
+                  
+
+
                     if (resd[i].fields['gambar_produk']) {
-                        console.log(vall['gambar_produk'][0].type)
-                        if(vall['gambar_produk'][0].type == 'video/mp4'){
-                            vid = vall['gambar_produk'][0].url
-                       }else{
-                            vid = ''
-                       }
+                        
                         if(vall['gambar_produk'][0]['thumbnails']){
                             var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                             var filename = vall['gambar_produk'][0]['filename'];
@@ -552,6 +553,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                     } else {
                             var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                     }
+                  
                     var stok = vall['stok_prodduk'];
                     var harga = vall['harga_produk'];
                     var kategori = vall['kategori_produk'];
@@ -583,6 +585,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             des = deskripsi
                             it = 'mb-5 nodes'
                         }
+                       
                         myArrays.push({
                             id: id,
                             namaproduk: namaproduk,
@@ -594,9 +597,11 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             harganom: rupiah,
                             deskripsi: des,
                             vid: vid,
+                            uri:uri,
                             it: it,
                             cronical: cronical
                         });
+                     
                     }
                 }
             }
