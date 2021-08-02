@@ -1,15 +1,7 @@
 {
-  "/404": "pages/404.html",
   "/_document": "pages/_document.js",
+  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/cari/[nama]": "pages/cari/[nama].js",
-  "/cari": "pages/cari.html",
-  "/": "pages/index.js",
-  "/kategori/[id]/[category]": "pages/kategori/[id]/[category].js",
-  "/kategori/[id]": "pages/kategori/[id].html",
-  "/kategori": "pages/kategori.html",
-  "/produk": "pages/produk.js",
-  "/produk/[id]/[product]": "pages/produk/[id]/[product].js",
-  "/produk/[id]": "pages/produk/[id].html",
-  "/_app": "pages/_app.js"
+  "/404": "pages/404.js",
+  "/produk/[id]/[product]": "pages/produk/[id]/[product].js"
 }

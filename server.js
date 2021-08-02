@@ -512,11 +512,12 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
             var names = req.params.nama.replace(/-/g, ' ');
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
+            var vid;
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
                 var id = resd[i].id;
                 console.log(id)
-                var vid;
+          
                 var nama = resd[i].nama_produk;
                 if (id == iddata) {
                     var harganya;

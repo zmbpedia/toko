@@ -74,6 +74,7 @@ export default class Product extends React.Component {
 			var deskripsi = value["deskripsi"];
 			var on = value["stok"];
 			var vid = value["vid"];
+	      
 			var stokis = value["stokproduk"];
 			var stok;
 			if (on) {
@@ -243,7 +244,7 @@ export default class Product extends React.Component {
 						<div className="productSliderImage mb-lg-0 mb-4">
 							<div>
                         
-
+                                 
 							{a.vid ?
 
 
@@ -281,6 +282,7 @@ export default class Product extends React.Component {
 						<ul className="list-unstyled tabSetList d-flex justify-content-center mb-9">
 							<li className="mr-md-20 mr-sm-10 mr-2">
 								<a href="#tab1-0" className="active playfair fwEbold pb-2">Deskripsi</a>
+								
 							</li>						
 						</ul>		
 						<div className="tab-content mb-xl-11 mb-lg-10 mb-md-8 mb-5">
