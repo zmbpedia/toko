@@ -10,9 +10,9 @@ function truncate(str) {
 }
 export default class Home extends React.Component {
 	static async getInitialProps() {
-			const ress = await fetch("https://zmbpediabogor.store/api/slide");
+			const ress = await fetch("https://zmbpediabogor.my.id/api/slide");
 		const shows = await ress.json();
-		const res = await fetch("https://zmbpediabogor.store/api/homie");
+		const res = await fetch("https://zmbpediabogor.my.id/api/homie");
 		const show = await res.json();
 	
 		return { show, shows };
@@ -75,14 +75,14 @@ export default class Home extends React.Component {
  <NextSeo
       title="Selamat Datang di zmbpediabogor"
       description="Toko aneka macam tanaman hias"
-      canonical="https://zmbpediabogor.store/"
+      canonical="https://zmbpediabogor.my.id/"
       openGraph={{
-        url: "https://zmbpediabogor.store/",
+        url: "https://zmbpediabogor.my.id/",
         title: "Selamat Datang di zmbpediabogor",
         description: "Toko aneka macam tanaman hias",
         images: [
           {
-            url: "https://zmbpediabogor.store/assets/img/logo.png",
+            url: "https://zmbpediabogor.my.id/assets/img/logo.png",
             width: 600,
             height: 315,
             alt: "zmbpediabogor",

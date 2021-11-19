@@ -22,7 +22,7 @@ export default class Produk extends React.Component {
     this.handlePageClick = this.handlePageClick.bind(this);
   }
   static async getInitialProps() {
-    const res = await fetch("https://zmbpediabogor.store/api/catalogdata");
+    const res = await fetch("https://zmbpediabogor.my.id/api/catalogdata");
     const show = await res.json();
     let gambarnya = '';
     let altgam = '';
@@ -61,7 +61,7 @@ export default class Produk extends React.Component {
         namekat: "zmbpediabogor - Katalog produk",
         ada: "yes",
         titles: "zmbpediabogor - Katalog produk",
-        urls: "https://zmbpediabogor.store/product",
+        urls: "https://zmbpediabogor.my.id/product",
         gam: sh,
       });
       myArray.push({
@@ -260,14 +260,14 @@ export default class Produk extends React.Component {
           <NextSeo
             title="zmbpediabogor - Katalog produk"
             description="Toko aneka macam tanaman hias"
-            canonical="https://zmbpediabogor.store/produk"
+            canonical="https://zmbpediabogor.my.id/produk"
             openGraph={{
-              url: "https://zmbpediabogor.store/produk",
+              url: "https://zmbpediabogor.my.id/produk",
               title: "zmbpediabogor - Katalog produk",
               description: "Toko aneka macam tanaman hias",
               images: [
                 {
-                  url: "https://zmbpediabogor.store/assets/img/logo.png",
+                  url: "https://zmbpediabogor.my.id/assets/img/logo.png",
                   width: 600,
                   height: 315,
                   alt: 'zmbpediabogor',
