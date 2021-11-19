@@ -1,29 +1,32 @@
 {
-  "name": "zmbpedia",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "license": "ISC",
-  "dependencies": {
-    "alasql": "^0.6.4",
-    "compression": "^1.7.4",
-    "express": "^4.17.1",
-    "isomorphic-fetch": "^3.0.0",
-    "isomorphic-unfetch": "^3.1.0",
-    "minify-css-string": "^1.0.0",
-    "next": "latest",
-    "next-seo": "^4.11.0",
-    "node-url-shortener": "^1.1.11",
-    "react": "16.8.6",
-    "react-copy-to-clipboard": "^5.0.2",
-    "react-dom": "16.8.6",
-    "react-ga": "^3.2.0",
-    "react-notify-toast": "^0.5.1",
-    "react-paginate": "^6.5.0",
-    "react-slick": "^0.27.11",
-    "request": "^2.88.2"
-  }
+    "name": "zmbpedia",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "preexport": "npm run build",
+        "export": "next export",
+        "prestart": "npm run export",
+        "start": "serve out"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "alasql": "^0.6.4",
+        "compression": "^1.7.4",
+        "express": "^4.17.1",
+        "isomorphic-fetch": "^3.0.0",
+        "isomorphic-unfetch": "^3.1.0",
+        "minify-css-string": "^1.0.0",
+        "next": "latest",
+        "next-seo": "^4.11.0",
+        "node-url-shortener": "^1.1.11",
+        "react": "16.8.6",
+        "react-copy-to-clipboard": "^5.0.2",
+        "react-dom": "16.8.6",
+        "react-ga": "^3.2.0",
+        "react-notify-toast": "^0.5.1",
+        "react-paginate": "^6.5.0",
+        "react-slick": "^0.27.11",
+        "request": "^2.88.2"
+    }
 }

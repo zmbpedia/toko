@@ -6,17 +6,17 @@ var compression = require('compression');
 var app = express();
 app.use(compression());
 
-app.get('/api', function(req, res) {
+app.get('/api', function (req, res) {
     return res.json({
         description: 'end point zmbpediabogor.store data author ramahardiansidik@gmail.com / visit ramahardian.online'
     });
 });
 
-app.get("/api/kategori", function(req, res) {
+app.get("/api/kategori", function (req, res) {
     request({
         url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/kategori?api_key=keysY3XpvIdkAd38I',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var bulk = [];
             var resd = alasql('SELECT * FROM ?', [html.records]);
@@ -43,12 +43,12 @@ function removeSpecialChars(str) {
         .replace(/^(\s*)([\W\w]*)(\b\s*$)/g, '$2');
 }
 
-app.get("/api/caridata/:nama", function(req, res) {
+app.get("/api/caridata/:nama", function (req, res) {
     var namas = req.params.nama.replace(/-/g, " ");
     request({
         url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/product_data?api_key=keyn7tbnITsVXlugK',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql("SELECT * FROM ?", [html.records]);
             var myArrays = [];
@@ -62,7 +62,7 @@ app.get("/api/caridata/:nama", function(req, res) {
                     var dua = gb.split("/")[5];
                     var gam = 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                 } else {
-                       var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg'
+                    var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg'
                 }
                 var namaproduk = vall['namaproduk'];
                 var stok = vall['stok'];
@@ -116,7 +116,7 @@ app.get("/api/caridata/:nama", function(req, res) {
     })
 });
 
-app.get("/api/catalogdata", function(req, res) {
+app.get("/api/catalogdata", function (req, res) {
     function shuffle(o) { //v1.0
         for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
@@ -124,7 +124,7 @@ app.get("/api/catalogdata", function(req, res) {
     request({
         url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
@@ -134,15 +134,15 @@ app.get("/api/catalogdata", function(req, res) {
 
             if (resd[0].fields['gambar_produk'][0]['thumbnails']) {
                 var vall = resd[0].fields;
-                if(vall['gambar_produk'][0].type !== 'video/mp4'){
-                var namaprodukur = vall['nama_produk'];
-                var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-                var filename = vall['gambar_produk'][0]['filename'];
-                var satu = gambar.split("/")[4];
-                var dua = gambar.split("/")[5];
-                var gamm = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                
-                }else{
+                if (vall['gambar_produk'][0].type !== 'video/mp4') {
+                    var namaprodukur = vall['nama_produk'];
+                    var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                    var filename = vall['gambar_produk'][0]['filename'];
+                    var satu = gambar.split("/")[4];
+                    var dua = gambar.split("/")[5];
+                    var gamm = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+
+                } else {
                     var gambar = '';
                     var filename = '';
                     var satu = '';
@@ -153,23 +153,23 @@ app.get("/api/catalogdata", function(req, res) {
 
             } else {
                 var namaprodukur = ''
-                var gamm =  'https://zmbpediabogor.store/assets/img/tdk.svg';
+                var gamm = 'https://zmbpediabogor.store/assets/img/tdk.svg';
             }
             var gam;
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
                 var id = resd[i].id;
                 if (vall['gambar_produk']) {
-                        
-                    if(vall['gambar_produk'][0].type !== 'video/mp4'){
-                    var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
-                
-                    
-                    var filename = vall['gambar_produk'][0]['filename'];
-                    var satu = gb.split("/")[4];
-                    var dua = gb.split("/")[5];
-                    gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                    }else{
+
+                    if (vall['gambar_produk'][0].type !== 'video/mp4') {
+                        var gb = resd[i].fields['gambar_produk'][0]['thumbnails'].large.url;
+
+
+                        var filename = vall['gambar_produk'][0]['filename'];
+                        var satu = gb.split("/")[4];
+                        var dua = gb.split("/")[5];
+                        gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                    } else {
                         var gambar = '';
                         var filename = '';
                         var satu = '';
@@ -177,12 +177,12 @@ app.get("/api/catalogdata", function(req, res) {
                         gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                         var url = vall['gambar_produk'][0]['url']
                     }
-                 
+
                 } else {
-                       var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                    var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
 
-        
+
                 var namaproduk = '';
                 var kategori = ''
                 var harga = ''
@@ -203,10 +203,10 @@ app.get("/api/catalogdata", function(req, res) {
                 }
 
                 if (vall['deskripsi-produk']) {
-               
-                var deskripsi = vall['deskripsi-produk'];
+
+                    var deskripsi = vall['deskripsi-produk'];
                 }
-      
+
                 harganya = 'saat ini produk tidak ada dalam etalase penjualan';
                 if (harga) {
                     var number_string = harga.toString(),
@@ -224,31 +224,31 @@ app.get("/api/catalogdata", function(req, res) {
                 }
 
 
-        
-    myArrays.push({
-                id: id,
-                namaproduk: namaproduk,
-                gambar: gam,
-                stok: stok,
-                harga: harganya,
-                kategori: kategori,
-                deskripsi: deskripsi
-            });
+
+                myArrays.push({
+                    id: id,
+                    namaproduk: namaproduk,
+                    gambar: gam,
+                    stok: stok,
+                    harga: harganya,
+                    kategori: kategori,
+                    deskripsi: deskripsi
+                });
 
             }
 
             res.send({ data: myArrays, ogimg: gamm, alt: namaprodukur });
-                 }
+        }
 
-        })
+    })
 });
 
 
-app.get("/api/aboutdata", function(req, res) {
+app.get("/api/aboutdata", function (req, res) {
     request({
         url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/tentang_kami?api_key=keyn7tbnITsVXlugK',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
@@ -273,11 +273,11 @@ app.get("/api/aboutdata", function(req, res) {
     })
 });
 
-app.get("/api/tremdata", function(req, res) {
+app.get("/api/tremdata", function (req, res) {
     request({
         url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/trem?api_key=keyn7tbnITsVXlugK',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
@@ -301,11 +301,11 @@ app.get("/api/tremdata", function(req, res) {
     })
 });
 
-app.get("/api/shipingdata", function(req, res) {
+app.get("/api/shipingdata", function (req, res) {
     request({
         url: 'https://api.airtable.com/v0/appJnzRgVZn2IjPX6/shiping?api_key=keyn7tbnITsVXlugK',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
@@ -329,7 +329,7 @@ app.get("/api/shipingdata", function(req, res) {
     })
 });
 
-app.get('/bulk/item-gambar/:idone/:idtwo/:file', function(req, res) {
+app.get('/bulk/item-gambar/:idone/:idtwo/:file', function (req, res) {
     var file = req.params.file.replace(/_/g, " ");
     var idtwo = req.params.idtwo;
     var idone = req.params.idone;
@@ -341,7 +341,7 @@ app.get('/bulk/item-gambar/:idone/:idtwo/:file', function(req, res) {
         gzip: true,
         proxy: false,
         followRedirect: false
-    }, function(err, headRes) {
+    }, function (err, headRes) {
         if (!err) {
             var size = headRes.headers['content-length'];
             const fileSize = size
@@ -356,10 +356,10 @@ app.get('/bulk/item-gambar/:idone/:idtwo/:file', function(req, res) {
         }
     })
 })
- 
 
 
-app.get("/api/homie", function(req, res) {
+
+app.get("/api/homie", function (req, res) {
     function shuffle(o) { //v1.0
         for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
@@ -367,7 +367,7 @@ app.get("/api/homie", function(req, res) {
     request({
         url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I",
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql('SELECT * FROM ? order by id ASC LIMIT 4', [html.records]);
             var myArrays = []
@@ -378,7 +378,7 @@ app.get("/api/homie", function(req, res) {
                 var vall = resd[keyArray[i]].fields;
                 var id = resd[keyArray[i]].id;
                 var namaproduk = '';
-                var url ='';
+                var url = '';
                 var kategori = ''
                 var harga = ''
                 var stok = ''
@@ -398,14 +398,14 @@ app.get("/api/homie", function(req, res) {
 
                 if (resd[keyArray[i]].fields['gambar_produk']) {
 
-                 if(vall['gambar_produk'][0]['thumbnails']){
-                    var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
-                    var filename = vall['gambar_produk'][0]['filename'];
-                    var satu = gambar.split("/")[4];
-                    var dua = gambar.split("/")[5];
-                    var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                    if (vall['gambar_produk'][0]['thumbnails']) {
+                        var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
+                        var filename = vall['gambar_produk'][0]['filename'];
+                        var satu = gambar.split("/")[4];
+                        var dua = gambar.split("/")[5];
+                        var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
 
-                    }else{
+                    } else {
                         var gambar = '';
                         var filename = '';
                         var satu = '';
@@ -414,7 +414,7 @@ app.get("/api/homie", function(req, res) {
                         var url = vall['gambar_produk'][0]['url']
                     }
                 } else {
-                    var gam =  'https://zmbpediabogor.store/assets/img/tdk.svg';
+                    var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
                 harganya = 'saat ini produk tidak ada dalam etalase penjualan';
                 des = 'Belum ada detail keterangan deskripsi untuk produk ini';
@@ -449,12 +449,12 @@ app.get("/api/homie", function(req, res) {
 });
 
 
-app.get("/api/slide", function(req, res) {
+app.get("/api/slide", function (req, res) {
 
     request({
         url: "https://api.airtable.com/v0/appMmICDCO6mBhZYl/slide?api_key=keysY3XpvIdkAd38I",
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
@@ -469,21 +469,21 @@ app.get("/api/slide", function(req, res) {
 
                 if (resd[i].fields['gambar_slide']) {
 
-                    if(vall['gambar_slide'][0]['thumbnails']){
+                    if (vall['gambar_slide'][0]['thumbnails']) {
                         var gambar = vall['gambar_slide'][0]['thumbnails'].large.url;
                         var filename = vall['gambar_slide'][0]['filename'];
                         var satu = gambar.split("/")[4];
                         var dua = gambar.split("/")[5];
                         var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                        }else{
-                            var gambar = '';
-                            var filename = '';
-                            var satu = '';
-                            var dua = '';
-                            var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                        }
-                } else {
+                    } else {
+                        var gambar = '';
+                        var filename = '';
+                        var satu = '';
+                        var dua = '';
                         var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                    }
+                } else {
+                    var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                 }
 
                 myArrays.push({
@@ -502,25 +502,25 @@ app.get("/api/slide", function(req, res) {
 });
 
 
-app.get("/api/productdata/:id/:nama", function(req, res) {
+app.get("/api/productdata/:id/:nama", function (req, res) {
 
     request({
         url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var iddata = req.params.id
             var names = req.params.nama.replace(/-/g, ' ');
             var resd = alasql('SELECT * FROM ?', [html.records]);
             var myArrays = []
             var vid;
-            
+
             for (var i = 0; i < resd.length; i++) {
                 var vall = resd[i].fields;
-                var id = resd[i].id; 
-          
+                var id = resd[i].id;
+
                 var nama = resd[i].nama_produk;
-            
+
                 if (id == iddata) {
                     var harganya;
                     var des;
@@ -528,32 +528,32 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                     var namaproduk = vall['nama_produk'];
                     var vid = vall['gambar_produk'][0].type;
                     var uri = vall['gambar_produk'][0].url;
-                  
+
 
 
                     if (resd[i].fields['gambar_produk']) {
-                        
-                        if(vall['gambar_produk'][0]['thumbnails']){
+
+                        if (vall['gambar_produk'][0]['thumbnails']) {
                             var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                             var filename = vall['gambar_produk'][0]['filename'];
                             var satu = gambar.split("/")[4];
                             var dua = gambar.split("/")[5];
                             var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                      
-                         
 
-                            }else{
-                                var gambar = '';
-                                var filename = '';
-                                var satu = '';
-                                vid = ''
-                                var dua = '';
-                                var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                            }
-                    } else {
+
+
+                        } else {
+                            var gambar = '';
+                            var filename = '';
+                            var satu = '';
+                            vid = ''
+                            var dua = '';
                             var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                        }
+                    } else {
+                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                     }
-                  
+
                     var stok = vall['stok_prodduk'];
                     var harga = vall['harga_produk'];
                     var kategori = vall['kategori_produk'];
@@ -585,7 +585,7 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             des = deskripsi
                             it = 'mb-5 nodes'
                         }
-                       
+
                         myArrays.push({
                             id: id,
                             namaproduk: namaproduk,
@@ -597,11 +597,11 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
                             harganom: rupiah,
                             deskripsi: des,
                             vid: vid,
-                            uri:uri,
+                            uri: uri,
                             it: it,
                             cronical: cronical
                         });
-                     
+
                     }
                 }
             }
@@ -611,12 +611,12 @@ app.get("/api/productdata/:id/:nama", function(req, res) {
 });
 
 
-app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
+app.get("/api/kategoryproduct/:kat/:name", function (req, res) {
 
     request({
         url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/kategori?api_key=keysY3XpvIdkAd38I',
         json: true
-    }, function(error, response, html) {
+    }, function (error, response, html) {
         if (!error) {
             var resd = alasql('SELECT * FROM ?', [html.records]);
 
@@ -630,7 +630,7 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
             request({
                 url: 'https://api.airtable.com/v0/appMmICDCO6mBhZYl/produk?api_key=keysY3XpvIdkAd38I',
                 json: true
-            }, function(error, response, html) {
+            }, function (error, response, html) {
                 if (!error) {
                     var kategoris = req.params.kat;
                     var resd = alasql('SELECT * FROM ?', [html.records]);
@@ -648,51 +648,47 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
                             if (kategori == kategoris) {
                                 var namaproduk = vall['nama_produk'];
                                 if (resd[i].fields['gambar_produk']) {
-                                
 
-                                    if(vall['gambar_produk'][0]['thumbnails']){
+
+                                    if (vall['gambar_produk'][0]['thumbnails']) {
                                         var gambar = vall['gambar_produk'][0]['thumbnails'].large.url;
                                         var filename = vall['gambar_produk'][0]['filename'];
                                         var satu = gambar.split("/")[4];
                                         var dua = gambar.split("/")[5];
                                         var gam = 'https://zmbpediabogor.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
-                                        }else{
-                                            var gambar = '';
-                                            var filename = '';
-                                            var satu = '';
-                                            var dua = '';
-                                            var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                                        }
+                                    } else {
+                                        var gambar = '';
+                                        var filename = '';
+                                        var satu = '';
+                                        var dua = '';
+                                        var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                                    }
 
 
                                 } else {
-                                       var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg'
+                                    var gam = 'https://zmbpediabogor.store/assets/img/tdk.svg'
                                 }
 
                                 if (resd[0].fields['gambar_produk']) {
-                             
 
-                                    if(vall['gambar_produk'][0]['thumbnails']){
+
+                                    if (vall['gambar_produk'][0]['thumbnails']) {
                                         var gambard = vall['gambar_produk'][0]['thumbnails'].large.url;
                                         var filenamea = vall['gambar_produk'][0]['filename'];
                                         var satua = gambar.split("/")[4];
                                         var duaa = gambar.split("/")[5];
                                         var gams = 'https://zmbpediabogor.store/bulk/item-gambar/' + satua + '/' + duaa + '/' + filenamea.replace(/\s/g, "_");
-                                        }else{
-                                            var gambard = '';
-                                            var filenamea = '';
-                                            var satua = '';
-                                            var duaa = '';
-                                            var gams = 'https://zmbpediabogor.store/assets/img/tdk.svg';
-                                        }
-
-
-
+                                    } else {
+                                        var gambard = '';
+                                        var filenamea = '';
+                                        var satua = '';
+                                        var duaa = '';
+                                        var gams = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                                    }
 
                                 } else {
-                                       var gams = 'https://zmbpediabogor.store/assets/img/tdk.svg';
+                                    var gams = 'https://zmbpediabogor.store/assets/img/tdk.svg';
                                 }
-
 
                                 var stok = vall['stok_prodduk'];
                                 var harga = vall['harga_produk'];
@@ -745,6 +741,6 @@ app.get("/api/kategoryproduct/:kat/:name", function(req, res) {
 //module.exports = app;
 // listen for requests :)
 
-var listener = app.listen(port, function() {
+var listener = app.listen(port, function () {
     console.log('Your app is listening on port ' + listener.address().port);
 });

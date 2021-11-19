@@ -248,7 +248,7 @@ export default class Product extends React.Component {
 							<div>
                         
                                  
-							{a.type == 'video/mp4' ?
+							{a.type === 'video/mp4' ?
 
 
 										<video>
