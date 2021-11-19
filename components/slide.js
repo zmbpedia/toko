@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 export default class Slide extends React.Component {
 	static async getInitialProps() {
-		const res = await fetch("https://zmbpediabogor.store/api/slide");
+		const res = await fetch("https://zmbpediabogor.my.id/api/slide");
 		const show = await res.json();
 
 		console.log(show)
