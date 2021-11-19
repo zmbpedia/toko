@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -147,14 +147,6 @@ function withRouter(ComposedComponent) {
 /***/ (function(module, exports) {
 
 module.exports = require("isomorphic-unfetch");
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("Y0NT");
-
 
 /***/ }),
 
@@ -272,6 +264,14 @@ function assign(target, ...searchParamsList) {
   });
   return target;
 }
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("RNiq");
+
 
 /***/ }),
 
@@ -702,10 +702,209 @@ class layout_Layout extends external_react_default.a.Component {
 
 /***/ }),
 
+/***/ "O/hg":
+/***/ (function(module, exports) {
+
+module.exports = require("react-slick");
+
+/***/ }),
+
 /***/ "Osoz":
 /***/ (function(module, exports) {
 
 module.exports = require("next/dist/next-server/lib/router-context.js");
+
+/***/ }),
+
+/***/ "RNiq":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("CafY");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("0bYB");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("cDcd");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFqc");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("efsx");
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("O/hg");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_slick__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var minify_css_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("W0bW");
+/* harmony import */ var minify_css_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(minify_css_string__WEBPACK_IMPORTED_MODULE_6__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
+
+
+
+
+
+
+
+function truncate(str) {
+  return str.length > 10 ? str.substring(0, 20) + "..." : str;
+}
+
+class Home extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
+  static async getInitialProps() {
+    const ress = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("https://zmbpediabogor.store/api/slide");
+    const shows = await ress.json();
+    const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("https://zmbpediabogor.store/api/homie");
+    const show = await res.json();
+    return {
+      show,
+      shows
+    };
+  }
+
+  render() {
+    var settings = {
+      dots: true,
+      fade: true,
+      nextArrow: false,
+      prevArrow: false,
+      arrows: false,
+      autoplay: true,
+      infinite: true,
+      speed: 500,
+      autoplaySpeed: 3000,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+    const cssString = `
+.bgCover{
+						background-repeate
+					}
+					.mainHeader {
+						margin-top: 30px;
+					}
+					.overl{
+						width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+					}
+					.featureCol .price {
+    font-size: 13px;
+    line-height: 18px;
+    color: #16941a;
+}
+.featureCol .hotOffer {
+    background: #5ba515;
+    top: 30px;
+    left: 0;
+    margin-left: 0 !important;
+}
+.featureCol .hotOffer.ups {
+	    top: 23px !important;
+}
+.featureCol .hotOffer.abs {
+	background:#f9861f !important;
+}
+`;
+    return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"], null, __jsx("style", {
+      dangerouslySetInnerHTML: {
+        __html: minify_css_string__WEBPACK_IMPORTED_MODULE_6___default()(cssString)
+      }
+    }), __jsx(next_seo__WEBPACK_IMPORTED_MODULE_4__["NextSeo"], {
+      title: "Selamat Datang di zmbpediabogor",
+      description: "Toko aneka macam tanaman hias",
+      canonical: "https://zmbpediabogor.store/",
+      openGraph: {
+        url: "https://zmbpediabogor.store/",
+        title: "Selamat Datang di zmbpediabogor",
+        description: "Toko aneka macam tanaman hias",
+        images: [{
+          url: "https://zmbpediabogor.store/assets/img/logo.png",
+          width: 600,
+          height: 315,
+          alt: "zmbpediabogor"
+        }],
+        site_name: 'zmbpediabogor'
+      }
+    }), __jsx("section", {
+      className: "bannerBlockHolder position-relative"
+    }, __jsx(react_slick__WEBPACK_IMPORTED_MODULE_5___default.a, settings, this.props.shows.map((a, index) => __jsx("div", null, __jsx("div", {
+      className: "align w-100 d-flex align-items-center bgCover",
+      style: {
+        background: `url(${a.gambar})`,
+        backgroundSize: `cover`,
+        backgroundPosition: `center`
+      }
+    }, __jsx("div", {
+      className: "overl",
+      style: {
+        background: 'rgba(255,255,255, .5)'
+      }
+    }), __jsx("div", {
+      className: "container position-relative holder pt-xl-10"
+    }, __jsx("div", {
+      className: "row"
+    }, __jsx("div", {
+      className: "col-12 col-xl-7"
+    }, __jsx("div", {
+      className: "txtwrap pr-xl-10"
+    }, __jsx("span", {
+      className: "title d-block text-uppercase fwEbold position-relative pl-2 mb-md-5 mb-sm-3"
+    }, a.mini), __jsx("h1", {
+      className: "fwEbold position-relative mb-md-7 mb-sm-4"
+    }, __jsx("span", {
+      className: "text-break d-block"
+    }, a.desk))))))))))), __jsx("section", {
+      className: "featureSec container overflow-hidden pt-xl-12 pb-xl-9 pt-lg-10 pb-lg-4 pt-md-8 pb-md-2 pt-5"
+    }, __jsx("div", {
+      className: "row"
+    }, __jsx("header", {
+      className: "col-12 mainHeader mb-4 text-center"
+    }, __jsx("h1", {
+      className: "headingIV playfair fwEblod mb-4"
+    }, "Produk Baru"), __jsx("span", {
+      className: "headerBorder d-block mb-5"
+    }, __jsx("img", {
+      src: "/assets/img/hbdr.png",
+      alt: "Header Border",
+      className: "img-fluid img-bdr"
+    })), __jsx("p", null, "Beberapa koleksi tanaman hias terbaru"))), __jsx("div", {
+      className: "row"
+    }, this.props.show.map((a, index) => __jsx("div", {
+      className: "col-12 col-sm-6 col-lg-3 featureCol position-relative mb-6"
+    }, __jsx("div", {
+      className: "border"
+    }, __jsx("div", {
+      className: "imgHolder position-relative w-100 overflow-hidden"
+    }, a.gambar ? __jsx("img", {
+      src: a.gambar,
+      style: {
+        height: "300px",
+        objectFit: "cover",
+        width: "100%"
+      },
+      id: "wax-img",
+      alt: a.namaproduk,
+      className: "img-fluid"
+    }) : __jsx("video", null, __jsx("source", {
+      src: a.url,
+      type: "video/mp4"
+    }), "Your browser does not support the video tag.")), __jsx("div", {
+      class: "text-center py-xl-5 py-sm-4 py-2 px-xl-2 px-1"
+    }, __jsx("span", {
+      class: "title d-block mb-2"
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      href: "/produk/[id]/[product]",
+      as: `/produk/${a.id}/${a.namaproduk.replace(/\s/g, "-")}`
+    }, __jsx("a", null, truncate(a.namaproduk)))), __jsx("span", {
+      className: "price d-block fwEbold"
+    }, a.harga), a.stok ? __jsx("span", {
+      class: "hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8 ups"
+    }, "Tersedia") : __jsx("span", {
+      class: "hotOffer fwEbold text-uppercase text-white position-absolute d-block ml-8 abs"
+    }, "Stok habis"))))))));
+  }
+
+}
 
 /***/ }),
 
@@ -727,6 +926,13 @@ function _interopRequireDefault(obj) {
 }
 
 module.exports = _interopRequireDefault;
+
+/***/ }),
+
+/***/ "W0bW":
+/***/ (function(module, exports) {
+
+module.exports = require("minify-css-string");
 
 /***/ }),
 
@@ -754,85 +960,6 @@ function removePathTrailingSlash(path) {
 
 const normalizePathTrailingSlash =  false ? undefined : removePathTrailingSlash;
 exports.normalizePathTrailingSlash = normalizePathTrailingSlash;
-
-/***/ }),
-
-/***/ "Y0NT":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("CafY");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("efsx");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFqc");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-function Error({
-  statusCode
-}) {
-  return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], null, __jsx(next_seo__WEBPACK_IMPORTED_MODULE_2__["NextSeo"], {
-    title: "Plant29 - Error page enot found",
-    description: "",
-    canonical: "",
-    openGraph: {
-      url: "",
-      title: "Error page enot found",
-      description: "",
-      images: [{
-        url: '',
-        width: 800,
-        height: 600,
-        alt: ''
-      }, {
-        url: '',
-        width: 900,
-        height: 800,
-        alt: ''
-      }],
-      site_name: 'plant29'
-    }
-  }), __jsx("main", {
-    className: "main-content-wrapper"
-  }, __jsx("div", {
-    className: "error-area pt--90 pt-xl--70 pb--120 pb-xl--100 pb-lg--95 pb-sm--90"
-  }, __jsx("div", {
-    className: "container"
-  }, __jsx("div", {
-    className: "row justify-content-center"
-  }, __jsx("div", {
-    className: "col-xl-7 col-lg-8 text-center"
-  }, __jsx("div", {
-    className: "error",
-    style: {
-      'margin-bottom': '100px'
-    }
-  }, __jsx("h1", null, " ", statusCode ? `${statusCode}` : ''), __jsx("h2", null, "SORRY SOMETHING WAS WRONG"), __jsx("p", null, statusCode ? `An error occurred on server` : 'An error occurred on client'), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/",
-    to: "/"
-  }, __jsx("a", {
-    className: "btn"
-  }, "Back to home page")))))))));
-}
-
-Error.getInitialProps = ({
-  res,
-  err
-}) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return {
-    statusCode
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Error);
 
 /***/ }),
 

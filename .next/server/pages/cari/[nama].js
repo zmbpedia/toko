@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -150,14 +150,6 @@ module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("Y0NT");
-
-
-/***/ }),
-
 /***/ "284h":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -216,6 +208,14 @@ function _interopRequireWildcard(obj) {
 }
 
 module.exports = _interopRequireWildcard;
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("7as6");
+
 
 /***/ }),
 
@@ -402,6 +402,210 @@ function formatUrl(urlObj) {
   pathname = pathname.replace(/[?#]/g, encodeURIComponent);
   search = search.replace('#', '%23');
   return `${protocol}${host}${pathname}${search}${hash}`;
+}
+
+/***/ }),
+
+/***/ "7as6":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return About; });
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("CafY");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("0bYB");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("cDcd");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFqc");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var minify_css_string__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("W0bW");
+/* harmony import */ var minify_css_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(minify_css_string__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("efsx");
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_5__);
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
+
+
+
+
+
+
+function truncate(str) {
+  return str.length > 40 ? str.substring(0, 60) + "..." : str;
+}
+
+class About extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
+  constructor() {
+    super();
+    this.state = {
+      imageIndex: 0,
+      about: [],
+      img: ""
+    };
+  }
+
+  static async getInitialProps({
+    query
+  }) {
+    const {
+      nama
+    } = query;
+    const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("https://plant29.store/api/caridata/" + nama);
+    const datas = await res.json();
+    var cro = "";
+
+    if (datas.length) {
+      cro = "https://plant29.store/cari/" + this.props.nama;
+    }
+
+    return {
+      datas,
+      nama,
+      cro
+    };
+  }
+
+  componentDidMount() {}
+
+  render() {
+    const cssString = `
+.product-gallery__image {
+        width: 100%;
+        height:500px;
+       border-radius: 100%;
+}
+.product-gallery__large-image {
+  padding-left:0px !important;
+}
+
+.listname li {
+  padding-top: 20px;
+}
+ .product-main-details {
+  margin-left: 0;
+ }
+.breadcrumb {
+    background-color: none !important;
+}
+ .breadcrumb li {
+    font-size: 15px;
+
+ }
+ .higlight {
+ 	background-color: yellow;
+ 	padding: 3px;
+ }
+ .img {
+ 	width:100px;
+ 	height: 100px;
+ 	border-radius: 5px;
+ 	position: relative;
+ }
+ .cont {
+position: relative;
+margin-top: 30px;
+margin-bottom: 30px;
+ }
+ .textname{
+ 	    position: absolute;
+    top: 0;
+    left: 150px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+ }
+ .pa {
+ 	padding-top:5px;
+ 	margin-bottom: 0;
+ }
+ .notfon {
+ 	    font-size: 15px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+ }
+@media only screen and (max-width: 999px) {
+
+.product-gallery__image {
+    width: 100%;
+    height: 500px;
+    border-radius: 0;
+}
+
+}
+    `;
+    return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"], null, __jsx(next_seo__WEBPACK_IMPORTED_MODULE_5__["NextSeo"], {
+      title: "Plant29 - Search Result Page",
+      description: "Best place to find some decorative plants",
+      canonical: this.props.cro,
+      openGraph: {
+        url: this.props.cro,
+        title: "Plant29 - Search Result Page",
+        description: "Find some best decorative plants in our catalog product",
+        site_name: "plant29"
+      }
+    }), __jsx("style", {
+      dangerouslySetInnerHTML: {
+        __html: minify_css_string__WEBPACK_IMPORTED_MODULE_4___default()(cssString)
+      }
+    }), __jsx("section", {
+      class: "page-title-area bg-color",
+      "data-bg-color": "#f4f4f4",
+      style: {
+        backgroundColor: "rgb(244, 248, 250)",
+        paddingTop: "150px"
+      }
+    }, __jsx("div", {
+      class: "container"
+    }, __jsx("div", {
+      class: "row"
+    }, __jsx("div", {
+      class: "col-12 text-center"
+    }, __jsx("h1", {
+      class: "page-title"
+    }, "SEARCH RESULT"), __jsx("ul", {
+      class: "breadcrumb",
+      style: {
+        backgroundColor: "transparent"
+      }
+    }, __jsx("li", null, __jsx("a", {
+      href: "/"
+    }, "Home")), __jsx("li", {
+      class: "current"
+    }, __jsx("span", null, "Search Result"))))))), __jsx("div", {
+      class: "container"
+    }, __jsx("div", {
+      class: "row"
+    }, __jsx("div", {
+      class: "col-12"
+    }, this.props.datas.data.length ? "" : __jsx("p", {
+      className: "notfon"
+    }, "Result Not found Whit keyword", " ", __jsx("b", null, this.props.nama)), this.props.datas.data.map(a => __jsx("div", {
+      className: "cont"
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      href: "/product/[id]/[product]",
+      as: `/product/${a.id}/${a.namaproduks.replace(/\s/g, "-")}`
+    }, __jsx("a", null, __jsx("div", {
+      className: "img",
+      style: {
+        background: `url(${a.gambar})`,
+        backgroundSize: `cover`,
+        backgroundPosition: `center`
+      }
+    }))), __jsx("div", {
+      className: "textname"
+    }, __jsx("div", {
+      dangerouslySetInnerHTML: {
+        __html: a.namaproduk
+      }
+    }), __jsx("p", {
+      className: "pa"
+    }, a.deskripsi), __jsx("p", {
+      className: "pa"
+    }, a.harga, " USD"))))))));
+  }
+
 }
 
 /***/ }),
@@ -730,6 +934,13 @@ module.exports = _interopRequireDefault;
 
 /***/ }),
 
+/***/ "W0bW":
+/***/ (function(module, exports) {
+
+module.exports = require("minify-css-string");
+
+/***/ }),
+
 /***/ "X24+":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -754,85 +965,6 @@ function removePathTrailingSlash(path) {
 
 const normalizePathTrailingSlash =  false ? undefined : removePathTrailingSlash;
 exports.normalizePathTrailingSlash = normalizePathTrailingSlash;
-
-/***/ }),
-
-/***/ "Y0NT":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("CafY");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("efsx");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFqc");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-function Error({
-  statusCode
-}) {
-  return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], null, __jsx(next_seo__WEBPACK_IMPORTED_MODULE_2__["NextSeo"], {
-    title: "Plant29 - Error page enot found",
-    description: "",
-    canonical: "",
-    openGraph: {
-      url: "",
-      title: "Error page enot found",
-      description: "",
-      images: [{
-        url: '',
-        width: 800,
-        height: 600,
-        alt: ''
-      }, {
-        url: '',
-        width: 900,
-        height: 800,
-        alt: ''
-      }],
-      site_name: 'plant29'
-    }
-  }), __jsx("main", {
-    className: "main-content-wrapper"
-  }, __jsx("div", {
-    className: "error-area pt--90 pt-xl--70 pb--120 pb-xl--100 pb-lg--95 pb-sm--90"
-  }, __jsx("div", {
-    className: "container"
-  }, __jsx("div", {
-    className: "row justify-content-center"
-  }, __jsx("div", {
-    className: "col-xl-7 col-lg-8 text-center"
-  }, __jsx("div", {
-    className: "error",
-    style: {
-      'margin-bottom': '100px'
-    }
-  }, __jsx("h1", null, " ", statusCode ? `${statusCode}` : ''), __jsx("h2", null, "SORRY SOMETHING WAS WRONG"), __jsx("p", null, statusCode ? `An error occurred on server` : 'An error occurred on client'), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/",
-    to: "/"
-  }, __jsx("a", {
-    className: "btn"
-  }, "Back to home page")))))))));
-}
-
-Error.getInitialProps = ({
-  res,
-  err
-}) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return {
-    statusCode
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Error);
 
 /***/ }),
 

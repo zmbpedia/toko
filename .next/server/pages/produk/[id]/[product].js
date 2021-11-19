@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -150,10 +150,10 @@ module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 
-/***/ 2:
+/***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("Y0NT");
+module.exports = __webpack_require__("e105");
 
 
 /***/ }),
@@ -272,6 +272,13 @@ function assign(target, ...searchParamsList) {
   });
   return target;
 }
+
+/***/ }),
+
+/***/ "4Q3z":
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 
@@ -730,6 +737,13 @@ module.exports = _interopRequireDefault;
 
 /***/ }),
 
+/***/ "W0bW":
+/***/ (function(module, exports) {
+
+module.exports = require("minify-css-string");
+
+/***/ }),
+
 /***/ "X24+":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -754,85 +768,6 @@ function removePathTrailingSlash(path) {
 
 const normalizePathTrailingSlash =  false ? undefined : removePathTrailingSlash;
 exports.normalizePathTrailingSlash = normalizePathTrailingSlash;
-
-/***/ }),
-
-/***/ "Y0NT":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("CafY");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("efsx");
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("YFqc");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-
-function Error({
-  statusCode
-}) {
-  return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], null, __jsx(next_seo__WEBPACK_IMPORTED_MODULE_2__["NextSeo"], {
-    title: "Plant29 - Error page enot found",
-    description: "",
-    canonical: "",
-    openGraph: {
-      url: "",
-      title: "Error page enot found",
-      description: "",
-      images: [{
-        url: '',
-        width: 800,
-        height: 600,
-        alt: ''
-      }, {
-        url: '',
-        width: 900,
-        height: 800,
-        alt: ''
-      }],
-      site_name: 'plant29'
-    }
-  }), __jsx("main", {
-    className: "main-content-wrapper"
-  }, __jsx("div", {
-    className: "error-area pt--90 pt-xl--70 pb--120 pb-xl--100 pb-lg--95 pb-sm--90"
-  }, __jsx("div", {
-    className: "container"
-  }, __jsx("div", {
-    className: "row justify-content-center"
-  }, __jsx("div", {
-    className: "col-xl-7 col-lg-8 text-center"
-  }, __jsx("div", {
-    className: "error",
-    style: {
-      'margin-bottom': '100px'
-    }
-  }, __jsx("h1", null, " ", statusCode ? `${statusCode}` : ''), __jsx("h2", null, "SORRY SOMETHING WAS WRONG"), __jsx("p", null, statusCode ? `An error occurred on server` : 'An error occurred on client'), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "/",
-    to: "/"
-  }, __jsx("a", {
-    className: "btn"
-  }, "Back to home page")))))))));
-}
-
-Error.getInitialProps = ({
-  res,
-  err
-}) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return {
-    statusCode
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Error);
 
 /***/ }),
 
@@ -1261,6 +1196,336 @@ function mitt() {
     }
 
   };
+}
+
+/***/ }),
+
+/***/ "e105":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Product; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("cDcd");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("4Q3z");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("CafY");
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("efsx");
+/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("YFqc");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("0bYB");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var minify_css_string__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("W0bW");
+/* harmony import */ var minify_css_string__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(minify_css_string__WEBPACK_IMPORTED_MODULE_6__);
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+class Product extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor() {
+    super();
+    this.state = {
+      productdata: [],
+      in: "",
+      urls: "",
+      deskrips: "",
+      titlex: ""
+    };
+  }
+
+  static async getInitialProps({
+    query
+  }) {
+    const {
+      id,
+      product
+    } = query;
+    const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5___default()("https://zmbpediabogor.store/api/productdata/" + id + "/" + product);
+    const show = await res.json();
+    let gambarnya = '';
+    let linknya = '';
+    let titlehead = 'Maaf tidak ada produk';
+    let des = '';
+    let harganya = '';
+    let desi = '';
+    let it = '';
+    let nominalharga = '';
+    let stokis = '';
+    let vid = '';
+    let uri = '';
+
+    if (show.length) {
+      titlehead = 'zmbpediabogor | ' + (await show[0].namaproduk) + '- Detail produk';
+      gambarnya = await show[0].gambar;
+      linknya = await show[0].cronical;
+      des = (await show[0].deskripsi) + ' - ' + (await show[0].nyu);
+      harganya = await show[0].harga;
+      it = await show[0].it;
+      nominalharga = await show[0].harganom;
+      stokis = 'http://schema.org/OutOfStock';
+
+      if (await show[0].stok) {
+        stokis = 'http://schema.org/InStock';
+      }
+    }
+
+    return {
+      show,
+      product,
+      id,
+      gambarnya,
+      linknya,
+      titlehead,
+      des,
+      harganya,
+      desi,
+      it,
+      nominalharga,
+      stokis
+    };
+  }
+
+  componentDidMount() {
+    var myArray = [];
+    var ulr = window.location.href;
+    this.setState({
+      urls: "https://zmbpediabogor.store/produk/" + this.props.id + "/" + this.props.product,
+      titlex: this.props.product + " - Detail produk"
+    });
+
+    for (var i = 0; i < this.props.show.length; i++) {
+      var value = this.props.show[i];
+      var num = value["id"];
+      var namaproduk = value["namaproduk"];
+      var hargaproduk = value["harga"];
+      var gambar = value["gambar"];
+      var deskripsi = value["deskripsi"];
+      var on = value["stok"];
+      var vid = value["vid"];
+      var uri = value["uri"];
+      var stokis = value["stokproduk"];
+      var stok;
+
+      if (on) {
+        stok = "sale";
+      } else {
+        stok = "out of stock";
+      }
+
+      this.setState({
+        deskrips: deskripsi,
+        img: gambar
+      });
+      myArray.push({
+        id: num,
+        nama: namaproduk,
+        gambar: gambar,
+        harga: hargaproduk,
+        deskrip: deskripsi,
+        stok: stok,
+        vid: vid,
+        uri: uri,
+        stokis: stokis
+      });
+    }
+
+    if (myArray.length) {
+      this.setState({
+        productdata: myArray,
+        in: "yes"
+      });
+    } else {
+      this.setState({
+        in: "no"
+      });
+    }
+  }
+
+  render() {
+    const cssString = `
+  .border{  border: 1px solid #dee2e6!important}
+          .overl{
+            width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255,255,255, .5);
+          }
+.main-content-wrapper {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.img-eror{
+              font-size: 130px;
+    text-align: center;
+    width: 100%;
+}
+.productTextHolder .price {
+    font-size: 15px;
+    margin-top:20px;
+    }
+					.featureCol .price {
+    font-size: 13px;
+    line-height: 18px;
+    color: #16941a;
+}
+.featureCol .hotOffer {
+    background: #5ba515;
+    top: 30px;
+    left: 0;
+    margin-left: 0 !important;
+}
+.featureCol .hotOffer.ups {
+	    top: 23px !important;
+}
+.featureCol .hotOffer.abs {
+	background:#f9861f !important;
+}
+
+
+    `;
+    return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"], null, __jsx("style", {
+      dangerouslySetInnerHTML: {
+        __html: minify_css_string__WEBPACK_IMPORTED_MODULE_6___default()(cssString)
+      }
+    }), __jsx(next_seo__WEBPACK_IMPORTED_MODULE_3__["NextSeo"], {
+      title: this.props.titlehead,
+      description: this.props.des,
+      canonical: this.props.linknya,
+      openGraph: {
+        url: this.props.linknya,
+        title: this.props.titlehead,
+        description: this.props.des,
+        images: [{
+          url: this.props.gambarnya,
+          width: 800,
+          height: 600,
+          alt: this.props.product
+        }],
+        site_name: 'zmbpediabogor'
+      }
+    }), __jsx(next_seo__WEBPACK_IMPORTED_MODULE_3__["ProductJsonLd"], {
+      productName: this.props.product,
+      images: [this.props.gambarnya],
+      description: this.props.des,
+      offers: [{
+        price: this.props.nominalharga,
+        priceCurrency: 'IDR',
+        priceValidUntil: '2020-11-05',
+        itemCondition: 'http://schema.org/UsedCondition',
+        availability: this.props.stokis,
+        url: this.props.linknya,
+        seller: {
+          name: 'zmbpediabogor.store'
+        }
+      }]
+    }), __jsx("section", {
+      className: "introBannerHolder d-flex w-100 bgCover",
+      style: {
+        background: `url(${this.props.gambarnya})`,
+        backgroundSize: `cover`,
+        backgroundPosition: `center`
+      }
+    }, __jsx("div", {
+      className: "overl",
+      style: {
+        background: 'rgba(255,255,255, .8)'
+      }
+    }), __jsx("div", {
+      className: "container"
+    }, __jsx("div", {
+      className: "row"
+    }, __jsx("div", {
+      className: "col-12 pt-lg-23 pt-md-15 pt-sm-10 pt-6 text-center"
+    }, __jsx("h1", {
+      className: "headingIV fwEbold playfair mb-4"
+    }, " Detail Produk"), __jsx("ul", {
+      className: "list-unstyled breadCrumbs d-flex justify-content-center"
+    }, __jsx("li", {
+      className: "mr-2"
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      href: "/",
+      to: "/"
+    }, __jsx("a", null, "Beranda"))), __jsx("li", {
+      className: "mr-2"
+    }, "/"), __jsx("li", {
+      className: "active"
+    }, "detail produk")))))), this.state.in === "yes" ? __jsx("h1", null) : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+      className: "img-eror icon icon-plant"
+    }), __jsx("h1", {
+      style: {
+        textAlign: "center",
+        paddingTop: "100px",
+        paddingBottom: "100px"
+      }
+    }, "Maaf produk tidak ditemukan")), this.props.show.map(a => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+      className: "twoColumns container pt-xl-23 pb-xl-20 pt-lg-20 pb-lg-20 py-md-16 py-10"
+    }, __jsx("div", {
+      className: "row mb-6"
+    }, __jsx("div", {
+      className: "col-12 col-lg-6 order-lg-1"
+    }, __jsx("div", {
+      className: "productSliderImage mb-lg-0 mb-4"
+    }, __jsx("div", null, a.type === 'video/mp4' ? __jsx("video", null, __jsx("source", {
+      src: a.uri,
+      type: "video/mp4"
+    }), "Your browser does not support the video tag.") : __jsx("img", {
+      src: a.gambar,
+      alt: "image description",
+      className: "img-fluid w-100"
+    })))), __jsx("div", {
+      className: "col-12 col-lg-6 order-lg-3"
+    }, __jsx("div", {
+      className: "productTextHolder overflow-hidden"
+    }, __jsx("h2", {
+      className: "fwEbold mb-2"
+    }, a.namaproduk), __jsx("strong", {
+      className: "price d-block mb-5 text-green"
+    }, this.props.harganya), __jsx("p", {
+      className: a.it
+    }, a.deskripsi), __jsx("ul", {
+      className: "list-unstyled socialNetwork d-flex flex-wrap mb-sm-11 mb-4"
+    }, __jsx("li", {
+      className: "text-uppercase mr-5"
+    }, "BAGIKAN PRODUK INI KE:"), __jsx("li", {
+      className: "mr-4"
+    }, __jsx("a", {
+      href: `https://www.facebook.com/sharer/sharer.php?u=${this.state.urls}`,
+      className: "fab fa-facebook-f",
+      target: "_blank"
+    })), __jsx("li", {
+      className: "mr-4"
+    }, __jsx("a", {
+      href: `https://www.instagram.com/?url=${this.state.urls}`,
+      className: "fab fa-instagram",
+      target: "_blank",
+      rel: "noopener"
+    }))))))), __jsx("div", {
+      className: "container"
+    }, __jsx("div", {
+      className: "row"
+    }, __jsx("div", {
+      className: "col-12"
+    }, __jsx("ul", {
+      className: "list-unstyled tabSetList d-flex justify-content-center mb-9"
+    }, __jsx("li", {
+      className: "mr-md-20 mr-sm-10 mr-2"
+    }, __jsx("a", {
+      href: "#tab1-0",
+      className: "active playfair fwEbold pb-2"
+    }, "Deskripsi"))), __jsx("div", {
+      className: "tab-content mb-xl-11 mb-lg-10 mb-md-8 mb-5"
+    }, __jsx("div", {
+      id: "tab1-0",
+      className: "active"
+    }, __jsx("p", null, a.deskripsi)))))))));
+  }
+
 }
 
 /***/ }),
