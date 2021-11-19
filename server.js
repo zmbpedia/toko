@@ -60,7 +60,7 @@ app.get("/api/caridata/:nama", function(req, res) {
                     var filename = vall['gambar'][0]['filename'];
                     var satu = gb.split("/")[4];
                     var dua = gb.split("/")[5];
-                    var gam = 'https://plant29.store/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
+                    var gam = 'https://zmbpediabogor.my.id/bulk/item-gambar/' + satu + '/' + dua + '/' + filename.replace(/\s/g, "_");
                 } else {
                     var gam = 'https://zmbpediabogor.my.id/assets/img/tdk.svg'
                 }

@@ -14,7 +14,7 @@ export default class Nav extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("https://zmbpediabogor.store/api/kategori")
+        fetch("https://zmbpediabogor.my.id/api/kategori")
             .then((res) => res.json())
             .then((data) => {
                 this.setState({ kat: data });
