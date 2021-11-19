@@ -60,7 +60,7 @@ export default class Product extends React.Component {
 		var ulr = window.location.href;
 		this.setState({
 			urls:
-				"https://zmbpediabogor.store/produk/" +
+				"https://zmbpediabogor.my.id/produk/" +
 				this.props.id +
 				"/" +
 				this.props.product,
