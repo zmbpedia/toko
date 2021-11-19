@@ -19,7 +19,7 @@ export default class Product extends React.Component {
 	static async getInitialProps({ query }) {
 		const { id, product } = query;
 		const res = await fetch(
-			"https://zmbpediabogor.store/api/productdata/" + id + "/" + product
+			"https://zmbpediabogor.my.id/api/productdata/" + id + "/" + product
 		);
 		const show = await res.json();
         let gambarnya ='';

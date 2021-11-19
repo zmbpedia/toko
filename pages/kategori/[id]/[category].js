@@ -26,7 +26,7 @@ export default class Category extends React.Component {
 
   static async getInitialProps({ query }) {
     const { id, category } = await query;
-    const res = await fetch("https://zmbpediabogor.store/api/kategoryproduct/" + id +"/"+category);
+    const res = await fetch("https://zmbpediabogor.my.id/api/kategoryproduct/" + id +"/"+category);
     const show = await res.json();
 
   let gambarnya ='';
